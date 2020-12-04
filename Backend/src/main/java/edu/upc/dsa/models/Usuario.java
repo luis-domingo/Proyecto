@@ -8,10 +8,11 @@ public class Usuario {
     String password;
 
     public Usuario(){
+        this.id = RandomUtils.getId();
     }
 
     public Usuario(String nombre, String password){
-        this.id = RandomUtils.getId();
+        this();
         this.nombre = nombre;
         this.password = password;
     }

@@ -15,6 +15,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+@Api(value = "/usuarios", description = "Endpoint to Track Service")
+@Path("/usuarios")
 public class RegisterService {
     private UsuarioManager manager;
 
@@ -27,14 +29,28 @@ public class RegisterService {
     @ApiResponses(value = {
     })
 
-    @Path("/")
+    @Path("/NewUser")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newUser(Usuario usuario) {
         this.manager.addUsuario(usuario.getNombre(), usuario.getPassword());
         return Response.status(201).entity(usuario).build();
     }
 
-
+    @DELETE
+    @ApiOperation(value = "Borrar usuario", notes = "")
+    @ApiResponses(value = {
+    })
+    @Path("/{id}")
+    public Response deleteTrack(@PathParam("id") String id) {
+        Usuario u =  this.manager.getUsuario(id);
+        if(u==null){
+            return Response.status(404).build();
+        }
+        else{
+            this.manager.eliminarUsuario(id);
+            return Response.status(201).build();
+        }
+    }
 
 
 

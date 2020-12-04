@@ -44,6 +44,7 @@ public class UsuarioManagerImpl implements UsuarioManager{
     public void eliminarUsuario(String id) {
         try {
             usuarios.remove(id);
+            logger.info("Usuario "+id+" eliminado");
         }
         catch(Exception e){
             logger.warn("No existe este id");

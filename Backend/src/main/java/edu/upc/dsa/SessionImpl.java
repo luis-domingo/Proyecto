@@ -42,7 +42,7 @@ public class SessionImpl implements Session {
 
     }
 
-    public Object get(Class theClass, int ID) {
+    public Object get(Class theClass, String id) {
         return null;
     }
 

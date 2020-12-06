@@ -1,6 +1,10 @@
 package edu.upc.dsa.util;
 
+import edu.upc.dsa.models.Usuario;
+
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class ObjectHelper {
     public static String[] getFields(Object entity) {
@@ -19,15 +23,24 @@ public class ObjectHelper {
     }
 
 
-    public static void setter(Object object, String property, Object value) {
+    public static void setter(Object object, String property, Object value){
         // Method // invoke
-
-
+        /*Method met = object.getClass().getDeclaredMethod("setter",value.getClass());
+        met.invoke(object, value);*/
     }
 
-    public static Object getter(Object object, String property) {
+    public static Object getter(Object object, String property){
         // Method // invoke
-
+        /*Method met = object.getClass().getDeclaredMethod("getter",null);
+        Object result = met.invoke(object, null);
+        return result;*/
         return null;
     }
 }
+
+
+
+
+
+
+

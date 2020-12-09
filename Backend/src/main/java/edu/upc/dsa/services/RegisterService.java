@@ -44,7 +44,7 @@ public class RegisterService {
     @Path("/LogIn")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response login(Usuario usuario) {
-        this.manager.addUsuario(usuario.getNombre(), usuario.getPassword());
+        this.manager.getUsuario(usuario.getNombre(), usuario.getPassword());
         return Response.status(201).entity(usuario).build();
     }
 
@@ -64,17 +64,6 @@ public class RegisterService {
         }
     }
 
-    /*@GET
-    @ApiOperation(value = "Busca usuario", notes = "")
-    @ApiResponses(value = {
-    })
-    @Path("/")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getTrack(@PathParam("nombre") String nombre, @PathParam("password") String password) {
-        Usuario u = this.manager.getUsuario(nombre, password);
-        if (u == null) return Response.status(404).build();
-        else  return Response.status(201).entity(u).build();
-    }*/
 
 
 

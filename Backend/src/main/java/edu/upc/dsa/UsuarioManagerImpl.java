@@ -25,6 +25,7 @@ public class UsuarioManagerImpl implements UsuarioManager{
         return instance;
     }
 
+    //Función para añadir usuario
     @Override
     public void addUsuario(String nombre, String password) {
 
@@ -40,21 +41,23 @@ public class UsuarioManagerImpl implements UsuarioManager{
         return u;
     }
 
-    /*@Override
+    //Función para el Log In
+    @Override
     public Usuario getUsuario(String nombre, String password) {
 
         Usuario a = null;
-        for(Map.Entry par: usuarios.entrySet()){
-            if(nombre.equals(par.getValue().toString(nombre)) && password.equals(par.getValue())){
+        for(Usuario user : usuarios.values()){
+            if(nombre.equals(user.getNombre()) && password.equals(user.getPassword())){
                 Usuario u = new Usuario(nombre,password);
-                u.setId(par.getKey().toString());
+                u.setId(user.getId());
                 a = u;
                 logger.info(u.getId());
             }
         }
         return a;
-    }*/
+    }
 
+    //Función para eliminar Usuario
     @Override
     public void eliminarUsuario(String id) {
         try {

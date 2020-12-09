@@ -40,6 +40,21 @@ public class UsuarioManagerImpl implements UsuarioManager{
         return u;
     }
 
+    /*@Override
+    public Usuario getUsuario(String nombre, String password) {
+
+        Usuario a = null;
+        for(Map.Entry par: usuarios.entrySet()){
+            if(nombre.equals(par.getValue().toString(nombre)) && password.equals(par.getValue())){
+                Usuario u = new Usuario(nombre,password);
+                u.setId(par.getKey().toString());
+                a = u;
+                logger.info(u.getId());
+            }
+        }
+        return a;
+    }*/
+
     @Override
     public void eliminarUsuario(String id) {
         try {

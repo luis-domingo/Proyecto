@@ -23,18 +23,18 @@ public class ObjectHelper {
     }
 
 
-    public static void setter(Object object, String property, Object value){
+    public static void setter(Object object, String property, Object value) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         // Method // invoke
-        /*Method met = object.getClass().getDeclaredMethod("setter",value.getClass());
-        met.invoke(object, value);*/
+        Method met = object.getClass().getDeclaredMethod("setter",value.getClass());
+        met.invoke(object, value);
     }
 
-    public static Object getter(Object object, String property){
+    public static Object getter(Object object, String property) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         // Method // invoke
-        /*Method met = object.getClass().getDeclaredMethod("getter",null);
+        Method met = object.getClass().getDeclaredMethod("getter",null);
         Object result = met.invoke(object, null);
-        return result;*/
-        return null;
+        return result;
+
     }
 }
 

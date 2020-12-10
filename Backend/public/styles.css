@@ -1,5 +1,5 @@
 .btn2{
-    background: url('../public/RedCircle.png') center;
+    background: url('../RedCircle.png') center;
     background-size: 100% 100%;
     cursor: pointer;
     width: 75px;
@@ -13,7 +13,7 @@
     height: 80px;
 }
 .btn1{
-    background: url('../public/GreenCircle.png') center;
+    background: url('../GreenCircle.png') center;
     background-size: 100% 100%;
     cursor: pointer;
     width: 75px;

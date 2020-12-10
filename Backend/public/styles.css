@@ -1,0 +1,30 @@
+.btn2{
+    background: url('../public/RedCircle.png') center;
+    background-size: 100% 100%;
+    cursor: pointer;
+    width: 75px;
+    height: 75px;
+    border: none;
+    color: white;
+}
+
+.btn2:hover{
+    width: 80px;
+    height: 80px;
+}
+.btn1{
+    background: url('../public/GreenCircle.png') center;
+    background-size: 100% 100%;
+    cursor: pointer;
+    width: 75px;
+    height: 75px;
+    border: none;
+    color: white;
+}
+.btn1:hover{
+    width: 80px;
+    height: 80px;
+
+
+
+}

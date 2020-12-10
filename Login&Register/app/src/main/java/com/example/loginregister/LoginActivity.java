@@ -32,6 +32,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        apiIface = APIClient.getClient().create(APIInterface.class);
     }
 
     public void onPasswordClick(View v){

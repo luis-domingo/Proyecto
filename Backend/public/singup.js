@@ -16,7 +16,9 @@ $(document).ready(function(){
                 console.log(us.nombre);
                 console.log(us.password);
                 alert("Bienvenido, tambien la gano en 2074");
+                window.location.replace("index.html");
                 console.log("Bienvenido");
+
             },
 
             /*error: function(error){

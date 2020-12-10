@@ -2,19 +2,19 @@
 $(document).ready(function(){
 
     $('#regbutton').click(function(){
-
+        console.log(document.getElementById("user2").value);
         $.ajax({
-            type: 'POST',
+            type: "POST",
             data: JSON.stringify({
-                username2: $("#user2").val(),
-                password2: $("#pass2").val(),
+                nombre: document.getElementById("user2").value,
+                password: document.getElementById("pass2").value,
           }),
             dataType: 'json',
-            url: "http://localhost:8080/dsaApp/usuarios/login/NewUser",
-            contentType: 'json',
+            url: "http://localhost:8080/dsaApp/usuarios/newuser",
+            contentType: 'application/json',
             success: function (us) {
-                console.log(us.username2);
-                console.log(us.password2);
+                console.log(us.nombre);
+                console.log(us.password);
                 alert("Bienvenido, tambien la gano en 2074");
                 console.log("Bienvenido");
             },
@@ -22,7 +22,7 @@ $(document).ready(function(){
             /*error: function(error){
                 alert("Error");
             }*/
-            }
+            })
 
 
             })

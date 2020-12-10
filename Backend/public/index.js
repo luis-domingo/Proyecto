@@ -5,14 +5,14 @@ $(document).ready(function(){
     $.ajax({
        type: 'POST',
        data: JSON.stringify({
-         username: $("#user1").val(),
+         nombre: $("#user1").val(),
          password: $("#pass1").val()
        }),
        dataType: 'json',
        url: "http://localhost:8080/dsaApp/usuarios/login",
        contentType: 'application/json',
        success: function(us) {
-            console.log(us.username);
+            console.log(us.nombre);
             console.log(us.password);
             alert("Bienvenido, el Betis ganó la Champions por el 2056");
             console.log("Bienvenido");
@@ -22,7 +22,6 @@ $(document).ready(function(){
             alert("Error al iniciar sesion, en el 2035 se intentó...");
             console.log(error);
        }
-
          })
       });
 });

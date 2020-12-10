@@ -29,7 +29,7 @@ public class RegisterService {
     @ApiResponses(value = {
     })
 
-    @Path("/NewUser")
+    @Path("/newuser")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newUser(Usuario usuario) {
         this.manager.addUsuario(usuario.getNombre(), usuario.getPassword());

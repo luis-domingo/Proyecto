@@ -31,7 +31,7 @@ public class UsuarioManagerImpl implements UsuarioManager{
 
         Usuario u = new Usuario(nombre, password);
         usuarios.put(u.getId(),u);
-        logger.info("Usuario añadido: "+u.getId());
+        logger.info("Usuario añadido. ID: "+u.getId() + ". Username: " + u.getNombre() + ". Password: " + u.getPassword());
     }
 
     @Override

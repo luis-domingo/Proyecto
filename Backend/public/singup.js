@@ -1,24 +1,31 @@
+
 $(document).ready(function(){
-  $("#Crearcuenta").click(function(){
 
-    function validate(){
-        var us
-    }
+    $('#regbutton').click(function(){
 
-  /*  console.log(JSON.stringify({name: $("#user").val(), password: $("#pass").val()}));
+        $.ajax({
+            type: 'POST',
+            data: JSON.stringify({
+                username2: $("#user2").val(),
+                password2: $("#pass2").val(),
+          }),
+            dataType: 'json',
+            url: "http://localhost:8080/dsaApp/usuarios/login/NewUser",
+            contentType: 'json',
+            success: function (us) {
+                console.log(us.username2);
+                console.log(us.password2);
+                alert("Bienvenido, tambien la gano en 2074");
+                console.log("Bienvenido");
+            },
 
-    $.ajax(
-    {
-        type: 'POST',
-        url: "http://localhost:8080/dsaApp/NewUser",
-        datatype: 'json',
-        success: function(data){
-                console.log(data.name);
-                console.log(data.password);
-        }
-        error: function(){
-            alert("Error");
-        }
-    },*/
-  });
-});
+            /*error: function(error){
+                alert("Error");
+            }*/
+            }
+
+
+            })
+
+    });
+

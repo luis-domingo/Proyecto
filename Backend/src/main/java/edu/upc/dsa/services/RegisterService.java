@@ -41,11 +41,15 @@ public class RegisterService {
     @ApiResponses(value = {
     })
 
-    @Path("/LogIn")
+    @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response login(Usuario usuario) {
-        this.manager.getUsuario(usuario.getNombre(), usuario.getPassword());
-        return Response.status(201).entity(usuario).build();
+        Usuario u = this.manager.getUsuario(usuario.getNombre(), usuario.getPassword());
+        if (u!=null) {
+            return Response.status(201).entity(usuario).build();
+        }else
+            return Response.status(404).entity(null).build();
+
     }
 
     @DELETE

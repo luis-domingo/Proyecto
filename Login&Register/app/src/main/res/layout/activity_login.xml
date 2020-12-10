@@ -45,6 +45,7 @@
         android:layout_marginTop="112dp"
         android:insetTop="0dp"
         android:insetBottom="0dp"
+        android:onClick="onLoginClick"
         android:text="Login"
         app:cornerRadius="15dp"
         app:iconPadding="0dp"

@@ -8,11 +8,11 @@ import retrofit2.http.POST;
 
 public interface APIInterface {
 
-    @POST("/dsaApp/Authentication/Login")
+    @POST("/dsaApp/usuarios/login")
     Call<Usuario> loginUser(@Body Usuario user);
 
 
-    @POST("/dsaApp/Authentication/addUser")
+    @POST("/dsaApp/usuarios/newuser")
     Call<Usuario> createUser(@Body Usuario user);
 
 

@@ -108,6 +108,7 @@
         android:layout_height="63dp"
         android:insetTop="0dp"
         android:insetBottom="0dp"
+        android:onClick="onNewAccountClick"
         android:text="Sign UP"
         android:textSize="18sp"
         app:cornerRadius="18dp"

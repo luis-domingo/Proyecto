@@ -2,31 +2,31 @@ package com.example.loginregister;
 
 
 public class Usuario {
-    private String uname;
+    private String nombre;
 
-    private String pswrd;
+    private String password;
 
     private String id;
 
     public Usuario(String username, String password) {
-        this.uname = username;
-        this.pswrd = password;
+        this.nombre = username;
+        this.password = password;
     }
 
-    public String getUname() {
-        return uname;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setUname(String uname) {
-        this.uname = uname;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getPswrd() {
-        return pswrd;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPswrd(String pswrd) {
-        this.pswrd = pswrd;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getId() {
@@ -38,9 +38,9 @@ public class Usuario {
     }
 
     //User Constructor
-    public Usuario(String uname, String pswrd, String email, String id){
-        this.uname = uname;
-        this.pswrd = pswrd;
+    public Usuario(String nombre, String password, String email, String id){
+        this.nombre = nombre;
+        this.password = password;
         this.id=id;
     }
     //Empty Constructor
@@ -48,7 +48,7 @@ public class Usuario {
     @Override
     public String toString() {
         return "Usuario{" +
-                "username='" + uname + '\'' +
+                "username='" + nombre + '\'' +
                 '}';
     }
 }

@@ -1,7 +1,9 @@
 package com.example.loginregister;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -47,28 +49,29 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(openAccountActivity);
     }
 
-    public void onLoginClick(View v){
+    public void onLoginClick(View v) {
         String username = getUsername(v);
         String password = getPassword(v);
         Call<Usuario> call = apiIface.loginUser(new Usuario(username, password));
         call.enqueue(new Callback<Usuario>() {
+            @SuppressLint("ShowToast")
             @Override
             public void onResponse(Call<Usuario> call, Response<Usuario> response) {
-                if(response.code() == 201){
+                if (response.code() == 201) {
                     Usuario usuario = response.body();
-                    String username = usuario.getUname();
-                    Toast.makeText(getApplicationContext(), "Logged in correctly!", Toast.LENGTH_SHORT);
-                }
-                else{
-                    Toast.makeText(getApplicationContext(), "Error when logging in.", Toast.LENGTH_SHORT);
+                    Log.i("grup3", usuario.getNombre());
+                    String username = usuario.getNombre();
+                    Toast.makeText(getApplicationContext(), "Logged in correctly!", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Error when logging in.", Toast.LENGTH_LONG).show();
+                    Log.i("grup3", "Usuario not found");
                 }
             }
-
             @Override
             public void onFailure(Call<Usuario> call, Throwable t) {
+                Log.i("grup3", "Error", t);
                 call.cancel();
             }
         });
     }
-
 }

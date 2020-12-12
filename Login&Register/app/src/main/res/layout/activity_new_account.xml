@@ -125,6 +125,7 @@
         android:id="@+id/buttonSignUp"
         android:layout_width="107dp"
         android:layout_height="63dp"
+        android:backgroundTint="#3e9b9e"
         android:insetTop="0dp"
         android:insetBottom="0dp"
         android:onClick="onNewAccountClick"

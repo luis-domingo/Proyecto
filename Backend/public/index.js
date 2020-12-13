@@ -9,7 +9,7 @@ $(document).ready(function(){
          password: $("#pass1").val()
        }),
        dataType: 'json',
-       url: "http://localhost:8080/dsaApp/usuarios/login",
+       url: "http://147.83.7.205:8080/dsaApp/usuarios/login",
        contentType: 'application/json',
        success: function(us) {
             console.log(us.nombre);

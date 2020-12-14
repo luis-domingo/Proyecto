@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.loginregister.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/nav_chat"
+        android:name="com.example.loginregister.ui.chat.ChatFragment"
+        android:label="@string/menu_chat"
+        tools:layout="@layout/fragment_chat" />
+    <fragment
+        android:id="@+id/nav_forum"
+        android:name="com.example.loginregister.ui.forum.ForumFragment"
+        android:label="@string/menu_forum"
+        tools:layout="@layout/fragment_forum" />
+    <fragment
+        android:id="@+id/nav_friends"
+        android:name="com.example.loginregister.ui.friends.FriendsFragment"
+        android:label="@string/menu_friends"
+        tools:layout="@layout/fragment_friends" />
+    <fragment
+        android:id="@+id/nav_yourInventory"
+        android:name="com.example.loginregister.ui.inventory.InventoryFragment"
+        android:label="@string/menu_inventory"
+        tools:layout="@layout/fragment_inventory" />
+    <fragment
+        android:id="@+id/nav_shop"
+        android:name="com.example.loginregister.ui.shop.ShopFragment"
+        android:label="@string/menu_shop"
+        tools:layout="@layout/fragment_shop" />
+    <fragment
+        android:id="@+id/nav_stats"
+        android:name="com.example.loginregister.ui.stats.StatsFragment"
+        android:label="@string/menu_stats"
+        tools:layout="@layout/fragment_stats" />
+    <fragment
+        android:id="@+id/nav_web"
+        android:name="com.example.loginregister.ui.web.WebFragment"
+        android:label="@string/menu_web"
+        tools:layout="@layout/fragment_web" />
+
+
+</navigation>

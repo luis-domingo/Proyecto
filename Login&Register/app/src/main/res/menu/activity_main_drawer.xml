@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_web"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_web" />
+        <item
+            android:id="@+id/nav_stats"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_stats" />
+        <item
+            android:id="@+id/nav_shop"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_shop" />
+        <item
+            android:id="@+id/nav_yourInventory"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_inventory" />
+        <item
+            android:id="@+id/nav_forum"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_forum" />
+        <item
+            android:id="@+id/nav_friends"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_friends" />
+        <item
+            android:id="@+id/nav_chat"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_chat" />
+        <item
+            android:id="@+id/nav_logOut"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_logOut" />
+    </group>
+</menu>

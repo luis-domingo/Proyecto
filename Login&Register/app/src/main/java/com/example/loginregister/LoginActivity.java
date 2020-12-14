@@ -62,6 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                     Log.i("grup3", usuario.getNombre());
                     String username = usuario.getNombre();
                     Toast.makeText(getApplicationContext(), "Logged in correctly!", Toast.LENGTH_LONG).show();
+                    openHomeActivity();
                 } else {
                     Toast.makeText(getApplicationContext(), "Error when logging in.", Toast.LENGTH_LONG).show();
                     Log.i("grup3", "Usuario not found");
@@ -73,5 +74,9 @@ public class LoginActivity extends AppCompatActivity {
                 call.cancel();
             }
         });
+    }
+    public void openHomeActivity(){
+        Intent homeActivity = new Intent(this, HomeActivity_NavView.class);
+        startActivity(homeActivity);
     }
 }

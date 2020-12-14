@@ -33,7 +33,7 @@ public class SessionImpl implements Session {
 
             pstm.executeQuery();
 
-        } catch (SQLException | InvocationTargetException | NoSuchMethodException | IllegalAccessException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 

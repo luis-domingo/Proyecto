@@ -10,6 +10,7 @@ import java.util.List;
 public class UsuarioDAOImpl implements UsuarioDAO{
     @Override
     public void addUsuario(String nombre, String password) {
+
         Session session = null;
         try {
             session = FactorySession.openSession();

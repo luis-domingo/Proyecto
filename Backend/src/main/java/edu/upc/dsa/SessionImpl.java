@@ -1,4 +1,4 @@
-package edu.upc.dsa;
+/*package edu.upc.dsa;
 import edu.upc.dsa.util.ObjectHelper;
 import edu.upc.dsa.util.QueryHelper;
 
@@ -67,3 +67,4 @@ public class SessionImpl implements Session {
         return null;
     }
 }
+*/

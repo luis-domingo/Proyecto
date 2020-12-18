@@ -1,4 +1,4 @@
-package edu.upc.dsa.dao;
+/*package edu.upc.dsa.dao;
 
 import edu.upc.dsa.models.Usuario;
 
@@ -7,3 +7,4 @@ public interface UsuarioDAO {
     public Usuario getUsuario(String id);
     public void eliminarUsuario(String id);
 }
+*/

@@ -1,4 +1,4 @@
-package edu.upc.dsa.util;
+/*package edu.upc.dsa.util;
 
 public class QueryHelper {
 
@@ -41,3 +41,4 @@ public class QueryHelper {
     }
 
 }
+*/

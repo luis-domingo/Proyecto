@@ -1,4 +1,4 @@
-package edu.upc.dsa.dao;
+/*package edu.upc.dsa.dao;
 
 import edu.upc.dsa.FactorySession;
 import edu.upc.dsa.Session;
@@ -59,3 +59,4 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         }
     }
 }
+*/

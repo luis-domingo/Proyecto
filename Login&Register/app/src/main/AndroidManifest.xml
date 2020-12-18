@@ -15,9 +15,9 @@
         <activity
             android:name=".HomeActivity_NavView"
             android:label="@string/title_activity_home__nav_view"
-            android:theme="@style/Theme.LoginRegister.NoActionBar"></activity>
+            android:theme="@style/Theme.LoginRegister.NoActionBar"/>
         <activity android:name=".NewAccountActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,6 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".LoginActivity" />
     </application>
 
 </manifest>

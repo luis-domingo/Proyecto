@@ -24,12 +24,12 @@ import java.util.List;
 @Path("/usuarios")
 public class RegisterService {
     private UsuarioManager manager;
-    private Session man;
-    private UsuarioDAO manuser;
+    //private Session man;
+   // private UsuarioDAO manuser;
 
-    public RegisterService() throws IOException {
+    public RegisterService(){
         this.manager = UsuarioManagerImpl.getInstance();
-        this.man = FactorySession.openSession();
+        //this.man = FactorySession.openSession();
     }
 
     @POST
@@ -40,7 +40,7 @@ public class RegisterService {
     @Path("/newuser")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newUser(Usuario usuario) {
-        this.manuser.addUsuario(usuario.getNombre(), usuario.getPassword());
+        //this.manuser.addUsuario(usuario.getNombre(), usuario.getPassword());
         this.manager.addUsuario(usuario.getNombre(), usuario.getPassword());
         return Response.status(201).entity(usuario).build();
     }

@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
 
     APIInterface apiIface;
     SharedPreferences sharedPreferences;
+    String username;
 
     public String getUsername(View v){
         EditText usernameContainer;
@@ -44,7 +45,8 @@ public class LoginActivity extends AppCompatActivity {
         apiIface = APIClient.getClient().create(APIInterface.class);
         sharedPreferences = getSharedPreferences("mySharedPreferences", MODE_PRIVATE);
         if(sharedPreferences.getAll().size()!=0){
-            String username = (String)sharedPreferences.getAll().get("Username");
+            username = (String)sharedPreferences.getAll().get("Username");
+            Toast.makeText(getApplicationContext(), "Welcome back, " + username + "!", Toast.LENGTH_LONG).show();
             openHomeActivity();
         }
     }
@@ -61,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onLoginClick(View v) {
-        String username = getUsername(v);
+        username = getUsername(v);
         String password = getPassword(v);
         Call<Usuario> call = apiIface.loginUser(new Usuario(username, password));
         call.enqueue(new Callback<Usuario>() {
@@ -69,6 +71,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Usuario> call, Response<Usuario> response) {
                 if (response.code() == 201) {
+                    //Tenemos que recoger también el ID del usuario
                     Usuario usuario = response.body();
                     Log.i("grup3", usuario.getNombre());
                     String username = usuario.getNombre();
@@ -91,6 +94,8 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void openHomeActivity(){
         Intent homeActivity = new Intent(this, HomeActivity_NavView.class);
+        homeActivity.putExtra("Username", this.username);
+        //homeActivity.putExtra("ID", this.id);
         startActivity(homeActivity);
     }
 }

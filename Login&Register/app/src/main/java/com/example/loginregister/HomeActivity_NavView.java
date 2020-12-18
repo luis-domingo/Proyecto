@@ -19,11 +19,13 @@ import androidx.appcompat.widget.Toolbar;
 public class HomeActivity_NavView extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    String username;
+    String ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home__nav_view);
+        setContentView(R.layout.activity_home_nav_view);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -50,7 +52,7 @@ public class HomeActivity_NavView extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home_activity__nav_view, menu);
+        getMenuInflater().inflate(R.menu.home_activity_nav_view, menu);
         return true;
     }
 
@@ -59,5 +61,13 @@ public class HomeActivity_NavView extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void setUsername(String u){
+        this.username = u;
+    }
+
+    public void setID(String id){
+        this.ID = id;
     }
 }

@@ -1,11 +1,8 @@
 package edu.upc.dsa.services;
 
-import edu.upc.dsa.FactorySession;
-import edu.upc.dsa.Session;
+
 import edu.upc.dsa.UsuarioManager;
 import edu.upc.dsa.UsuarioManagerImpl;
-import edu.upc.dsa.dao.UsuarioDAO;
-import edu.upc.dsa.dao.UsuarioDAOImpl;
 import edu.upc.dsa.models.*;
 import edu.upc.dsa.models.Usuario;
 import io.swagger.annotations.Api;
@@ -17,19 +14,15 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.io.IOException;
 import java.util.List;
 
 @Api(value = "/usuarios", description = "Endpoint to Track Service")
 @Path("/usuarios")
 public class RegisterService {
     private UsuarioManager manager;
-    //private Session man;
-   // private UsuarioDAO manuser;
 
     public RegisterService(){
         this.manager = UsuarioManagerImpl.getInstance();
-        //this.man = FactorySession.openSession();
     }
 
     @POST
@@ -40,7 +33,6 @@ public class RegisterService {
     @Path("/newuser")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newUser(Usuario usuario) {
-        //this.manuser.addUsuario(usuario.getNombre(), usuario.getPassword());
         this.manager.addUsuario(usuario.getNombre(), usuario.getPassword());
         return Response.status(201).entity(usuario).build();
     }

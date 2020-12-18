@@ -2,13 +2,18 @@ package com.example.loginregister;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Map;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -17,6 +22,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
 
     APIInterface apiIface;
+    SharedPreferences sharedPreferences;
 
     public String getUsername(View v){
         EditText usernameContainer;
@@ -36,6 +42,11 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         apiIface = APIClient.getClient().create(APIInterface.class);
+        sharedPreferences = getSharedPreferences("mySharedPreferences", MODE_PRIVATE);
+        if(sharedPreferences.getAll().size()!=0){
+            String username = (String)sharedPreferences.getAll().get("Username");
+            openHomeActivity();
+        }
     }
 
     public void onPasswordClick(View v){
@@ -62,6 +73,9 @@ public class LoginActivity extends AppCompatActivity {
                     Log.i("grup3", usuario.getNombre());
                     String username = usuario.getNombre();
                     Toast.makeText(getApplicationContext(), "Logged in correctly!", Toast.LENGTH_LONG).show();
+                    SharedPreferences.Editor editor = getSharedPreferences("mySharedPreferences", MODE_PRIVATE).edit();
+                    editor.putString("Username", username);
+                    editor.apply();
                     openHomeActivity();
                 } else {
                     Toast.makeText(getApplicationContext(), "Error when logging in.", Toast.LENGTH_LONG).show();

@@ -1,4 +1,4 @@
-/*package edu.upc.dsa.dao;
+package edu.upc.dsa.dao;
 
 import edu.upc.dsa.FactorySession;
 import edu.upc.dsa.Session;
@@ -10,7 +10,6 @@ import java.util.List;
 public class UsuarioDAOImpl implements UsuarioDAO{
     @Override
     public void addUsuario(String nombre, String password) {
-
         Session session = null;
         try {
             session = FactorySession.openSession();
@@ -59,4 +58,3 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         }
     }
 }
-*/

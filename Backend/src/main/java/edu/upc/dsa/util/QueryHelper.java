@@ -1,4 +1,4 @@
-/*package edu.upc.dsa.util;
+package edu.upc.dsa.util;
 
 public class QueryHelper {
 
@@ -30,15 +30,6 @@ public class QueryHelper {
         sb.append(" WHERE ID = ?");
 
         return sb.toString();
-
-
-
-
-
-
-
-
     }
 
 }
-*/

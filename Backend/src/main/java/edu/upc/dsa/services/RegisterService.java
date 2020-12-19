@@ -1,6 +1,5 @@
 package edu.upc.dsa.services;
 
-
 import edu.upc.dsa.UsuarioManager;
 import edu.upc.dsa.UsuarioManagerImpl;
 import edu.upc.dsa.models.*;
@@ -21,7 +20,7 @@ import java.util.List;
 public class RegisterService {
     private UsuarioManager manager;
 
-    public RegisterService(){
+    public RegisterService() {
         this.manager = UsuarioManagerImpl.getInstance();
     }
 

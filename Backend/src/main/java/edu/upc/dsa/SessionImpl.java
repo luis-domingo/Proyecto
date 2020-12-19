@@ -1,4 +1,4 @@
-/*package edu.upc.dsa;
+package edu.upc.dsa;
 import edu.upc.dsa.util.ObjectHelper;
 import edu.upc.dsa.util.QueryHelper;
 
@@ -33,7 +33,7 @@ public class SessionImpl implements Session {
 
             pstm.executeQuery();
 
-        } catch (SQLException e) {
+        } catch (SQLException | InvocationTargetException | NoSuchMethodException | IllegalAccessException e) {
             e.printStackTrace();
         }
 
@@ -67,4 +67,3 @@ public class SessionImpl implements Session {
         return null;
     }
 }
-*/

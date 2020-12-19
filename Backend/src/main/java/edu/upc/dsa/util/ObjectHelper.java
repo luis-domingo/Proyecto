@@ -1,8 +1,7 @@
-/*package edu.upc.dsa.util;
+package edu.upc.dsa.util;
 
 import edu.upc.dsa.models.Usuario;
 
-import java.lang.invoke.ConstantBootstraps;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -24,49 +23,23 @@ public class ObjectHelper {
     }
 
 
-    public static void setter(Object object, String property, Object value){
-        //Cogemos el nombre de la clase del objeto
-        String className = object.getClass().getName();
-        //Cogemos el metodo con el estilo: setName
-        String method = "set" + property.substring(0, 1).toUpperCase() + property.substring(1);
-        //Cogemos la clase
-        Class classType = value.getClass();
-
-        try {
-            //Creamos el setter
-            Method setter = Class.forName(className).getDeclaredMethod(method,classType);
-            //Lo invocamos
-            setter.invoke(object, value);
-        }
-
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
+    public static void setter(Object object, String property, Object value) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        // Method // invoke
+        Method met = object.getClass().getDeclaredMethod("setter",value.getClass());
+        met.invoke(object, value);
     }
 
-    public static Object getter(Object object, String property){
-        Object toReturn = null;
-        //Cogemos el nombre de la clase del objeto
-        String className = object.getClass().getName();
-        //Cogemos el metodo con el estilo: setName
-        String method = "set" + property.substring(0, 1).toUpperCase() + property.substring(1);;
-        try{
-            //Creamos el getter
-            Method getter = Class.forName(className).getDeclaredMethod(method);
-            //Lo invocamos
-            toReturn = getter.invoke(object);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        return toReturn;
+    public static Object getter(Object object, String property) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        // Method // invoke
+        Method met = object.getClass().getDeclaredMethod("getter",null);
+        Object result = met.invoke(object, null);
+        return result;
+
     }
 }
 
 
-*/
+
 
 
 

@@ -1,4 +1,4 @@
-/*package edu.upc.dsa;
+package edu.upc.dsa;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -47,4 +47,3 @@ public class FactorySession {
         return conn;
     }
 }
-*/

@@ -27,12 +27,20 @@ public class SessionImpl implements Session {
         logger.info("Voy a preparar la frase a introducir en la BBDD");
         try {
             pstm = conn.prepareStatement(insertQuery);
+            logger.info(pstm.toString());
 
-            for(int i=0; i< ObjectHelper.getFields(entity).length; i++){
+            int i = 0;
+            for(String field : ObjectHelper.getFields(entity)){
+                pstm.setObject(i,ObjectHelper.getter(entity, field));
+                i++;
+            }
+
+
+            /*for(i=0; i< ObjectHelper.getFields(entity).length; i++){
                 String field = ObjectHelper.getFields(entity)[i];
                 logger.info(field);
                 pstm.setObject(i, ObjectHelper.getter(entity, field));
-            }
+            }*/
 
             pstm.executeQuery();
 

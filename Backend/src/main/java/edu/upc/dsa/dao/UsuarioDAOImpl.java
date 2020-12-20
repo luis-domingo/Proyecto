@@ -7,6 +7,7 @@ import edu.upc.dsa.UsuarioManagerImpl;
 import edu.upc.dsa.models.Usuario;
 import org.apache.log4j.Logger;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -76,8 +77,8 @@ public class UsuarioDAOImpl implements UsuarioDAO{
                 logger.info("Id de " + u.getNombre() +" es " + u.getId());
             }
         }
-        catch (Exception e) {
-            logger.warn("Exception! "  + e.getLocalizedMessage());
+        catch (IOException e) {
+            logger.warn("Exception message: "  + e.getMessage());
         }
         finally {
             session.close();

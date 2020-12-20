@@ -38,6 +38,12 @@ public class SessionImpl implements Session {
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
         }
     }
 

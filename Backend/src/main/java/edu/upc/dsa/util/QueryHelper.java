@@ -54,10 +54,6 @@ public class QueryHelper {
         // SELECT * FROM Usuario WHERE Nombre = ? && Password = ?
         return sb.toString();
     }
-    public static java.lang.String addParameterQuerySELECT(String Query, String field) {
-        StringBuffer sb = new StringBuffer();
-        sb.append(Query).append(" && ").append(field).append(" = ");
-        return sb.toString();
-    }
+
 
 }

@@ -55,10 +55,8 @@ public class RegisterService {
         Usuario u = this.manuser.getUsuario(usuario.getNombre(), usuario.getPassword());
 
         if (u!=null) {
-            System.out.println("El usuario está registrado en la BBDD");
             return Response.status(201).entity(usuario).build();
         } else {
-            System.out.println("El usuario no está registrado en la BBDD");
             return Response.status(404).entity(null).build();
         }
 

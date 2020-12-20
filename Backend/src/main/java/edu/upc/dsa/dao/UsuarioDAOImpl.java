@@ -85,6 +85,11 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         finally {
             session.close();
         }
+        if(u!=null){
+            logger.info("El usuario está registrado en la BBDD");
+        }else{
+            logger.info("El usuario no está registrado en la BBDD");
+        }
         return u;
     }
 

@@ -61,7 +61,7 @@ public class SessionImpl implements Session {
     }
 
     public Object get(Object entity, String nombre) {
-        String insertQuery = QueryHelper.createQuerySELECT(entity.getClass(), nombre);
+        String insertQuery = QueryHelper.createQuerySELECT(entity);
         return null;
     }
 

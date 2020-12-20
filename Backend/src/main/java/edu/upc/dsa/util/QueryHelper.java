@@ -39,7 +39,7 @@ public class QueryHelper {
         return sb.toString();
     }
 
-    public static String createQuerySELECT(Object entity, String nombre) {
+    public static String createQuerySELECT(Object entity) {
         StringBuffer sb = new StringBuffer();
         sb.append("SELECT * FROM ").append(entity.getClass().getSimpleName()).append(" WHERE ");
         // SELECT * FROM Usuario WHERE
@@ -48,7 +48,10 @@ public class QueryHelper {
         for (int i = 1; i < fields.length - 1; i++){
             String field = fields[i];
             logger.info(field);
-            sb.append(field).append(" = ?").append(" && ");
+            sb.append(field).append(" = ?");
+            if (i <= fields.length - 2) {
+                sb.append(" && ");
+            }
         }
         logger.info(sb.toString());
         // SELECT * FROM Usuario WHERE Nombre = ? && Password = ?

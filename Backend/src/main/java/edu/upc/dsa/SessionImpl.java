@@ -25,7 +25,7 @@ public class SessionImpl implements Session {
         try {
             pstm = conn.prepareStatement(insertQuery);
 
-            for(int i=0; i< ObjectHelper.getFields(entity).length-1; i++){
+            for(int i=1; i< ObjectHelper.getFields(entity).length; i++){
                 String field = ObjectHelper.getFields(entity)[i];
                 pstm.setObject(i++, ObjectHelper.getter(entity, field));
             }

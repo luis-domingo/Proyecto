@@ -1,6 +1,11 @@
 package edu.upc.dsa.util;
 
+import edu.upc.dsa.dao.UsuarioDAOImpl;
+import org.apache.log4j.Logger;
+
 public class QueryHelper {
+
+    final static Logger logger = Logger.getLogger(QueryHelper.class);
 
     public static String createQueryINSERT(Object entity) {
 
@@ -12,22 +17,22 @@ public class QueryHelper {
         //INSERT INTO Usuario (
 
         String [] fields = ObjectHelper.getFields(entity);
-        for (int i=0; i< fields.length-1; i++) {
+        for (int i=1; i< fields.length; i++) {
             sb.append(fields[i]);
             sb.append(", ");
         }
-        sb.append(fields[fields.length-1]);
+        sb.append(fields[fields.length]);
 
         sb.append(") VALUES (?");
         //INSERT INTO Usuario (id, nombre, password) VALUES (?
 
-        for (int i=0; i< fields.length-1; i++) {
+        for (int i=1; i< fields.length; i++) {
             sb.append(", ?");
         }
 
         sb.append(")");
         //INSERT INTO Usuario (id, nombre, password) VALUES (?, ?, ?)
-
+        logger.info(sb.toString());
         return sb.toString();
     }
 

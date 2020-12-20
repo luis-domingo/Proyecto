@@ -25,12 +25,12 @@ public class QueryHelper {
         }
         sb.append(fields[fields.length-1]);
         logger.info(sb.toString());
-        sb.append(") VALUES (?");
+        sb.append(") VALUES (");
         logger.info(sb.toString());
         //INSERT INTO Usuario (id, nombre, password) VALUES (?
 
         for (int i=0; i< fields.length-1; i++) {
-            sb.append(", ?");
+            sb.append(",");
         }
         logger.info(sb.toString());
         sb.append(")");

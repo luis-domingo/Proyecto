@@ -1,11 +1,12 @@
 package edu.upc.dsa;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 
 public interface Session<E> {
     void save(Object entity);
-    void close();
+    void close() throws SQLException;
     Object get(Class theClass, String id);
     void update(Object object);
     void delete(Object object);

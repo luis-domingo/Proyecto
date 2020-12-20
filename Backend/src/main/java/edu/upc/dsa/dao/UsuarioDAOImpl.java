@@ -7,6 +7,7 @@ import edu.upc.dsa.UsuarioManagerImpl;
 import edu.upc.dsa.models.Usuario;
 import org.apache.log4j.Logger;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
     }
 
     @Override
-    public void addUsuario(String nombre, String password) {
+    public void addUsuario(String nombre, String password) throws SQLException {
         Session session = null;
         try {
             session = FactorySession.openSession();
@@ -42,7 +43,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
     }
 
     @Override
-    public Usuario getUsuario(String id) {
+    public Usuario getUsuario(String id) throws SQLException {
         Session session = null;
         Usuario u = null;
         try {
@@ -61,7 +62,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
     }
 
     @Override
-    public Usuario getUsuario(String nombre, String password) {
+    public Usuario getUsuario(String nombre, String password) throws SQLException {
         Session session = null;
         Usuario a = null;
         Usuario u = null;
@@ -84,7 +85,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
     }
 
     @Override
-    public void eliminarUsuario(String id) {
+    public void eliminarUsuario(String id) throws SQLException {
         Usuario u = this.getUsuario(id);
         Session session = null;
         try {

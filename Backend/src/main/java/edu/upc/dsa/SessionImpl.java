@@ -24,10 +24,9 @@ public class SessionImpl implements Session {
 
         try {
             pstm = conn.prepareStatement(insertQuery);
-            pstm.setObject(1, 0);
-            int i = 2;
 
-            for (String field: ObjectHelper.getFields(entity)) {
+            for(int i=0; i< ObjectHelper.getFields(entity).length-1; i++){
+                String field = ObjectHelper.getFields(entity)[i];
                 pstm.setObject(i++, ObjectHelper.getter(entity, field));
             }
 
@@ -36,10 +35,10 @@ public class SessionImpl implements Session {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
-    public void close() {
+    public void close() throws SQLException {
+        conn.close();
 
     }
 

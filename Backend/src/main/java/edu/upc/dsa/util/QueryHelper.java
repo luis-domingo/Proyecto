@@ -3,23 +3,30 @@ package edu.upc.dsa.util;
 public class QueryHelper {
 
     public static String createQueryINSERT(Object entity) {
+
+        //INSERT INTO [table name] (Column, Column) VALUES (?,?);
+
         StringBuffer sb = new StringBuffer("INSERT INTO ");
         sb.append(entity.getClass().getSimpleName()).append(" ");
         sb.append("(");
+        //INSERT INTO Usuario (
 
         String [] fields = ObjectHelper.getFields(entity);
-        sb.append("ID");
-        for (String field: fields) {
-        sb.append(", ").append(field);
+        for (int i=0; i< fields.length-1; i++) {
+            sb.append(fields[i]);
+            sb.append(", ");
         }
+        sb.append(fields[fields.length-1]);
 
         sb.append(") VALUES (?");
+        //INSERT INTO Usuario (id, nombre, password) VALUES (?
 
-        for (String field: fields) {
-        sb.append(", ?");
+        for (int i=0; i< fields.length-1; i++) {
+            sb.append(", ?");
         }
 
         sb.append(")");
+        //INSERT INTO Usuario (id, nombre, password) VALUES (?, ?, ?)
 
         return sb.toString();
     }

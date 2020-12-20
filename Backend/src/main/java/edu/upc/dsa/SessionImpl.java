@@ -29,7 +29,7 @@ public class SessionImpl implements Session {
             pstm = conn.prepareStatement(insertQuery);
             logger.info(pstm.toString());
 
-            int i = 0;
+            int i = 1;
             for(String field : ObjectHelper.getFields(entity)){
                 pstm.setObject(i,ObjectHelper.getter(entity, field));
                 i++;

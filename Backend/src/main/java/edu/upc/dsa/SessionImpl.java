@@ -63,9 +63,10 @@ public class SessionImpl implements Session {
             pstm = conn.prepareStatement(selectQuery);
             logger.info(pstm.toString());
 
-            int i = 2;
-            for(String field : ObjectHelper.getFields(entity)){
-                pstm.setObject(i,ObjectHelper.getter(entity, field));
+            int i = 1;
+            String [] fields = ObjectHelper.getFields(entity);
+            for(int j = 1; j < fields.length; j++){
+                pstm.setObject(i,ObjectHelper.getter(entity, fields[j]));
                 i++;
             }
 

@@ -48,7 +48,7 @@ public class ObjectHelper {
         //Cogemos el nombre de la clase del objeto
         String className = object.getClass().getName();
         //Cogemos el metodo con el estilo: setName
-        String method = "set" + property.substring(0, 1).toUpperCase() + property.substring(1);;
+        String method = "get" + property.substring(0, 1).toUpperCase() + property.substring(1);
         try{
             //Creamos el getter
             Method getter = Class.forName(className).getDeclaredMethod(method);

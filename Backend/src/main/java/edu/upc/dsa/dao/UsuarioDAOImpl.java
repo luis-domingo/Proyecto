@@ -77,7 +77,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
             }
         }
         catch (Exception e) {
-            logger.warn("Exception! "  + e.getMessage());
+            logger.warn("Exception! "  + e.getLocalizedMessage());
         }
         finally {
             session.close();

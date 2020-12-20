@@ -41,9 +41,22 @@ public class QueryHelper {
 
     public static String createQuerySELECT(Object entity) {
         StringBuffer sb = new StringBuffer();
-        sb.append("SELECT * FROM ").append(entity.getClass().getSimpleName());
-        sb.append(" WHERE ID = ?");
-
+        sb.append("SELECT * FROM ").append(entity.getClass().getSimpleName()).append(" WHERE ");
+        // SELECT * FROM Usuario WHERE
+        logger.info(sb.toString());
+        String [] fields = ObjectHelper.getFields(entity);
+        for (int i = 1; i < fields.length - 1; i++){
+            String field = fields[i];
+            logger.info(field);
+            sb.append(field).append(" = ?").append(" && ");
+        }
+        logger.info(sb.toString());
+        // SELECT * FROM Usuario WHERE Nombre = ? && Password = ?
+        return sb.toString();
+    }
+    public static java.lang.String addParameterQuerySELECT(String Query, String field) {
+        StringBuffer sb = new StringBuffer();
+        sb.append(Query).append(" && ").append(field).append(" = ");
         return sb.toString();
     }
 

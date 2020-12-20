@@ -67,10 +67,11 @@ public class UsuarioDAOImpl implements UsuarioDAO{
     public Usuario getUsuario(String nombre, String password) throws SQLException {
         Session session = null;
         Usuario a = new Usuario(nombre, password);
+        Usuario u = null;
         logger.info(nombre + " esta intentando iniciar sesion");
         try {
             session = FactorySession.openSession();
-            a = (Usuario)session.get(a);
+            u = (Usuario)session.get(a);
         }
         catch (IOException e) {
             logger.warn("Exception message: "  + e.getMessage());
@@ -78,7 +79,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         finally {
             session.close();
         }
-        return a;
+        return u;
     }
 
     @Override

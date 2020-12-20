@@ -46,14 +46,24 @@ public class ObjectHelper {
     public static Object getter(Object object, String property) {
         Object toReturn = null;
         //Cogemos el nombre de la clase del objeto
-        String className = object.getClass().getName();
+        Class className = object.getClass();
         //Cogemos el metodo con el estilo: setName
         String method = "get" + property.substring(0, 1).toUpperCase() + property.substring(1);
+
+        Field[] fields = className.getDeclaredFields();
         try{
             //Creamos el getter
-            Method getter = Class.forName(className).getDeclaredMethod(method);
+            //Method getter = Class.forName(className).getDeclaredMethod(method);
             //Lo invocamos
-            toReturn = getter.invoke(object);
+            //toReturn = getter.invoke(object);
+            
+            for(Field f: fields){
+                if(f.getName() == property){
+                    toReturn = f.get(object);
+                }
+            }
+
+
         }
         catch (Exception e){
             e.printStackTrace();

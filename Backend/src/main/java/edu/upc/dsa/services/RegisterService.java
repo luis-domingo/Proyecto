@@ -38,8 +38,8 @@ public class RegisterService {
     @Path("/newuser")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newUser(Usuario usuario) throws SQLException {
-        //this.manager.addUsuario(usuario.getNombre(), usuario.getPassword());
         this.manuser.addUsuario(usuario.getNombre(), usuario.getPassword());
+        this.manager.addUsuario(usuario.getNombre(), usuario.getPassword());
         return Response.status(201).entity(usuario).build();
     }
 

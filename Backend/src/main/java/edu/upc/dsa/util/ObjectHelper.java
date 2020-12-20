@@ -1,12 +1,15 @@
 package edu.upc.dsa.util;
 
 import edu.upc.dsa.models.Usuario;
+import org.apache.log4j.Logger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class ObjectHelper {
+    final static Logger logger = Logger.getLogger(ObjectHelper.class);
+
     public static String[] getFields(Object entity) {
 
         Class theClass = entity.getClass();
@@ -44,15 +47,23 @@ public class ObjectHelper {
     }
 
     public static Object getter(Object object, String property) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        // Method
-        Object ret = null;
-        Class theClass = object.getClass();
-        //Methods of type getters are usually like getProperty while property is defined as property in the Object
-        String sMethod = "get"+ property.substring(0,1).toUpperCase()+property.substring(1);
-        Method getter = theClass.getMethod(sMethod);
-        // Invoke
-        ret = getter.invoke(object);
-        return ret;
+        Object toReturn = null;
+        //Cogemos el nombre de la clase del objeto
+        Class className = object.getClass();
+        //Cogemos el metodo con el estilo: getName
+        logger.info(className.getName());
+        String method = "get" + property.substring(0, 1).toUpperCase() + property.substring(1);
+        logger.info(method);
+        try{
+            //Creamos el getter
+            Method getter = className.getDeclaredMethod(method);
+            //Lo invocamos
+            toReturn = getter.invoke(object);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return toReturn;
 
     }
 }

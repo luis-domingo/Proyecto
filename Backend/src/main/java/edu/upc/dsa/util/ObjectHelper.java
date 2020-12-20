@@ -59,6 +59,8 @@ public class ObjectHelper {
             Method getter = className.getDeclaredMethod(method);
             //Lo invocamos
             toReturn = getter.invoke(object);
+
+            logger.info(toReturn.toString());
         }
         catch (Exception e){
             e.printStackTrace();

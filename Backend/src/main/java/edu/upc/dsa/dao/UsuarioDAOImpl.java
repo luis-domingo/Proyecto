@@ -66,15 +66,13 @@ public class UsuarioDAOImpl implements UsuarioDAO{
     @Override
     public Usuario getUsuario(String nombre, String password) throws SQLException {
         Session session = null;
-        Usuario a = null;
-        Usuario u = new Usuario(nombre, password);
+        Usuario a = new Usuario();
         logger.info(nombre + " esta intentando iniciar sesion");
         try {
             session = FactorySession.openSession();
-            a = (Usuario)session.get(Usuario.class);
+            a = (Usuario)session.get(a);
             if(nombre.equals(a.getNombre()) && password.equals(a.getPassword())){
-                u = a;
-                logger.info("Id de " + u.getNombre() +" es " + u.getId());
+                logger.info("Id de " + a.getNombre() +" es " + a.getId());
             }
         }
         catch (IOException e) {
@@ -84,7 +82,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
             session.close();
         }
 
-        return u;
+        return a;
     }
 
     @Override

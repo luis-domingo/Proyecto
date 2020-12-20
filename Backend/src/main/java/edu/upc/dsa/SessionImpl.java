@@ -60,9 +60,9 @@ public class SessionImpl implements Session {
 
     }
 
-    public Object get(Object entity) {
-        String selectQuery = QueryHelper.createQuerySELECT(entity);
-        return new Object();
+    public Object get(Object entity, String nombre) {
+        String insertQuery = QueryHelper.createQuerySELECT(entity.getClass(), nombre);
+        return null;
     }
 
     public void update(Object object) {

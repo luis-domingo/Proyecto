@@ -44,13 +44,7 @@ public class SessionImpl implements Session {
 
             pstm.executeQuery();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (SQLException | InvocationTargetException | NoSuchMethodException | IllegalAccessException e) {
             e.printStackTrace();
         }
     }
@@ -60,9 +54,27 @@ public class SessionImpl implements Session {
 
     }
 
-    public Object get(Object entity, String nombre) {
-        String insertQuery = QueryHelper.createQuerySELECT(entity);
-        return null;
+    public Object get(Object entity) {
+        String selectQuery = QueryHelper.createQuerySELECT(entity);
+        Object res = null;
+        PreparedStatement pstm = null;
+        logger.info("Voy a preparar la frase a introducir en la BBDD");
+        try {
+            pstm = conn.prepareStatement(selectQuery);
+            logger.info(pstm.toString());
+
+            int i = 1;
+            for(String field : ObjectHelper.getFields(entity)){
+                pstm.setObject(i,ObjectHelper.getter(entity, field));
+                i++;
+            }
+
+            res = pstm.executeQuery();
+
+        } catch (SQLException | InvocationTargetException | NoSuchMethodException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return res;
     }
 
     public void update(Object object) {

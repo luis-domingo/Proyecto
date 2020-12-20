@@ -7,7 +7,7 @@ import java.util.List;
 public interface Session<E> {
     void save(Object entity);
     void close() throws SQLException;
-    Object get(Object entity, String nombre);
+    Object get(Object entity);
     void update(Object object);
     void delete(Object object);
     List<Object> findAll(Class theClass);

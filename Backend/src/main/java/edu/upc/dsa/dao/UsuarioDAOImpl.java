@@ -50,7 +50,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         Usuario u = null;
         try {
             session = FactorySession.openSession();
-            u = (Usuario)session.get(Usuario.class, id);
+            u = (Usuario)session.get(Usuario.class);
             logger.info(u.getId());
         }
         catch (Exception e) {
@@ -71,7 +71,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         logger.info(nombre + " esta intentando iniciar sesion");
         try {
             session = FactorySession.openSession();
-            a = (Usuario)session.get(u, nombre);
+            a = (Usuario)session.get(Usuario.class);
             if(nombre.equals(a.getNombre()) && password.equals(a.getPassword())){
                 u = a;
                 logger.info("Id de " + u.getNombre() +" es " + u.getId());

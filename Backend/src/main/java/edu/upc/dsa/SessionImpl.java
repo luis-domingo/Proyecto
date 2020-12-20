@@ -13,7 +13,7 @@ import java.util.List;
 public class SessionImpl implements Session {
     private final Connection conn;
 
-    final static Logger logger = Logger.getLogger(QueryHelper.class);
+    final static Logger logger = Logger.getLogger(SessionImpl.class);
 
     public SessionImpl(Connection conn) {
         this.conn = conn;
@@ -31,7 +31,7 @@ public class SessionImpl implements Session {
             for(int i=0; i< ObjectHelper.getFields(entity).length; i++){
                 String field = ObjectHelper.getFields(entity)[i];
                 logger.info(field);
-                pstm.setObject(i, ObjectHelper.getter(entity, field));
+                pstm.setObject(i, ObjectHelper.getter(entity, field).toString());
             }
 
             pstm.executeQuery();

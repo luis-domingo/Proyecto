@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -56,7 +57,7 @@ public class SessionImpl implements Session {
 
     public Object get(Object entity) {
         String selectQuery = QueryHelper.createQuerySELECT(entity);
-        Object res = null;
+        ResultSet res = null;
         PreparedStatement pstm = null;
         logger.info("Voy a preparar la frase a introducir en la BBDD");
         try {
@@ -72,7 +73,7 @@ public class SessionImpl implements Session {
 
             logger.info("La query que mando a la BBDD es " + pstm.toString());
             res = pstm.executeQuery();
-            logger.info("El resultado de la query es " + res.toString());
+            logger.info("El resultado de la query es: Nombre ->" + res.getString("nombre") + " Password -> " + res.getString("password"));
 
         } catch (SQLException | InvocationTargetException | NoSuchMethodException | IllegalAccessException e) {
             e.printStackTrace();

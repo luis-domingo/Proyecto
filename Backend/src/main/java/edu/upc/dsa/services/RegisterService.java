@@ -53,6 +53,7 @@ public class RegisterService {
     public Response login(Usuario usuario) throws SQLException {
         //Usuario u = this.manager.getUsuario(usuario.getNombre(), usuario.getPassword());
         Usuario u = this.manuser.getUsuario(usuario.getNombre(), usuario.getPassword());
+
         if (u!=null) {
             return Response.status(201).entity(usuario).build();
         }else

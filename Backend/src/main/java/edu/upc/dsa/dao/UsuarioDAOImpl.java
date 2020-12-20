@@ -67,6 +67,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         Session session = null;
         Usuario a = null;
         Usuario u = null;
+        logger.info(nombre + " esta intentando iniciar sesion");
         try {
             session = FactorySession.openSession();
             a = (Usuario)session.get(Usuario.class, nombre);

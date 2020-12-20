@@ -1,6 +1,7 @@
 package edu.upc.dsa;
 import edu.upc.dsa.util.ObjectHelper;
 import edu.upc.dsa.util.QueryHelper;
+import org.apache.log4j.Logger;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
@@ -12,6 +13,8 @@ import java.util.List;
 public class SessionImpl implements Session {
     private final Connection conn;
 
+    final static Logger logger = Logger.getLogger(QueryHelper.class);
+
     public SessionImpl(Connection conn) {
         this.conn = conn;
     }
@@ -21,7 +24,7 @@ public class SessionImpl implements Session {
         String insertQuery = QueryHelper.createQueryINSERT(entity);
 
         PreparedStatement pstm = null;
-
+        logger.info("Voy a preparar la frase a introducir en la BBDD");
         try {
             pstm = conn.prepareStatement(insertQuery);
 

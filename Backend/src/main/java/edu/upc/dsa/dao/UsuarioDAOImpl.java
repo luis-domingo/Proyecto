@@ -72,8 +72,8 @@ public class UsuarioDAOImpl implements UsuarioDAO{
             a = (Usuario)session.get(Usuario.class, nombre);
             if(nombre.equals(a.getNombre()) && password.equals(a.getPassword())){
                 u = a;
+                logger.info("Id de " + u.getNombre() +" es " + u.getId());
             }
-            logger.info(u.getId());
         }
         catch (Exception e) {
             // LOG

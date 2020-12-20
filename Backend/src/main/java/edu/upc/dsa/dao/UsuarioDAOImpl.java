@@ -8,6 +8,7 @@ import edu.upc.dsa.models.Usuario;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -66,12 +67,17 @@ public class UsuarioDAOImpl implements UsuarioDAO{
     @Override
     public Usuario getUsuario(String nombre, String password) throws SQLException {
         Session session = null;
+        ResultSet res = null;
         Usuario a = new Usuario(nombre, password);
         Usuario u = null;
         logger.info(nombre + " esta intentando iniciar sesion");
         try {
             session = FactorySession.openSession();
-            u = (Usuario)session.get(a);
+            res = (ResultSet)session.get(a);
+            res.next();
+            u.setId(res.getString(1));
+            u.setNombre(res.getString(2));
+            u.setPassword(res.getString(3));
         }
         catch (IOException e) {
             logger.warn("Exception message: "  + e.getMessage());

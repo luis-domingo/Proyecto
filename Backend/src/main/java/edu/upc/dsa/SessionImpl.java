@@ -55,7 +55,7 @@ public class SessionImpl implements Session {
 
     }
 
-    public Object get(Object entity) {
+    public ResultSet get(Object entity) {
         String selectQuery = QueryHelper.createQuerySELECT(entity);
         ResultSet res = null;
         PreparedStatement pstm = null;
@@ -73,8 +73,9 @@ public class SessionImpl implements Session {
 
             logger.info("La query que mando a la BBDD es " + pstm.toString());
             res = pstm.executeQuery();
-            res.next();
-            logger.info("El resultado de la query es: Nombre ->" + res.getString(2) + " Password -> " + res.getString(3));
+            ResultSet res2 = res;
+            res2.next();
+            logger.info("El resultado de la query es: Nombre ->" + res2.getString(2) + " Password -> " + res2.getString(3));
 
         } catch (SQLException | InvocationTargetException | NoSuchMethodException | IllegalAccessException e) {
             e.printStackTrace();

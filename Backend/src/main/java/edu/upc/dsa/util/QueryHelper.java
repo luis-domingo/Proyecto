@@ -17,18 +17,19 @@ public class QueryHelper {
         //INSERT INTO Usuario (
         logger.info(sb.toString());
         String [] fields = ObjectHelper.getFields(entity);
-        for (int i=1; i< fields.length; i++) {
-            logger.info(fields[i]);
-            sb.append(fields[i]);
+        for (int i=0; i< fields.length-1; i++) {
+            String field = fields[i];
+            logger.info(field);
+            sb.append(field);
             sb.append(", ");
         }
-        sb.append(fields[fields.length]);
+        sb.append(fields[fields.length-1]);
         logger.info(sb.toString());
         sb.append(") VALUES (?");
         logger.info(sb.toString());
         //INSERT INTO Usuario (id, nombre, password) VALUES (?
 
-        for (int i=1; i< fields.length; i++) {
+        for (int i=0; i< fields.length-1; i++) {
             sb.append(", ?");
         }
         logger.info(sb.toString());

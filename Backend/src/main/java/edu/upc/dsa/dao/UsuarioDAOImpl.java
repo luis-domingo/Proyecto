@@ -78,17 +78,13 @@ public class UsuarioDAOImpl implements UsuarioDAO{
             u.setId(res.getString(1));
             u.setNombre(res.getString(2));
             u.setPassword(res.getString(3));
+            return u;
         }
         catch (IOException e) {
             logger.warn("Exception message: "  + e.getMessage());
         }
         finally {
             session.close();
-        }
-        if(u!=null){
-            logger.info("El usuario está registrado en la BBDD");
-        }else{
-            logger.info("El usuario no está registrado en la BBDD");
         }
         return u;
     }

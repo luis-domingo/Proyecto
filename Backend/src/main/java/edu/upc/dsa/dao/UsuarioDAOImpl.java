@@ -31,7 +31,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         try {
             session = FactorySession.openSession();
             Usuario u = new Usuario(nombre, password);
-            logger.info("A punto de guardar en la BBDD al usuario");
+            logger.info("A punto de guardar en la BBDD al usuario ID: "+u.getId() + ". Username: " + u.getNombre() + ". Password: " + u.getPassword());
             session.save(u);
             logger.info("Usuario añadido. ID: "+u.getId() + ". Username: " + u.getNombre() + ". Password: " + u.getPassword());
         }

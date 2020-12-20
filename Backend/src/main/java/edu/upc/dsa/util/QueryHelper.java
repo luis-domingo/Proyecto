@@ -18,6 +18,7 @@ public class QueryHelper {
         logger.info(sb.toString());
         String [] fields = ObjectHelper.getFields(entity);
         for (int i=1; i< fields.length; i++) {
+            logger.info(fields[i]);
             sb.append(fields[i]);
             sb.append(", ");
         }

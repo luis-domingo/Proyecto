@@ -78,7 +78,6 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         finally {
             session.close();
         }
-
         return a;
     }
 

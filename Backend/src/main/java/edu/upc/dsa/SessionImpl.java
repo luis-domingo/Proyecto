@@ -70,7 +70,9 @@ public class SessionImpl implements Session {
                 i++;
             }
 
+            logger.info("La query que mando a la BBDD es " + pstm.toString());
             res = pstm.executeQuery();
+            logger.info("El resultado de la query es " + res.toString());
 
         } catch (SQLException | InvocationTargetException | NoSuchMethodException | IllegalAccessException e) {
             e.printStackTrace();

@@ -45,7 +45,7 @@ public class QueryHelper {
         // SELECT * FROM Usuario WHERE
         logger.info(sb.toString());
         String [] fields = ObjectHelper.getFields(entity);
-        for (int i = 1; i < fields.length - 1; i++){
+        for (int i = 1; i < fields.length; i++){
             String field = fields[i];
             logger.info(field);
             sb.append(field).append(" = ?");

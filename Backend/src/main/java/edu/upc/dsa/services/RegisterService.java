@@ -35,7 +35,7 @@ public class RegisterService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newUser(Usuario usuario) throws SQLException {
         this.manuser.addUsuario(usuario.getNombre(), usuario.getPassword());
-        return Response.status(201).entity(usuario).build();
+        return Response.status(200).entity(usuario).build();
     }
 
     @POST
@@ -50,7 +50,7 @@ public class RegisterService {
         Usuario u = this.manuser.getUsuario(usuario.getNombre(), usuario.getPassword());
 
         if (u!=null) {
-            return Response.status(201).entity(usuario).build();
+            return Response.status(200).entity(usuario).build();
         } else {
             return Response.status(404).entity(null).build();
         }

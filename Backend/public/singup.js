@@ -11,7 +11,7 @@ $(document).ready(function(){
                 password: document.getElementById("pass2").value,
           }),
             dataType: 'json',
-            url: "http://147.83.7.205:8080/dsaApp/usuarios/newuser",
+            url: "/dsaApp/usuarios/newuser",
             contentType: 'application/json',
             success: function (us) {
                 console.log(us.nombre);

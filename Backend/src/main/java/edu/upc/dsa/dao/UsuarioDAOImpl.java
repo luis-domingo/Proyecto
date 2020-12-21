@@ -78,7 +78,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
             u.setId(res.getString(1));
             u.setNombre(res.getString(2));
             u.setPassword(res.getString(3));
-            return u;
+            logger.info(u.toString());
         }
         catch (IOException e) {
             logger.warn("Exception message: "  + e.getMessage());

@@ -1,8 +1,10 @@
 package com.example.loginregister;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -21,6 +23,8 @@ public class HomeActivity_NavView extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     String username;
     String ID;
+    String logout;
+    LoginActivity logAct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,9 @@ public class HomeActivity_NavView extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
+        if(getIntent().getExtras()!=null){
+            username = getIntent().getExtras().getString("username");
+        }
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,9 +48,16 @@ public class HomeActivity_NavView extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_chat, R.id.nav_forum, R.id.nav_friends, R.id.nav_logOut, R.id.nav_shop, R.id.nav_web, R.id.nav_yourInventory, R.id.nav_stats)
+                R.id.nav_home, R.id.nav_chat, R.id.nav_forum, R.id.nav_friends, R.id.nav_shop, R.id.nav_web, R.id.nav_yourInventory, R.id.nav_stats)
                 .setDrawerLayout(drawer)
                 .build();
+        navigationView.getMenu().findItem(R.id.nav_logOut).setOnMenuItemClickListener(menuItem -> {
+            Intent loginActivity = new Intent(this, LoginActivity.class);
+            loginActivity.putExtra("username", username);
+            loginActivity.putExtra("logout", true);
+            startActivity(loginActivity);
+            return true;
+        });
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
@@ -70,4 +84,5 @@ public class HomeActivity_NavView extends AppCompatActivity {
     public void setID(String id){
         this.ID = id;
     }
+
 }

@@ -53,7 +53,7 @@ public class NewAccountActivity extends AppCompatActivity {
                 @SuppressLint("ShowToast")
                 @Override
                 public void onResponse(Call<Usuario> call, Response<Usuario> response) {
-                    if (response.code() == 201) {
+                    if (response.code() == 200) {
                         Usuario usuario = response.body();
                         Log.i("grup3", "Usuario creado: " + usuario.getNombre());
                         Toast.makeText(getApplicationContext(), "Account correctly created!", Toast.LENGTH_LONG).show();

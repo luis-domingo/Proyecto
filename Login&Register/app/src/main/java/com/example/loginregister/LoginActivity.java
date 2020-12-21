@@ -24,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     APIInterface apiIface;
     SharedPreferences sharedPreferences;
     String username;
+    Boolean logout = false;
 
     public String getUsername(View v){
         EditText usernameContainer;
@@ -44,9 +45,17 @@ public class LoginActivity extends AppCompatActivity {
 
         apiIface = APIClient.getClient().create(APIInterface.class);
         sharedPreferences = getSharedPreferences("mySharedPreferences", MODE_PRIVATE);
+        if(getIntent().getExtras() != null) {
+            logout = (Boolean) getIntent().getExtras().getBoolean("logout");
+            username = (String) getIntent().getExtras().getString("username");
+        }
+        if(logout){
+            this.logOut();
+            logout = false;
+        }
         if(sharedPreferences.getAll().size()!=0){
             username = (String)sharedPreferences.getAll().get("Username");
-            Toast.makeText(getApplicationContext(), "Welcome back, " + username + "!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Welcome back, " + username + "!", Toast.LENGTH_SHORT).show();
             openHomeActivity();
         }
     }
@@ -75,13 +84,13 @@ public class LoginActivity extends AppCompatActivity {
                     Usuario usuario = response.body();
                     Log.i("grup3", usuario.getNombre());
                     String username = usuario.getNombre();
-                    Toast.makeText(getApplicationContext(), "Logged in correctly!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Logged in correctly!", Toast.LENGTH_SHORT).show();
                     SharedPreferences.Editor editor = getSharedPreferences("mySharedPreferences", MODE_PRIVATE).edit();
                     editor.putString("Username", username);
                     editor.apply();
                     openHomeActivity();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Error when logging in.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Error when logging in.", Toast.LENGTH_SHORT).show();
                     Log.i("grup3", "Usuario not found");
                 }
             }
@@ -94,8 +103,16 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void openHomeActivity(){
         Intent homeActivity = new Intent(this, HomeActivity_NavView.class);
-        homeActivity.putExtra("Username", this.username);
+        homeActivity.putExtra("username", this.username);
         //homeActivity.putExtra("ID", this.id);
         startActivity(homeActivity);
     }
+    public void logOut(){
+        sharedPreferences = getSharedPreferences("mySharedPreferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        sharedPreferences.getAll().clear();
+        editor.clear();
+        editor.apply();
+    }
+
 }

@@ -110,7 +110,6 @@ public class LoginActivity extends AppCompatActivity {
     public void logOut(){
         sharedPreferences = getSharedPreferences("mySharedPreferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        sharedPreferences.getAll().clear();
         editor.clear();
         editor.apply();
     }

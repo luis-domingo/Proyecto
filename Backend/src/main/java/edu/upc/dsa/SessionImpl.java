@@ -79,7 +79,6 @@ public class SessionImpl implements Session {
         } catch (SQLException | InvocationTargetException | NoSuchMethodException | IllegalAccessException e) {
             e.printStackTrace();
         }
-        logger.info("Salgo de la funcion get");
         return res;
     }
 

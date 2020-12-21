@@ -1,4 +1,4 @@
-package edu.upc.dsa;
+/*package edu.upc.dsa;
 
 import edu.upc.dsa.*;
 
@@ -70,3 +70,4 @@ public class UsuarioManagerImpl implements UsuarioManager{
     }
 
 }
+*/

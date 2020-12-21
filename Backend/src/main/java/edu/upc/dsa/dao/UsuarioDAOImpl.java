@@ -2,8 +2,6 @@ package edu.upc.dsa.dao;
 
 import edu.upc.dsa.FactorySession;
 import edu.upc.dsa.Session;
-import edu.upc.dsa.UsuarioManager;
-import edu.upc.dsa.UsuarioManagerImpl;
 import edu.upc.dsa.models.Usuario;
 import org.apache.log4j.Logger;
 

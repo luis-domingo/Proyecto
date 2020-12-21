@@ -1,4 +1,4 @@
-package edu.upc.dsa;
+/*package edu.upc.dsa;
 
 import edu.upc.dsa.models.Usuario;
 
@@ -19,3 +19,4 @@ public interface UsuarioManager {
     //Leer usuario get v
     //Actualizar? v
 }
+*/

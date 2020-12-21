@@ -2,6 +2,7 @@
 $(document).ready(function(){
 
    $('#loginbutton').click(function(){
+   let usr=document.getElementById("user1").value;
     $.ajax({
        type: 'POST',
        data: JSON.stringify({
@@ -14,12 +15,14 @@ $(document).ready(function(){
        success: function(us) {
             console.log(us.nombre);
             console.log(us.password);
-            alert("Bienvenido, el Betis ganó la Champions por el 2056");
+            alert("Bienvenido de nuevo");
+            localStorage.SetItem('User-name', usr);
             console.log("Bienvenido");
+            window.location.replace("profile.html");
 
        },
        error: function(error){
-            alert("Error al iniciar sesion, en el 2035 se intentó...");
+            alert("Error al iniciar sesion");
             console.log(error);
        }
          })

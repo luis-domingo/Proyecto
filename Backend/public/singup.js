@@ -3,6 +3,7 @@ $(document).ready(function(){
 
     $('#regbutton').click(function(){
         console.log(document.getElementById("user2").value);
+        if (document.getElementById("pass2").value==document.getElementById("pass3").value){
         $.ajax({
             type: "POST",
             data: JSON.stringify({
@@ -15,8 +16,8 @@ $(document).ready(function(){
             success: function (us) {
                 console.log(us.nombre);
                 console.log(us.password);
-                alert("Bienvenido, tambien la gano en 2074");
-                window.location.replace("index.html");
+                alert("Bienvenido a Quantum");
+                window.location.replace("login.html");
                 console.log("Bienvenido");
 
             },
@@ -25,6 +26,8 @@ $(document).ready(function(){
                 alert("Error");
             }*/
             })
+            }else
+                alert("Contraseñas distintas")
 
 
             })

@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
             @SuppressLint("ShowToast")
             @Override
             public void onResponse(Call<Usuario> call, Response<Usuario> response) {
-                if (response.code() == 201) {
+                if (response.code() == 200) {
                     //Tenemos que recoger también el ID del usuario
                     Usuario usuario = response.body();
                     Log.i("grup3", usuario.getNombre());

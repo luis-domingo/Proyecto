@@ -69,7 +69,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         Session session = null;
         ResultSet res = null;
         Usuario a = new Usuario(nombre, password);
-        Usuario u = null;
+        Usuario u = new Usuario();
         logger.info(nombre + " esta intentando iniciar sesion");
         try {
             session = FactorySession.openSession();

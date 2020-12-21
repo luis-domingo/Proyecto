@@ -74,7 +74,6 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         try {
             session = FactorySession.openSession();
             res = (ResultSet)session.get(a);
-            res.next();
             u.setId(res.getString(1));
             u.setNombre(res.getString(2));
             u.setPassword(res.getString(3));

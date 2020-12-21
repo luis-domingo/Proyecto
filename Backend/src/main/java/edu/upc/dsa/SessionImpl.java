@@ -73,9 +73,8 @@ public class SessionImpl implements Session {
 
             logger.info("La query que mando a la BBDD es " + pstm.toString());
             res = pstm.executeQuery();
-            ResultSet res2 = res;
-            res2.next();
-            logger.info("El resultado de la query es: Nombre -> " + res2.getString(2) + " Password -> " + res2.getString(3));
+            res.next();
+            logger.info("El resultado de la query es: Nombre -> " + res.getString(2) + " Password -> " + res.getString(3));
 
         } catch (SQLException | InvocationTargetException | NoSuchMethodException | IllegalAccessException e) {
             e.printStackTrace();

@@ -4,7 +4,7 @@ import edu.upc.dsa.models.Item;
 
 public class ShopItem {
     String name;
-    int price;
+    String price;
     String id;
 
     public String getName() {
@@ -15,11 +15,11 @@ public class ShopItem {
         this.name = name;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

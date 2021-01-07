@@ -11,11 +11,6 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/nav_chat"
-        android:name="com.example.loginregister.ui.chat.ChatFragment"
-        android:label="@string/menu_chat"
-        tools:layout="@layout/fragment_chat" />
-    <fragment
         android:id="@+id/nav_forum"
         android:name="com.example.loginregister.ui.forum.ForumFragment"
         android:label="@string/menu_forum"

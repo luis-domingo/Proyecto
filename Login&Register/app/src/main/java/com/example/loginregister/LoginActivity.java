@@ -87,6 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Logged in correctly!", Toast.LENGTH_SHORT).show();
                     SharedPreferences.Editor editor = getSharedPreferences("mySharedPreferences", MODE_PRIVATE).edit();
                     editor.putString("Username", username);
+                    editor.putString("ID", usuario.getId());
                     editor.apply();
                     openHomeActivity();
                 } else {

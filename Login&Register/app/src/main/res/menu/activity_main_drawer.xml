@@ -33,10 +33,6 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_friends" />
         <item
-            android:id="@+id/nav_chat"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_chat" />
-        <item
             android:id="@+id/nav_logOut"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_logOut" />

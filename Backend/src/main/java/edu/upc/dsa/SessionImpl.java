@@ -96,11 +96,9 @@ public class SessionImpl implements Session {
             while (res.next()){
                 logger.info("La BBDD me devuelve" + res.getString(2));
                 String[] fields = ObjectHelper.getFields(entity);
-                for (String field : fields) {
-                    for (int k = 1; k < rsmd.getColumnCount() + 1; k++) {
-                        ObjectHelper.setter(entity, field, res.getString(k));
-                        logger.info(res.getString(k).toString());
-                    }
+                for (int k = 1; k < rsmd.getColumnCount() + 1; k++) {
+                    ObjectHelper.setter(entity, fields[k], res.getString(k));
+                    logger.info(res.getString(k).toString());
                 }
                 result.add(entity);
             }

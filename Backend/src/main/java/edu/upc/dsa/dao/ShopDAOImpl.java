@@ -23,10 +23,10 @@ public class ShopDAOImpl implements ShopDAO{
         return instance;
     }
 
-    public LinkedList<ShopItem> getShopItems() throws SQLException {
+    public List<ShopItem> getShopItems() throws SQLException {
         Session session = null;
         ShopItem a = new ShopItem();
-        LinkedList<ShopItem> list = new LinkedList<ShopItem>();
+        List<ShopItem> list = new LinkedList<ShopItem>();
         logger.info("Alguien esta intentando ver la tienda");
         try {
             session = FactorySession.openSession();

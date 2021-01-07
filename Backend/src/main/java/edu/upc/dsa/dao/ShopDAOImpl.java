@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class ShopDAOImpl implements ShopDAO{
     public List<ShopItem> getShopItems() throws SQLException {
         Session session = null;
         ShopItem a = new ShopItem();
-        List<ShopItem> list = new LinkedList<ShopItem>();
+        List<ShopItem> list = new ArrayList<ShopItem>();
         logger.info("Alguien esta intentando ver la tienda");
         try {
             session = FactorySession.openSession();

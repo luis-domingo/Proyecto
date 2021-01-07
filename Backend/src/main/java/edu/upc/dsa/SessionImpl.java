@@ -99,7 +99,7 @@ public class SessionImpl implements Session {
                 String[] fields = ObjectHelper.getFields(entity);
                 Object ent = new Object();
                 for (String field : fields) {
-                    for (int k = 0; k < rsmd.getColumnCount(); k++) {
+                    for (int k = 1; k < rsmd.getColumnCount() + 1; k++) {
                         ObjectHelper.setter(ent, field, res.getString(k));
                     }
                 }

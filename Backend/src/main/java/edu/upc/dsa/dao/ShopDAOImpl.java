@@ -27,6 +27,7 @@ public class ShopDAOImpl implements ShopDAO{
     public ShopItem[] getShopItems() throws SQLException {
         Session session = null;
         ShopItem a = new ShopItem();
+        ShopItem[] lista = new ShopItem[10];
         LinkedList<ShopItem> list = new LinkedList<ShopItem>();
         logger.info("Alguien esta intentando ver la tienda");
         try {
@@ -40,7 +41,7 @@ public class ShopDAOImpl implements ShopDAO{
         finally {
             session.close();
         }
-        return list;
+        return lista;
     }
 
 }

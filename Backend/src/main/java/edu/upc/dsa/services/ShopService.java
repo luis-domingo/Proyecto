@@ -34,9 +34,12 @@ public class ShopService {
     @Path("/listObjects")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getItems() throws SQLException {
-        List<ShopItem> list = manshop.getShopItems();
-        if (list != null) {
-            return Response.status(200).entity(list).build();
+        ShopItem[] items = new ShopItem[50];
+        for(int j = 0; j < manshop.getShopItems().size(); j++){
+            items[j] = manshop.getShopItems().get(j);
+        }
+        if (items != null) {
+            return Response.status(200).entity(items).build();
         } else {
             return Response.status(404).entity(null).build();
         }

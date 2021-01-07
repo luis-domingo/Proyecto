@@ -4,14 +4,13 @@ package edu.upc.dsa.services;
 import edu.upc.dsa.dao.ShopDAO;
 import edu.upc.dsa.dao.ShopDAOImpl;
 import edu.upc.dsa.models.*;
-import edu.upc.dsa.models.Usuario;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+import javax.json.JsonArray;
+import javax.json.JsonArrayBuilder;
 import javax.ws.rs.*;
-import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.sql.SQLException;
@@ -35,7 +34,7 @@ public class ShopService {
     @Path("/listObjects")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getItems() throws SQLException {
-        List<ShopItem> list = this.manshop.getShopItems();
+        List<ShopItem> list = new LinkedList<ShopItem>();
         if (list != null) {
             return Response.status(200).entity(list).build();
         } else {

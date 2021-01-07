@@ -33,7 +33,7 @@ public class ShopService {
     })
 
     @Path("/listObjects")
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response getItems() throws SQLException {
         List<ShopItem> list = this.manshop.getShopItems();
         if (list != null) {

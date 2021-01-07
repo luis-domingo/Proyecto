@@ -36,7 +36,11 @@ public class ShopService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getItems() throws SQLException {
         LinkedList<ShopItem> list = this.manshop.getShopItems();
-        return Response.status(200).entity(list).build();
+        if (list != null) {
+            return Response.status(200).entity(list).build();
+        } else {
+            return Response.status(404).entity(null).build();
+        }
     }
 /*
     @POST

@@ -98,7 +98,7 @@ public class SessionImpl implements Session {
                 String[] fields = ObjectHelper.getFields(entity);
                 for (int k = 1; k < rsmd.getColumnCount() + 1; k++) {
                     ObjectHelper.setter(entity, fields[k], res.getString(k));
-                    logger.info(res.getString(k).toString());
+                    logger.info(res.getString(k));
                 }
                 result.add(entity);
             }

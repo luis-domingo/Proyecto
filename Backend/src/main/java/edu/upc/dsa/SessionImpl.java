@@ -84,6 +84,7 @@ public class SessionImpl implements Session {
     }
 
     public LinkedList<Object> findAllItems(Object entity) {
+        logger.info("Retrieving information from " + entity.getClass().getSimpleName()));
         String selectQuery = QueryHelper.createQuerySELECTALL(entity.getClass().getSimpleName());
         ResultSet res = null;
         PreparedStatement pstm = null;

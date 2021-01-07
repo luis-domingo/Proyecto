@@ -35,7 +35,7 @@ public class ShopService {
     @Path("/listObjects")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response getItems() throws SQLException {
-        LinkedList<ShopItem> list = this.manshop.getShopItems();
+        List<ShopItem> list = this.manshop.getShopItems();
         if (list != null) {
             return Response.status(200).entity(list).build();
         } else {

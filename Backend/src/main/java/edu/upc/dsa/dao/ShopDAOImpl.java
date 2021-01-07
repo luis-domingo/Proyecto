@@ -2,13 +2,10 @@ package edu.upc.dsa.dao;
 
 import edu.upc.dsa.FactorySession;
 import edu.upc.dsa.Session;
-import edu.upc.dsa.models.Item;
 import edu.upc.dsa.models.ShopItem;
-import edu.upc.dsa.models.Usuario;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;

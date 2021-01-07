@@ -34,7 +34,7 @@ public class ShopService {
     @Path("/listObjects")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getItems() throws SQLException {
-        List<ShopItem> list = new LinkedList<ShopItem>();
+        List<ShopItem> list = manshop.getShopItems();
         if (list != null) {
             return Response.status(200).entity(list).build();
         } else {

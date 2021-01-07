@@ -94,7 +94,7 @@ public class SessionImpl implements Session {
             pstm = conn.prepareStatement(selectQuery);
             logger.info("La query que mando a la BBDD es " + pstm.toString());
             res = pstm.executeQuery();
-            logger.info("La BBDD me devuelve" + res.toString());
+            logger.info("La BBDD me devuelve" + res.getString(2));
             ResultSetMetaData rsmd = res.getMetaData();
             while (res.next()){
                 String[] fields = ObjectHelper.getFields(entity);

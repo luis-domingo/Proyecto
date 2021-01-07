@@ -1,14 +1,15 @@
 package edu.upc.dsa;
+import edu.upc.dsa.models.Item;
 import edu.upc.dsa.util.ObjectHelper;
 import edu.upc.dsa.util.QueryHelper;
 import org.apache.log4j.Logger;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 public class SessionImpl implements Session {
@@ -35,13 +36,6 @@ public class SessionImpl implements Session {
                 pstm.setObject(i,ObjectHelper.getter(entity, field));
                 i++;
             }
-
-
-            /*for(i=0; i< ObjectHelper.getFields(entity).length; i++){
-                String field = ObjectHelper.getFields(entity)[i];
-                logger.info(field);
-                pstm.setObject(i, ObjectHelper.getter(entity, field));
-            }*/
 
             pstm.executeQuery();
 
@@ -74,7 +68,6 @@ public class SessionImpl implements Session {
             logger.info("La query que mando a la BBDD es " + pstm.toString());
             res = pstm.executeQuery();
             res.next();
-            logger.info("El resultado de la query es: Nombre -> " + res.getString(2) + " Password -> " + res.getString(3));
 
         } catch (SQLException | InvocationTargetException | NoSuchMethodException | IllegalAccessException e) {
             e.printStackTrace();
@@ -90,8 +83,31 @@ public class SessionImpl implements Session {
 
     }
 
-    public List<Object> findAll(Class theClass) {
-        return null;
+    public LinkedList<Object> findAllItems(Object entity) {
+        String selectQuery = QueryHelper.createQuerySELECTALL(entity.getClass().getSimpleName());
+        ResultSet res = null;
+        PreparedStatement pstm = null;
+        LinkedList<Object> result = new LinkedList<Object>();
+        logger.info("Voy a preparar la frase a introducir en la BBDD");
+        try {
+            pstm = conn.prepareStatement(selectQuery);
+            logger.info("La query que mando a la BBDD es " + pstm.toString());
+            res = pstm.executeQuery();
+            ResultSetMetaData rsmd = res.getMetaData();
+            while (res.next()){
+                String[] fields = ObjectHelper.getFields(entity);
+                Object ent = new Object();
+                for (String field : fields) {
+                    for (int k = 0; k < rsmd.getColumnCount(); k++) {
+                        ObjectHelper.setter(ent, field, res.getString(k));
+                    }
+                }
+                result.add(ent);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     public List<Object> findAll(Class theClass, HashMap params) {

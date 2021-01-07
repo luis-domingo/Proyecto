@@ -58,5 +58,12 @@ public class QueryHelper {
         return sb.toString();
     }
 
+    public static String createQuerySELECTALL(Object entity){
+        StringBuffer sb = new StringBuffer();
+        sb.append("SELECT * FROM ").append(entity.getClass().getSimpleName());
+        logger.info(sb.toString());
+        return sb.toString();
+    }
+
 
 }

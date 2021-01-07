@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-public interface Session<E> {
+public interface Session {
     void save(Object entity);
     void close() throws SQLException;
     Object get(Object entity);

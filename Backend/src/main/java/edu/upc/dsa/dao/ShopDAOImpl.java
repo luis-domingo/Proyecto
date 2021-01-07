@@ -23,7 +23,6 @@ public class ShopDAOImpl implements ShopDAO{
         if (instance==null) instance = new ShopDAOImpl();
         return instance;
     }
-
     public List<ShopItem> getShopItems() throws SQLException {
         Session session = null;
         ShopItem a = new ShopItem();

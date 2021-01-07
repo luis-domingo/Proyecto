@@ -11,7 +11,7 @@ public interface Session<E> {
     Object get(Object entity);
     void update(Object object);
     void delete(Object object);
-    LinkedList<Object> findAllItems(Object entity);
+    List<Object> findAllItems(Object entity);
     List<Object> findAll(Class theClass, HashMap params);
     List<Object> query(String query, Class theClass, HashMap params);
 }

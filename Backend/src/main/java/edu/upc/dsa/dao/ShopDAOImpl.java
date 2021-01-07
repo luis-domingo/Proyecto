@@ -28,12 +28,10 @@ public class ShopDAOImpl implements ShopDAO{
         Session session = null;
         ShopItem a = new ShopItem();
         ShopItem[] lista = new ShopItem[10];
-        LinkedList<ShopItem> list = new LinkedList<ShopItem>();
         logger.info("Alguien esta intentando ver la tienda");
         try {
             session = FactorySession.openSession();
             logger.info(session.findAllItems(a).toString());
-            logger.info(list.toString());
         }
         catch (IOException e) {
             logger.warn("Exception message: "  + e.getMessage());

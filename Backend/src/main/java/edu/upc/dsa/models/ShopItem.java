@@ -3,6 +3,7 @@ package edu.upc.dsa.models;
 import edu.upc.dsa.models.Item;
 
 public class ShopItem {
-    Item item;
+    String name;
     int price;
+    String id;
 }

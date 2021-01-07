@@ -31,7 +31,8 @@ public class ShopDAOImpl implements ShopDAO{
         logger.info("Alguien esta intentando ver la tienda");
         try {
             session = FactorySession.openSession();
-            logger.info(session.findAllItems(a).toString());
+            session.findAllItems(a).toArray(lista);
+            logger.info(lista[0].toString());
         }
         catch (IOException e) {
             logger.warn("Exception message: "  + e.getMessage());

@@ -30,4 +30,13 @@ public class ShopItem {
     public void setId(String id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        return "ShopItem{" +
+                "name='" + name + '\'' +
+                ", price='" + price + '\'' +
+                ", id='" + id + '\'' +
+                '}';
+    }
 }

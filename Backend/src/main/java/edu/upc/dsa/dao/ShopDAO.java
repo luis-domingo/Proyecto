@@ -8,6 +8,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public interface ShopDAO {
-    public ShopItem[] getShopItems() throws SQLException;
+    public List<ShopItem> getShopItems() throws SQLException;
 
 }

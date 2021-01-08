@@ -4,6 +4,7 @@ import edu.upc.dsa.util.ObjectHelper;
 import edu.upc.dsa.util.QueryHelper;
 import org.apache.log4j.Logger;
 
+import javax.ws.rs.core.GenericEntity;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.HashMap;
@@ -81,26 +82,26 @@ public class SessionImpl implements Session {
 
     }
 
-    public LinkedList<Object> findAllItems(Object entity) {
+    public <theClass> List<theClass> findAllItems(Object entity) {
         logger.info("Retrieving information from " + entity.getClass().getSimpleName());
         String selectQuery = QueryHelper.createQuerySELECTALL(entity);
         ResultSet res = null;
         PreparedStatement pstm = null;
-        LinkedList<Object> result = new LinkedList<Object>();
+        List<theClass> result = new LinkedList<>();
         logger.info("Voy a preparar la frase a introducir en la BBDD");
         try {
             pstm = conn.prepareStatement(selectQuery);
             logger.info("La query que mando a la BBDD es " + pstm.toString());
             res = pstm.executeQuery();
             ResultSetMetaData rsmd = res.getMetaData();
-            while (res.next()){
+            while (res.next()) {
                 logger.info("La BBDD me devuelve " + res.getString(2));
                 String[] fields = ObjectHelper.getFields(entity);
                 for (int k = 0; k < rsmd.getColumnCount(); k++) {
                     ObjectHelper.setter(entity, fields[k], res.getString(k+1));
                     logger.info(res.getString(k+1));
                 }
-                result.add(entity);
+                result.add((theClass) entity);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -115,4 +116,5 @@ public class SessionImpl implements Session {
     public List<Object> query(String query, Class theClass, HashMap params) {
         return null;
     }
+
 }

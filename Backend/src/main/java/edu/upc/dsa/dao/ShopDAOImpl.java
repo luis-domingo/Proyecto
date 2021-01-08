@@ -24,15 +24,15 @@ public class ShopDAOImpl implements ShopDAO{
         if (instance==null) instance = new ShopDAOImpl();
         return instance;
     }
-    public ShopItem[] getShopItems() throws SQLException {
+    public List<ShopItem> getShopItems() throws SQLException {
         Session session = null;
         ShopItem a = new ShopItem();
-        ShopItem[] lista = new ShopItem[10];
+        List<ShopItem> lista = new LinkedList<>();
         logger.info("Alguien esta intentando ver la tienda");
         try {
             session = FactorySession.openSession();
-            session.findAllItems(a).toArray(lista);
-            logger.info(lista[0].toString());
+            lista = session.findAllItems(a);
+            logger.info(lista.get(0).toString());
         }
         catch (IOException e) {
             logger.warn("Exception message: "  + e.getMessage());

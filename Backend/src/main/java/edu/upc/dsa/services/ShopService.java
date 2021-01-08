@@ -8,14 +8,14 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponses;
 
-import javax.json.JsonArray;
-import javax.json.JsonArrayBuilder;
 import javax.ws.rs.*;
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
+
 
 @Api(value = "/shop", description = "Endpoint to Track Service")
 @Path("/shop")
@@ -34,10 +34,11 @@ public class ShopService {
     @Path("/listObjects")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getItems() throws SQLException {
-        ShopItem[] items;
+        List<ShopItem> items = new LinkedList<ShopItem>();
         items = manshop.getShopItems();
-        if (items != null) {
-            return Response.status(200).entity(items).build();
+        GenericEntity<List<ShopItem>> body = new GenericEntity<List<ShopItem>>(items){};
+        if (body != null) {
+            return Response.status(200).entity(body).build();
         } else {
             return Response.status(404).entity(null).build();
         }

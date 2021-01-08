@@ -36,7 +36,7 @@ public class ShopFragment extends Fragment {
 
     private ShopViewModel shopViewModel;
     APIInterface apiIface;
-    LinkedList<ShopItem> productList = new LinkedList<ShopItem>();
+    LinkedList<ShopItem> productList = new LinkedList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         apiIface = APIClient.getClient().create(APIInterface.class);

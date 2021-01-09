@@ -11,13 +11,23 @@
         android:id="@+id/shopItemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="40sp" />
+        android:paddingRight="15dp"
+        android:textSize="30sp" />
 
-    <ImageView
-        android:id="@+id/shopItemImage"
+    <TextView
+        android:id="@+id/shopItemPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:paddingRight="15dp"
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/shopItemImage"
+        android:layout_width="70dp"
+        android:layout_height="100dp"
+        android:layout_weight="1"
+        android:paddingRight="10dp"
         app:srcCompat="?attr/editTextBackground" />
 
 </LinearLayout>

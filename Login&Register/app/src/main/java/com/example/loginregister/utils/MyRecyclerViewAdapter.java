@@ -1,13 +1,9 @@
 package com.example.loginregister.utils;
 
-import android.content.ContentResolver;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
-import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +16,6 @@ import com.example.loginregister.R;
 import com.example.loginregister.ShopItem;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,6 +24,7 @@ import java.util.List;
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
     List<ShopItem> productList = new LinkedList<>();
     Context context;
+
 
     public MyRecyclerViewAdapter(Context context, List<ShopItem> productList) {
         this.productList = productList;
@@ -50,32 +45,29 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
 
         viewHolder.txtViewTitle.setText(productList.get(position).getName());
-        Resources resources = context.getResources();
-        int drawableResourceId = context.getResources().getIdentifier(productList.get(position).getIdString(), "drawable", "com.example.loginregister");
-        URL url = null;
+        Log.i("grup3", String.valueOf(productList.get(position).getPrice()));
+        viewHolder.txtViewPrice.setText(String.valueOf(productList.get(position).getPrice()));
+        //Bitmap bmp = BitmapFactory.decodeFile("@drawable://item" + productList.get(position).getIdString());
         try {
-            url = new URL("147.83.7.205/images/" + productList.get(position).getIdString() + ".jpg");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
+            URL url = new URL("http://147.83.7.205:8080/" + productList.get(position).getIdString() + ".jpg");
+            Bitmap image = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+            viewHolder.imgViewIcon.setImageBitmap(image);
+        } catch(IOException e) {
+            System.out.println(e);
         }
-        Bitmap bmp = null;
-        try {
-            bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        viewHolder.imgViewIcon.setImageBitmap(bmp);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView txtViewTitle;
         public ImageView imgViewIcon;
+        public TextView txtViewPrice;
 
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
             txtViewTitle = (TextView) itemLayoutView.findViewById(R.id.shopItemName);
             imgViewIcon = (ImageView) itemLayoutView.findViewById(R.id.shopItemImage);
+            txtViewPrice = (TextView) itemLayoutView.findViewById(R.id.shopItemPrice);
         }
     }
 

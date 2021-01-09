@@ -12,17 +12,21 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loginregister.APIClient;
 import com.example.loginregister.APIInterface;
-import com.example.loginregister.Item;
 import com.example.loginregister.R;
 import com.example.loginregister.ShopItem;
 import com.example.loginregister.Usuario;
+import com.example.loginregister.utils.MyRecyclerViewAdapter;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -32,11 +36,12 @@ import retrofit2.Response;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class ShopFragment extends Fragment {
+public class ShopFragment extends Fragment{
 
     private ShopViewModel shopViewModel;
     APIInterface apiIface;
-    LinkedList<ShopItem> productList = new LinkedList<>();
+    List<ShopItem> productList = new LinkedList<>();
+    MyRecyclerViewAdapter adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         apiIface = APIClient.getClient().create(APIInterface.class);
@@ -48,7 +53,12 @@ public class ShopFragment extends Fragment {
             @Override
             public void onResponse(Call<List<ShopItem>> call, Response<List<ShopItem>> response) {
                 if (response.code() == 200){
-                    productList = (LinkedList<ShopItem>)response.body();
+                    Log.d("INFO", "onResponse: " + response.body());
+                    productList = response.body();
+                    RecyclerView recyclerView = (RecyclerView)getView().findViewById(R.id.productsTable);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                    adapter = new MyRecyclerViewAdapter(getContext(), productList);
+                    recyclerView.setAdapter(adapter);
                 }
                 else{
                     Toast.makeText(getContext(), "Error when connecting to the shop.", Toast.LENGTH_SHORT).show();
@@ -70,4 +80,5 @@ public class ShopFragment extends Fragment {
 
         return root;
     }
+    
 }

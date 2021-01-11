@@ -10,11 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.Map;
-import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -109,7 +105,6 @@ public class LoginActivity extends AppCompatActivity {
     public void openHomeActivity(){
         Intent homeActivity = new Intent(this, HomeActivity_NavView.class);
         homeActivity.putExtra("username", this.username);
-        //homeActivity.putExtra("ID", this.id);
         startActivity(homeActivity);
     }
     public void logOut(){

@@ -1,10 +1,6 @@
 package com.example.loginregister;
 
 
-import android.net.Uri;
-
-import java.io.InputStream;
-
 public class ShopItem {
     String name;
     int price;

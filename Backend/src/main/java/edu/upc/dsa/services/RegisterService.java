@@ -48,11 +48,10 @@ public class RegisterService {
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response login(Usuario usuario) throws SQLException {
-        //Usuario u = this.manager.getUsuario(usuario.getNombre(), usuario.getPassword());
         Usuario u = this.manuser.getUsuario(usuario.getNombre(), usuario.getPassword());
         logger.info("El usuario que envio es " + u.toString());
         if (u!=null) {
-            return Response.status(200).entity(usuario).build();
+            return Response.status(200).entity(u).build();
         } else {
             return Response.status(404).entity(null).build();
         }

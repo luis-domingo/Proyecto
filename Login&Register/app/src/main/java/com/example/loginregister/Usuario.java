@@ -38,7 +38,7 @@ public class Usuario {
     }
 
     //User Constructor
-    public Usuario(String nombre, String password, String email, String id){
+    public Usuario(String nombre, String password, String id){
         this.nombre = nombre;
         this.password = password;
         this.id=id;

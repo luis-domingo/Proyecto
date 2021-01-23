@@ -96,8 +96,8 @@ public class SessionImpl implements Session {
             logger.info("La query que mando a la BBDD es " + pstm.toString());
             res = pstm.executeQuery();
             ResultSetMetaData rsmd = res.getMetaData();
-            Object entity = theClass.getDeclaredConstructor().newInstance();
             while (res.next()) {
+                Object entity = theClass.getDeclaredConstructor().newInstance();
                 logger.info("La BBDD me devuelve " + res.getString(2));
                 String[] fields = ObjectHelper.getFields(entity);
                 for (int k = 0; k < rsmd.getColumnCount(); k++) {

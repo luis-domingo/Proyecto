@@ -60,13 +60,6 @@ public class QueryHelper {
         return sb.toString();
     }
 
-    /*public static String createQuerySELECTALL(Class theClass){
-        StringBuffer sb = new StringBuffer();
-        sb.append("SELECT * FROM ").append(theClass.getSimpleName());
-        logger.info(sb.toString());
-        return sb.toString();
-    }*/
-
     public static String createQuerySELECTALL(Class theClass, HashMap<String, String> params){
         StringBuffer sb = new StringBuffer();
         sb.append("SELECT * FROM ").append(theClass.getSimpleName());

@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class ShopDAOImpl implements ShopDAO{
         logger.info("Alguien esta intentando ver la tienda");
         try {
             session = FactorySession.openSession();
-            lista = session.findAllItems(a.getClass());
+            lista = session.findAllItems(a.getClass(), new HashMap<String, String>());
             logger.info(lista.toString());
         }
         catch (IOException e) {

@@ -43,7 +43,7 @@ public class InventoryService {
         GenericEntity<List<UserItem>> body = new GenericEntity<List<UserItem>>(items){};
         logger.info(body);
         if (body != null) {
-            logger.info(Response.status(200).entity(body).toString());
+            logger.info(Response.status(200).entity(body).build().toString());
             return Response.status(200).entity(body).build();
         } else {
             return Response.status(404).entity(null).build();

@@ -1,152 +1,156 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Player : MovingObject {
+public class Player : MovingObject
+{
 
-	public int wallDamage = 1;
-	public int pointsPerStar = 10;
-	public int lifeRestore=1;
+
+	public int pointsCrystals = 10;
+	public int pointsPills = 20;
+	public int pointsDamage = 5;
 	public float restartLevelDelay = 1f;
-	public Text healthText;
-	public Text starText;
-	public AudioClip moveSound1;
-	public AudioClip moveSound2;
-	public AudioClip drinkSound1;
-	public AudioClip drinkSound2;
-	public AudioClip gameOverSound;
+	public Text CrystalsText;
+	public Text HealthText;
+//	public AudioClip moveSound1;
+//	public AudioClip moveSound2;
+//	public AudioClip eatSound1;
+//	public AudioClip eatSound2;
+//	public AudioClip drinkSound1;
+//	public AudioClip drinkSound2;
+//	public AudioClip gameOverSound;
 
 	private Animator animator;
-	private int healthbar;
-	private int stars;
+	private SpriteRenderer spriteRenderer;
+	private int Crystals;
+	private int Health;
 	private Vector2 touchOrigin = -Vector2.one;
 
 	// Use this for initialization
-	protected override void Start () {
+	protected override void Start()
+	{
 		animator = GetComponent<Animator>();
-
-		food = GameManager.instance.playerFoodPoints;
-
-		healthText.text = "Health " + healthbar;
-		starText.text = "Stars " + stars;
-
+		spriteRenderer = GetComponent<SpriteRenderer>();
+		Crystals = GameManager.instance.playerCrystals;
+		Health = GameManager.instance.playerHealth;
+		//CrystalText.text = "Crystal: " + Crystals;
+		//HealthText.text = "Health: " + Health;
 		base.Start();
 	}
 
-	private void OnDisable() //UPDATEEEEEEEEEEEEEEE
+	private void OnDisable()
 	{
-		GameManager.instance.playerFoodPoints = food;
+		GameManager.instance.playerHealth = Health;
+		GameManager.instance.playerCrystals = Crystals;
 	}
 
+
 	// Update is called once per frame
-	void Update () {
+	void Update()
+	{
 		if (!GameManager.instance.playersTurn) return;
 
 		int horizontal = 0;
 		int vertical = 0;
 
-		#if UNITY_STANDALONE || UNITY_WEBPLAYER
+		#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
 
 		horizontal = (int)Input.GetAxisRaw("Horizontal");
 		vertical = (int)Input.GetAxisRaw("Vertical");
 
 		if (horizontal != 0)
+		{
 			vertical = 0;
+		}
 
 		#else
-		if (Input.touchCount > 0) {
+
+		if(Input.touchCount > 0) {
 		Touch myTouch = Input.touches[0];
-		if (myTouch.phase == TouchPhase.Began)
-		{
+		if(myTouch.phase == TouchPhase.Began) {
 		touchOrigin = myTouch.position;
-		}
-		else if (myTouch.phase == TouchPhase.Ended && touchOrigin.x >= 0) {
+		} else if(myTouch.phase == TouchPhase.Ended && touchOrigin.x >= 0) {
 		Vector2 touchEnd = myTouch.position;
 		float x = touchEnd.x - touchOrigin.x;
 		float y = touchEnd.y - touchOrigin.y;
 		touchOrigin.x = -1;
-		if (Mathf.Abs(x) > Mathf.Abs(y))
-		{
+		if(Mathf.Abs(x) > Mathf.Abs(y)) {
 		horizontal = x > 0 ? 1 : -1;
-		}
-		else
+		} else {
 		vertical = y > 0 ? 1 : -1;
 		}
 		}
 
+		}
+
 		#endif
 
-		if (horizontal != 0 || vertical != 0)
-			AttemptMove<Wall>(horizontal, vertical);
+		if(horizontal < 0)
+		{
+			spriteRenderer.flipX = true;
+		}
+
+		if (horizontal > 0)
+		{
+			spriteRenderer.flipX = false;
+		}
+
+
 	}
 
 	protected override void AttemptMove<T>(int xDir, int yDir)
 	{
-		food--;
-		foodText.text = "Food " + food;
 
 		base.AttemptMove<T>(xDir, yDir);
 
 		RaycastHit2D hit;
-
-		if (Move(xDir, yDir, out hit)) {
-			SoundManager.instance.RandomizeSfx(moveSound1, moveSound2);
+		if(Move(xDir,yDir, out hit)) {
+			//SoundManager.instance.RandomizeSfx(moveSound1, moveSound2);
 		}
-
 		CheckIfGameOver();
 
 		GameManager.instance.playersTurn = false;
 	}
 
-	private void OnTriggerEnter2D(Collider2D other)
-	{
-		if (other.tag == "Exit")
-		{
-			Invoke("Restart", restartLevelDelay);
-			enabled = false;
-		}
-		else if (other.tag == "Food")
-		{
-			food += pointsPerFood;
-			foodText.text = "+" + pointsPerFood + " Food: " + food;
-			SoundManager.instance.RandomizeSfx(eatSound1, eatSound2);
-			other.gameObject.SetActive(false);
-		}
-		else if (other.tag == "Soda") {
-			food += pointsPerSoda;
-			foodText.text = "+" + pointsPerSoda + " Food: " + food;
-			SoundManager.instance.RandomizeSfx(drinkSound1, drinkSound2);
-			other.gameObject.SetActive(false);
-		}
-	}
 
-	protected override void OnCantMove<T>(T component)
+	void OnTriggerEnter2D(Collider2D other)
 	{
-		Wall hitWall = component as Wall;
-		hitWall.DamageWall(wallDamage);
-		animator.SetTrigger("PlayerChop");
+		if(other.tag == "Exit") {
+			Invoke("Restart", restartLevelDelay);
+		} else if(other.tag == "Pills") {
+			Health += pointsPills;
+			//HealthText.text = "+" + pointsPills + " Health: " + Health;
+			//SoundManager.instance.RandomizeSfx(eatSound1, eatSound2);
+			other.gameObject.SetActive(false);
+		} else if(other.tag == "Crystals") {
+			Crystals += pointsCrystals;
+			//CrystalText.text = "+" + pointsCrystals + " Crystals: " + Crystals;
+			//SoundManager.instance.RandomizeSfx(drinkSound2, drinkSound2);
+			other.gameObject.SetActive(false);
+
+		} else if (other.tag =="Damage"){
+			Health -= pointsDamage;
+			//HealthText.text = "-" + pointsDamage + " Health: " + Health;
+			//SoundManager.instance.RandomizeSfx(eatSound1, eatSound2);
+		}
 	}
 
 	private void Restart() {
-		#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
-		Application.LoadLevel(Application.loadedLevel);
-		#pragma warning restore CS0618 // El tipo o el miembro están obsoletos
-		//SceneManager.LoadScene(0);
+		//Application.LoadLevel(Application.loadedLevel);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
-	public void LoseFood(int loss) {
-		animator.SetTrigger("PlayerHit");
-		food -= loss;
-		foodText.text = "-" + loss + " Food: " + food;
-		CheckIfGameOver();
-	}
 
-	private void CheckIfGameOver() {
-		if (food <= 0) {
-			SoundManager.instance.PlaySingle(gameOverSound);
-			SoundManager.instance.musicSource.Stop();
+
+	private void CheckIfGameOver()
+	{
+		if(Health <= 0) {
+			//SoundManager.instance.PlaySingle(gameOverSound);
+			//SoundManager.instance.musicSource.Stop();
 			GameManager.instance.GameOver();
 		}
 	}
+
 }

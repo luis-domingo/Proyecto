@@ -84,7 +84,7 @@ public class BoardManager : MonoBehaviour
 
         map = map.Replace("\r\n", "\n");
         String[] lines = map.Split('\n');
-        String[] size = lines[0].Split();
+        String[] size = lines[0].Split(' ');
         int columns = 29;
         int rows = 29;
 
@@ -93,7 +93,7 @@ public class BoardManager : MonoBehaviour
         {
             for (int x = 0; x < columns; x++)
             {
-                char chr = lines[y + 1][x];
+                char chr = lines[y][x];
                 switch (chr)
                 {
                 case '#': //Outer Wall UPDATE SEGUN LEVEL
@@ -196,8 +196,8 @@ public class BoardManager : MonoBehaviour
     public void intantiateFloor(int x, int y, int rows, int columns)
     {
         GameObject floorToInstatiate = floorTiles[Random.Range(0, floorTiles.Length)];
-        if (x == 1 || x == columns - 2 || y == 2 || y == rows - 1)
-            floorToInstatiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
+        //if (x == 1 || x == columns - 2 || y == 2 || y == rows - 1)
+        //    floorToInstatiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
 		
         GameObject instanceFloor = Instantiate(floorToInstatiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
         instanceFloor.transform.SetParent(boardHolder);

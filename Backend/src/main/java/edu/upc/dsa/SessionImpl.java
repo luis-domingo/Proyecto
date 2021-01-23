@@ -107,6 +107,7 @@ public class SessionImpl implements Session {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        logger.info("La lista que devuelvo es: " + result.toString());
         return result;
     }
 

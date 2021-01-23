@@ -57,7 +57,7 @@ public class SessionImpl implements Session {
             pstm = conn.prepareStatement(selectQuery);
             logger.info(pstm.toString());
 
-            int i = 0;
+            int i = 1;
             String [] fields = ObjectHelper.getFields(entity);
             for(int j = 1; j < fields.length; j++){
                 pstm.setObject(i,ObjectHelper.getter(entity, fields[j]));
@@ -101,7 +101,8 @@ public class SessionImpl implements Session {
                     ObjectHelper.setter(entity, fields[k], res.getString(k+1));
                     logger.info(res.getString(k+1));
                 }
-                result.add((theClass) entity);
+                logger.info("Anado el siguiente elemento a la lista de resultados: " + entity.toString());
+                result.add((theClass)entity);
             }
         } catch (SQLException e) {
             e.printStackTrace();

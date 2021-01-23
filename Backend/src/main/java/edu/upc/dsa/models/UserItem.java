@@ -19,4 +19,12 @@ public class UserItem {
     public void setQuantity(String quantity) {
         this.quantity = Integer.parseInt(quantity);
     }
+
+    @Override
+    public String toString() {
+        return "UserItem{" +
+                "name='" + name + '\'' +
+                ", quantity=" + quantity +
+                '}';
+    }
 }

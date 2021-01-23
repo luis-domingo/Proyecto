@@ -1,5 +1,6 @@
 package com.example.loginregister;
 
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
@@ -17,5 +18,8 @@ public interface APIInterface {
 
     @GET("/dsaApp/shop/listObjects")
     Call<List<ShopItem>> getShopItems();
+
+    @GET("/dsaApp/inventory/listObjects")
+    Call<List<UserItem>> getUserItems(@Body String id);
 
 }

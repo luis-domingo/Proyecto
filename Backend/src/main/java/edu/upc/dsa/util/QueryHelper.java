@@ -3,6 +3,8 @@ package edu.upc.dsa.util;
 import edu.upc.dsa.dao.UsuarioDAOImpl;
 import org.apache.log4j.Logger;
 
+import java.util.HashMap;
+
 public class QueryHelper {
 
     final static Logger logger = Logger.getLogger(QueryHelper.class);
@@ -58,12 +60,23 @@ public class QueryHelper {
         return sb.toString();
     }
 
-    public static String createQuerySELECTALL(Object entity){
+    /*public static String createQuerySELECTALL(Class theClass){
         StringBuffer sb = new StringBuffer();
-        sb.append("SELECT * FROM ").append(entity.getClass().getSimpleName());
+        sb.append("SELECT * FROM ").append(theClass.getSimpleName());
+        logger.info(sb.toString());
+        return sb.toString();
+    }*/
+
+    public static String createQuerySELECTALL(Class theClass, HashMap<String, String> params){
+        StringBuffer sb = new StringBuffer();
+        sb.append("SELECT * FROM ").append(theClass.getSimpleName());
+        if(params.size()!=0){
+            for(String key : params.keySet()) {
+                sb.append(" WHERE ").append(key).append(" = ").append(params.get(key));
+            }
+        }
         logger.info(sb.toString());
         return sb.toString();
     }
-
 
 }

@@ -3,8 +3,10 @@ package edu.upc.dsa;
 import edu.upc.dsa.util.ObjectHelper;
 import edu.upc.dsa.util.QueryHelper;
 import org.apache.log4j.Logger;
+import org.mariadb.jdbc.internal.com.send.parameters.BigDecimalParameter;
 
 import javax.ws.rs.core.GenericEntity;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.HashMap;
@@ -82,9 +84,9 @@ public class SessionImpl implements Session {
 
     }
 
-    public <theClass> List<theClass> findAllItems(Object entity) {
-        logger.info("Retrieving information from " + entity.getClass().getSimpleName());
-        String selectQuery = QueryHelper.createQuerySELECTALL(entity);
+    public <theClass>List<theClass> findAllItems(Class theClass) {
+        logger.info("Retrieving information from " + theClass);
+        String selectQuery = QueryHelper.createQuerySELECTALL(theClass, new HashMap<String, String>());
         ResultSet res = null;
         PreparedStatement pstm = null;
         List<theClass> result = new LinkedList<>();
@@ -95,17 +97,21 @@ public class SessionImpl implements Session {
             res = pstm.executeQuery();
             ResultSetMetaData rsmd = res.getMetaData();
             while (res.next()) {
+                Object entity = theClass.getDeclaredConstructor().newInstance();
                 logger.info("La BBDD me devuelve " + res.getString(2));
                 String[] fields = ObjectHelper.getFields(entity);
                 for (int k = 0; k < rsmd.getColumnCount(); k++) {
                     ObjectHelper.setter(entity, fields[k], res.getString(k+1));
                     logger.info(res.getString(k+1));
                 }
-                result.add((theClass) entity);
+                logger.info("Anado el siguiente elemento a la lista de resultados: " + entity.toString());
+                result.add((theClass)entity);
+                logger.info(result.toString());
             }
-        } catch (SQLException e) {
+        } catch (SQLException | InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
+        logger.info("La lista que devuelvo es: " + result.toString());
         return result;
     }
 

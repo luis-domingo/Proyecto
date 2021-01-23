@@ -40,9 +40,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
-
         apiIface = APIClient.getClient().create(APIInterface.class);
         sharedPreferences = getSharedPreferences("mySharedPreferences", MODE_PRIVATE);
         if(getIntent().getExtras() != null) {

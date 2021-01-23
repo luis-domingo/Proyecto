@@ -99,9 +99,9 @@ public class SessionImpl implements Session {
             Object entity = theClass.getDeclaredConstructor().newInstance();
             while (res.next()) {
                 logger.info("La BBDD me devuelve " + res.getString(2));
-                Field[] fields = theClass.getFields();
+                String[] fields = ObjectHelper.getFields(entity);
                 for (int k = 0; k < rsmd.getColumnCount(); k++) {
-                    ObjectHelper.setter(entity, fields[k].toString(), res.getString(k+1));
+                    ObjectHelper.setter(entity, fields[k], res.getString(k+1));
                     logger.info(res.getString(k+1));
                 }
                 logger.info("Anado el siguiente elemento a la lista de resultados: " + entity.toString());

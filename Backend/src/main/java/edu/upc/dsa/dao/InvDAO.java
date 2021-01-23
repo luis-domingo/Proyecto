@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface InvDAO {
     public List<UserItem> getUserItems(String ID) throws SQLException;
-
 }

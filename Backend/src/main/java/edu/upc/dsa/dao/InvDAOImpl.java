@@ -14,7 +14,7 @@ import java.util.List;
 public class InvDAOImpl implements InvDAO{
     private static InvDAO instance;
 
-    final static Logger logger = Logger.getLogger(ShopDAO.class);
+    final static Logger logger = Logger.getLogger(InvDAO.class);
 
     private InvDAOImpl() {
     }

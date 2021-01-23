@@ -3,7 +3,6 @@ package edu.upc.dsa.services;
 
 import edu.upc.dsa.dao.InvDAO;
 import edu.upc.dsa.dao.InvDAOImpl;
-import edu.upc.dsa.dao.ShopDAOImpl;
 import edu.upc.dsa.models.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

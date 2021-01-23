@@ -7,6 +7,7 @@ import edu.upc.dsa.models.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponses;
+import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
@@ -21,6 +22,8 @@ import java.util.List;
 @Path("/inventory")
 public class InventoryService {
     private InvDAO manInv;
+
+    final static Logger logger = Logger.getLogger(RegisterService.class);
 
     public InventoryService() {
         this.manInv = InvDAOImpl.getInstance();
@@ -38,6 +41,7 @@ public class InventoryService {
         List<UserItem> items = new LinkedList<UserItem>();
         items = manInv.getUserItems(id);
         GenericEntity<List<UserItem>> body = new GenericEntity<List<UserItem>>(items){};
+        logger.info(body);
         if (body != null) {
             return Response.status(200).entity(body).build();
         } else {

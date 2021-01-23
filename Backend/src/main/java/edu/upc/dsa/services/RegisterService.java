@@ -2,19 +2,15 @@ package edu.upc.dsa.services;
 
 import edu.upc.dsa.dao.UsuarioDAO;
 import edu.upc.dsa.dao.UsuarioDAOImpl;
-import edu.upc.dsa.models.*;
 import edu.upc.dsa.models.Usuario;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.sql.SQLException;
-import java.util.List;
 import org.apache.log4j.Logger;
 
 

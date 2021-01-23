@@ -4,7 +4,7 @@ package com.example.loginregister;
 public class ShopItem {
     String name;
     int price;
-    int id;
+    int ID;
 
     public String getName() {
         return name;
@@ -23,15 +23,15 @@ public class ShopItem {
     }
 
     public int getId() {
-        return id;
+        return ID;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.ID = id;
     }
 
     public String getIdString() {
-        return String.valueOf(id);
+        return String.valueOf(ID);
     }
 
 }

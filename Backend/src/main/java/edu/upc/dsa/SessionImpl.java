@@ -84,9 +84,9 @@ public class SessionImpl implements Session {
 
     }
 
-    public <theClass>List<theClass> findAllItems(Class theClass) {
+    public <theClass>List<theClass> findAllItems(Class theClass, HashMap hash) {
         logger.info("Retrieving information from " + theClass);
-        String selectQuery = QueryHelper.createQuerySELECTALL(theClass, new HashMap<String, String>());
+        String selectQuery = QueryHelper.createQuerySELECTALL(theClass, hash);
         ResultSet res = null;
         PreparedStatement pstm = null;
         List<theClass> result = new LinkedList<>();

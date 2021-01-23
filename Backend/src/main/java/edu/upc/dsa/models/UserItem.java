@@ -2,7 +2,7 @@ package edu.upc.dsa.models;
 
 public class UserItem {
     String name;
-    int quantity;
+    String quantity;
 
     public String getName() {
         return name;
@@ -12,12 +12,12 @@ public class UserItem {
         this.name = name;
     }
 
-    public int getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 
     public void setQuantity(String quantity) {
-        this.quantity = Integer.parseInt(quantity);
+        this.quantity = quantity;
     }
 
     @Override

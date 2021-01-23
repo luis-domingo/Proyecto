@@ -20,8 +20,8 @@ public class BoardManager : MonoBehaviour
             maximum = max;
         }
     }
-    public int columns = 30;
-    public int rows = 30;
+    public int columns = 29;
+    public int rows = 29;
     public GameObject exit;
     public GameObject[] floorTiles;
     public GameObject[] items; //crystals,pills,pista
@@ -84,7 +84,7 @@ public class BoardManager : MonoBehaviour
 
         map = map.Replace("\r\n", "\n");
         String[] lines = map.Split('\n');
-        String[] size = lines[0].Split(' ');
+        String[] size = lines[0].Split();
         int columns = 29;
         int rows = 29;
 

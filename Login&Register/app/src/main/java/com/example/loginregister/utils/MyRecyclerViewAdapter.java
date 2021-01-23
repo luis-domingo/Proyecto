@@ -20,6 +20,8 @@ import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.squareup.picasso.Picasso;
+
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
     List<ShopItem> productList = new LinkedList<>();
@@ -46,14 +48,18 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         viewHolder.txtViewTitle.setText(productList.get(position).getName());
         Log.i("grup3", String.valueOf(productList.get(position).getPrice()));
         viewHolder.txtViewPrice.setText(String.valueOf(productList.get(position).getPrice()));
+        Picasso.get().load("http://147.83.7.205:8080/" + productList.get(position).getIdString() + ".jpg").into(viewHolder.imgViewIcon);
+        /*
         //Bitmap bmp = BitmapFactory.decodeFile("@drawable://item" + productList.get(position).getIdString());
         try {
             URL url = new URL("http://147.83.7.205:8080/" + productList.get(position).getIdString() + ".jpg");
             Bitmap image = BitmapFactory.decodeStream(url.openConnection().getInputStream());
             viewHolder.imgViewIcon.setImageBitmap(image);
+
         } catch(IOException e) {
             System.out.println(e);
         }
+        */
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

@@ -19,8 +19,8 @@ public class UserItem {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setQuantity(String quantity) {
+        this.quantity = Integer.parseInt(quantity);
     }
 
     public String getId() {

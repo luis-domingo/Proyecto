@@ -27,7 +27,7 @@ public class InventoryService {
         this.manInv = InvDAOImpl.getInstance();
     }
 
-    @GET
+    @POST
     @ApiOperation(value = "Get Inventory Items", notes = "")
     @ApiResponses(value = {
     })

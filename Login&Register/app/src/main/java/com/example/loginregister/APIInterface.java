@@ -19,7 +19,7 @@ public interface APIInterface {
     @GET("/dsaApp/shop/listObjects")
     Call<List<ShopItem>> getShopItems();
 
-    @GET("/dsaApp/inventory/listObjects")
+    @POST("/dsaApp/inventory/listObjects")
     Call<List<UserItem>> getUserItems(@Body String id);
 
 }

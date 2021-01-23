@@ -6,6 +6,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface InvDAO {
-    public List<UserItem> getUserItems() throws SQLException;
+    public List<UserItem> getUserItems(String ID) throws SQLException;
 
 }

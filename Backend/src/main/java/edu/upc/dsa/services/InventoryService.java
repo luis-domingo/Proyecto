@@ -34,9 +34,10 @@ public class InventoryService {
 
     @Path("/listObjects")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getItems() throws SQLException {
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response getItems(String id) throws SQLException {
         List<UserItem> items = new LinkedList<UserItem>();
-        items = manInv.getUserItems();
+        items = manInv.getUserItems(id);
         GenericEntity<List<UserItem>> body = new GenericEntity<List<UserItem>>(items){};
         if (body != null) {
             return Response.status(200).entity(body).build();

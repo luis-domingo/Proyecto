@@ -96,7 +96,7 @@ public class SessionImpl implements Session {
             logger.info("La query que mando a la BBDD es " + pstm.toString());
             res = pstm.executeQuery();
             ResultSetMetaData rsmd = res.getMetaData();
-            Object entity = theClass.getDeclaredConstructors()[1].newInstance();
+            Object entity = theClass.getDeclaredConstructor().newInstance();
             while (res.next()) {
                 logger.info("La BBDD me devuelve " + res.getString(2));
                 Field[] fields = theClass.getFields();
@@ -108,7 +108,7 @@ public class SessionImpl implements Session {
                 result.add((theClass)entity);
                 logger.info(result.toString());
             }
-        } catch (SQLException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+        } catch (SQLException | InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
         logger.info("La lista que devuelvo es: " + result.toString());

@@ -33,16 +33,18 @@ public class ObjectHelper {
         String method = "set" + property.substring(0, 1).toUpperCase() + property.substring(1);
         //Cogemos la clase
         Class classType = value.getClass();
-
-        try {
-            //Creamos el setter
-            Method setter = Class.forName(className).getDeclaredMethod(method,classType);
-            //Lo invocamos
-            setter.invoke(object, value);
-        }
-
-        catch (Exception e) {
-            e.printStackTrace();
+        Field[] fields = object.getClass().getFields();
+        for (Field field : fields) {
+            if (field.toString().equals(property)) {
+                try {
+                    //Creamos el setter
+                    Method setter = Class.forName(className).getDeclaredMethod(method, classType);
+                    //Lo invocamos
+                    setter.invoke(object, value);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 

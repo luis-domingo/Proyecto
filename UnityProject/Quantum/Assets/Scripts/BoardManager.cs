@@ -27,9 +27,9 @@ public class BoardManager : MonoBehaviour
 	public GameObject[] items; //crystals,pills,pista
 	public GameObject[] innerwallTiles;
 	public GameObject[] outerWallTiles;
-	public GameObject[] floorDamage;
 	public GameObject[] signals;
 	public GameObject player;
+    public GameObject exit;
 
 	private GameObject mainCamera;
 
@@ -49,44 +49,47 @@ public class BoardManager : MonoBehaviour
 		boardHolder.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
 		GameObject playerinstance = new GameObject("Player");
 
-		String map = 
-			 "#############################\r\n"
-			+ "#CI          P    I       IH#\r\n" 
-			+ "# I IIIIIIIIIMIIIII IIIII I #\r\n"
-			+ "# I I   I   I I     I I I I #\r\n"
-			+ "# IIIII I III I IIIII I I I #\r\n"
-			+ "#   I I I   I   I       I   #\r\n"
-			+ "#II I I I I III I IIIII IIII#\r\n"
-			+ "#  O  I I I I I   I   I     #\r\n"
-			+ "# I III III I I III I IIIIII#\r\n"
-			+ "# I     I     I   ICI I I   #\r\n"
-			+ "# IIIII I IIIIIII III I III #\r\n"
-			+ "#     I          O          #\r\n"
-			+ "# III IIIII IIIII IIIIIII II#\r\n"
-			+ "#   I   I   I  CI   I   I   #\r\n"  
-			+ "#II III III I IIIII I I III #\r\n"
-			+ "#   I   I IHI I ICI I I   IC#\r\n"
-			+ "# I IIIII III I I III III II#\r\n"
-			+ "# I I   I   I I I I     I   #\r\n"
-			+ "# III I I III I I I III III #\r\n"
-			+ "# I   I  T  I I     I     I #\r\n"
-			+ "# I III I I I I IIIIIII III #\r\n"
-			+ "#     I I I   I   I   I IC  #\r\n"
-			+ "# IIIIIII III III I I IIIIII#\r\n"
-			+ "# I         I   I I I IC    #\r\n" 
-			+ "# IIIIIIIII III I I I IIIII #\r\n"
-			+ "#   ICI     I     I I     I #\r\n"
-			+ "#II I I IIIIIIIII I IIIII I #\r\n"
-			+ "#     I        EI       I   #\r\n"
-			+ "#############################\r\n";
+		String map =
+            "#############################\r\n"
+            + "#CI   D      P    I       IH#\r\n"
+            + "# I IIIIIIIIIMIIIII IIIII I #\r\n"
+            + "# I I   I   I I     I I I I #\r\n"
+            + "# IIIII I III I IIIII I I I #\r\n"
+            + "#   I I I   I   I   D   I   #\r\n"
+            + "#II I I I I III I IIIII IIII#\r\n"
+            + "#  O  I I I I I   I   I     #\r\n"
+            + "# I III III I I III I IIIIII#\r\n"
+            + "# I     I  D  I   ICI I IH  #\r\n"
+            + "# IIIII I IIIIIII III I III #\r\n"
+            + "#     I          O D        #\r\n"
+            + "# III IIIII IIIII IIIIIII II#\r\n"
+            + "#   I   I   I  CI   I   I   #\r\n"
+            + "#IIDIII III I IIIII I I III #\r\n"
+            + "#   I   I IHI I ICI I I   IC#\r\n"
+            + "# I IIIII III I I III III II#\r\n"
+            + "# I I   I   I I I I     I   #\r\n"
+            + "# III I I III I I I III III #\r\n"
+            + "# I   I  T  I I     I  D  I #\r\n"
+            + "# I III I I I I IIIIIII III #\r\n"
+            + "#  D  I I I   I   I   I IC  #\r\n"
+            + "# IIIIIII IIIDIII I I IIIIII#\r\n"
+            + "# I         I   I I I IC    #\r\n"
+            + "# IIIIIIIII III I I I IIIII #\r\n"
+            + "#   ICI     I     I I D   I #\r\n"
+            + "#IIDI IDIIIIIIIII I IIIII I #\r\n"
+            + "#     I    H   EI       I   #\r\n"
+            + "#############################\r\n";
 
 		map = map.Replace("\r\n", "\n");
 		String[] lines = map.Split('\n');
 		String[] size = lines[0].Split(' ');
+        int columns = Int32.Parse(mesures[0]);
+        int rows = Int32.Parse(mesures[1]);
 
-		for (int y = 0; y < 29; y++)
+
+		for (int y = 0; y < rows; y++)
 		{
-			for (int x = 0; x < 29; x++)
+			for (int x = 0; x < columns; x++)
 			{
 				char chr = lines[y + 1][x];
 				switch (chr)
@@ -121,10 +124,10 @@ public class BoardManager : MonoBehaviour
 					break;
 
 				case 'D'://FloorDamage
-					GameObject toInstantiate2 = floorDamage[Random.Range(0, floorDamage.Length)];
-					GameObject instanceDwall = Instantiate(toInstantiate2, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
-					instanceIwall.transform.SetParent(boardHolder);
-					break;
+                    GameObject toInstantiate2 = floorDamage[Random.Range(0, floorDamage.Length)];
+                    GameObject instanceDwall = Instantiate(toInstantiate2, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
+                    instanceIwall.transform.SetParent(boardHolder);
+                    break;
 
 				case 'H': //pills
 					GameObject instancePills = Instantiate(items[1], new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
@@ -157,14 +160,14 @@ public class BoardManager : MonoBehaviour
 					break;
 
 
-				case 'S': //SIzquierda                     
+				case 'O': //SIzquierda                     
 					GameObject instanceSIzquierda = Instantiate(signals[3], new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
 					instanceSIzquierda.transform.SetParent(boardHolder);
 					intantiateFloor(x, rows - y, rows, columns);
 					break;
 
 
-				case 'O': //SDeath                     
+				case 'S': //SDeath                     
 					GameObject instanceSDeath = Instantiate(signals[4], new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
 					instanceSDeath.transform.SetParent(boardHolder);
 					intantiateFloor(x, rows - y, rows, columns);
@@ -179,16 +182,16 @@ public class BoardManager : MonoBehaviour
 
 
 		}
-		//Añadimos la camara de seguimiento del personage.
+		
 
 		CameraFollow camerascript = mainCamera.GetComponent<CameraFollow>();
 		camerascript.following = playerinstance;
-		//GameObject camerainstance =Instantiate(mainCamera, new Vector3(playerinstance.transform.position.x, playerinstance.transform.position.y, -10f), Quaternion.identity);
+		
 
 
 	}
 
-	public void intantiateFloor(int x, int y, int rows, int columns)
+    public void intantiateFloor(int x, int y, int rows, int columns)
 	{
 		GameObject floorToInstatiate = floorTiles[Random.Range(0, floorTiles.Length)];
 		if (x == 1 || x == columns - 2 || y == 2 || y == rows - 1)
@@ -198,37 +201,7 @@ public class BoardManager : MonoBehaviour
 		instanceFloor.transform.SetParent(boardHolder);
 	}
 
-//	void LayoutObjectAtRandom(GameObject[] tileArray, int minimum, int maximum)
-//	{
-//		//Choose a random number of objects to instantiate within the minimum and maximum limits
-//		int objectCount = Random.Range(minimum, maximum + 1);
-//
-//		//Instantiate objects until the randomly chosen limit objectCount is reached
-//		for (int i = 0; i < objectCount; i++)
-//		{
-//			//Choose a position for randomPosition by getting a random position from our list of available Vector3s stored in gridPosition
-//			Vector3 randomPosition = RandomPosition();
-//
-//			//Choose a random tile from tileArray and assign it to tileChoice
-//			GameObject tileChoice = tileArray[Random.Range(0, tileArray.Length)];
-//
-//			//Instantiate tileChoice at the position returned by RandomPosition with no change in rotation
-//			Instantiate(tileChoice, randomPosition, Quaternion.identity);
-//		}
-//	}
 
-//	Vector3 RandomPosition()
-//	{
-//		int randomIndex = Random.Range(0, gridPositionsCleanerPart1.Count);
-//
-//
-//		Vector3 randomPosition = gridPositionsCleanerPart1[randomIndex];
-//
-//
-//		gridPositionsCleanerPart1.RemoveAt(randomIndex);
-//
-//		return randomPosition;
-//	}
 
 	public void SetUpScene()
 	{

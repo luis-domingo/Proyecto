@@ -103,6 +103,7 @@ public class SessionImpl implements Session {
                 }
                 logger.info("Anado el siguiente elemento a la lista de resultados: " + entity.toString());
                 result.add((theClass)entity);
+                logger.info(result.toString());
             }
         } catch (SQLException e) {
             e.printStackTrace();

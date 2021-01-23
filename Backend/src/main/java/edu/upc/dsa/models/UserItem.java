@@ -5,7 +5,6 @@ import edu.upc.dsa.models.Item;
 public class UserItem {
     String name;
     int quantity;
-    String id;
 
     public String getName() {
         return name;
@@ -19,15 +18,7 @@ public class UserItem {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public void setQuantity(String quantity) {
+        this.quantity = Integer.parseInt(quantity);
     }
 }

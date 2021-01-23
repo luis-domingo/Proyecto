@@ -23,13 +23,6 @@ public class WebFragment extends Fragment {
         webViewModel =
                 new ViewModelProvider(this).get(WebViewModel.class);
         View root = inflater.inflate(R.layout.fragment_web, container, false);
-        final TextView textView = root.findViewById(R.id.text_web);
-        webViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
         return root;
     }
 }

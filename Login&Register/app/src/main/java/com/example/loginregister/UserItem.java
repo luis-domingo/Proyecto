@@ -29,4 +29,8 @@ public class UserItem {
     public void setId(int id) {
         this.id = id;
     }
+
+    public String getIdString() {
+        return String.valueOf(id);
+    }
 }

@@ -12,7 +12,6 @@ public class Usuario {
     }
 
     public Usuario(String nombre, String password){
-        this();
         this.nombre = nombre;
         this.password = password;
     }

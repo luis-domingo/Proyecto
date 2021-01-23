@@ -22,11 +22,8 @@ import androidx.appcompat.widget.Toolbar;
 public class HomeActivity_NavView extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    SharedPreferences sharedPreferences;
     String username;
     String ID;
-    String logout;
-    LoginActivity logAct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

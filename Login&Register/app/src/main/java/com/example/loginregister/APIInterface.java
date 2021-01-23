@@ -1,6 +1,9 @@
 package com.example.loginregister;
 
-import java.util.HashMap;
+import com.example.loginregister.models.ShopItem;
+import com.example.loginregister.models.UserItem;
+import com.example.loginregister.models.Usuario;
+
 import java.util.List;
 
 import retrofit2.Call;

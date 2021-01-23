@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.loginregister.APIClient;
 import com.example.loginregister.APIInterface;
 import com.example.loginregister.R;
-import com.example.loginregister.ShopItem;
+import com.example.loginregister.models.ShopItem;
 import com.example.loginregister.utils.MyRecyclerViewShopAdapter;
 
 import java.util.LinkedList;

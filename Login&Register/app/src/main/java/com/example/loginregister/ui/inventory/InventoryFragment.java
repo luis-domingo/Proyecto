@@ -18,11 +18,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.loginregister.APIClient;
 import com.example.loginregister.APIInterface;
 import com.example.loginregister.R;
-import com.example.loginregister.UserItem;
+import com.example.loginregister.models.UserItem;
 import com.example.loginregister.utils.MyRecyclerViewInventoryAdapter;
-import com.example.loginregister.utils.MyRecyclerViewShopAdapter;
 
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -63,7 +61,7 @@ public class InventoryFragment extends Fragment {
                     prg.setVisibility(View.GONE);
                 }
                 else{
-                    Toast.makeText(getContext(), "Error when connecting to the shop.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Error when connecting to the database.", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override

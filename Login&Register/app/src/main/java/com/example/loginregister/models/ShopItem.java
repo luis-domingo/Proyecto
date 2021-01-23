@@ -1,4 +1,4 @@
-package com.example.loginregister;
+package com.example.loginregister.models;
 
 
 public class ShopItem {
@@ -10,7 +10,7 @@ public class ShopItem {
         return name;
     }
 
-    public void setItem(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 

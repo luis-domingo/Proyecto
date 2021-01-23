@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,7 +13,7 @@ import com.example.loginregister.R;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.example.loginregister.UserItem;
+import com.example.loginregister.models.UserItem;
 
 
 public class MyRecyclerViewInventoryAdapter extends RecyclerView.Adapter<MyRecyclerViewInventoryAdapter.ViewHolder> {

@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 
 @Api(value = "/usuarios", description = "Endpoint to Track Service")
@@ -26,7 +26,7 @@ public class RegisterService {
     public RegisterService() {
         this.manuser = UsuarioDAOImpl.getInstance();
     }
-    final static Logger logger = Logger.getLogger(RegisterService.class.toString());
+    final static Logger logger = Logger.getLogger(RegisterService.class);
 
     @POST
     @ApiOperation(value = "Añadir usuario", notes = "")

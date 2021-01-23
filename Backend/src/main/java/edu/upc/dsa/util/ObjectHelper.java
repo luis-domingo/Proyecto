@@ -25,19 +25,20 @@ public class ObjectHelper {
 
     }
 
-    public static void setter(Object object, String property, Object value) {
+    public static void setter(Object object, String property, Object value) throws ClassNotFoundException {
         //Cogemos el nombre de la clase del objeto
         String className = object.getClass().getName();
         //Cogemos el metodo con el estilo: setName
         String method = "set" + property.substring(0, 1).toUpperCase() + property.substring(1);
         //Cogemos la clase
         Class classType = value.getClass();
+        logger.info("Invocaré metodo " + method);
         try {
             //Creamos el setter
             Method setter = Class.forName(className).getDeclaredMethod(method, classType);
             //Lo invocamos
             setter.invoke(object, value);
-        } catch (Exception e) {
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e){
             e.printStackTrace();
         }
     }

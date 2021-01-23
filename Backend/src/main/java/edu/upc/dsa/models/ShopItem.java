@@ -1,11 +1,9 @@
 package edu.upc.dsa.models;
 
-import edu.upc.dsa.models.Item;
-
 public class ShopItem {
     String name;
     String price;
-    String id;
+    String ID;
 
     public ShopItem(){
 
@@ -14,7 +12,7 @@ public class ShopItem {
     public ShopItem(String name, String price, String id) {
         this.name = name;
         this.price = price;
-        this.id = id;
+        this.ID = ID;
     }
 
     public String getName() {
@@ -33,12 +31,12 @@ public class ShopItem {
         this.price = price;
     }
 
-    public String getId() {
-        return id;
+    public String getID() {
+        return ID;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setID(String ID) {
+        this.ID = ID;
     }
 
     @Override
@@ -46,7 +44,7 @@ public class ShopItem {
         return "ShopItem{" +
                 "name='" + name + '\'' +
                 ", price='" + price + '\'' +
-                ", id='" + id + '\'' +
+                ", id='" + ID + '\'' +
                 '}';
     }
 }

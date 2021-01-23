@@ -101,14 +101,14 @@ public class SessionImpl implements Session {
                 logger.info("La BBDD me devuelve " + res.getString(2));
                 String[] fields = ObjectHelper.getFields(entity);
                 for (int k = 0; k < rsmd.getColumnCount(); k++) {
-                    ObjectHelper.setter(entity, fields[k], res.getString(k + 1));
+                    ObjectHelper.setter(entity, rsmd.getColumnName(k+1), res.getString(k + 1));
                     logger.info(res.getString(k + 1));
                 }
                 logger.info("Anado el siguiente elemento a la lista de resultados: " + entity.toString());
                 result.add((theClass)entity);
                 logger.info(result.toString());
             }
-        } catch (SQLException | InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+        } catch (SQLException | InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         logger.info("La lista que devuelvo es: " + result.toString());

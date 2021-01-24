@@ -59,7 +59,7 @@ public class InventoryService {
     })
 
     @Path("/buyItem/{id}")
-    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response buyItem(UserItem item, @PathParam("id")String id){
         boolean done = manInv.buyItem(item, id);

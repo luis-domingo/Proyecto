@@ -31,5 +31,5 @@ public interface APIInterface {
     Call<List<UserItem>> getUserItems(@Body String id);
 
     @POST("/dsaApp/inventory/buyItem/{id}")
-    Call<UserItem> buyItem (@Body UserItem item, @Path("id") String id);
+    Call<Boolean> buyItem (@Body UserItem item, @Path("id") String id);
 }

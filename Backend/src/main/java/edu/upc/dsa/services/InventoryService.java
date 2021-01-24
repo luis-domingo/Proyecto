@@ -64,9 +64,9 @@ public class InventoryService {
     public Response buyItem(UserItem item, @PathParam("id")String id){
         boolean done = manInv.buyItem(item, id);
         if (done) {
-            return Response.status(200).build();
+            return Response.status(200).entity(true).build();
         } else {
-            return Response.status(404).build();
+            return Response.status(404).entity(null).build();
         }
     }
 }

@@ -54,21 +54,25 @@ public class InvDAOImpl implements InvDAO{
             UserItem u = new UserItem();
             List<UserItem> list = getUserItems("'" + ID + "'");
             for(UserItem uitem : list){
-                logger.info("Estoy mirando el item " + uitem.getName());
-                logger.info("El item que busco es " + item.getName());
                 if(uitem.getName().equals(item.getName())) {
                     uitem.setQuantity(Integer.toString(Integer.parseInt(uitem.getQuantity()) + 1));
                     u = uitem;
-                    logger.info("He encontrado el item que quiere comprar! Ahora tendrá este item " + u.toString());
+                    done = true;
                     break;
                 }
             }
-            HashMap<String, String> params = new HashMap<>();
-            params.put("Quantity", u.getQuantity());
-            HashMap<String, String> conditions = new HashMap<>();
-            conditions.put("ID", ID);
-            conditions.put("Name", u.getName());
-            done = session.updateObject(u, conditions, params);
+            if(done){
+                HashMap<String, String> params = new HashMap<>();
+                params.put("Quantity", u.getQuantity());
+                HashMap<String, String> conditions = new HashMap<>();
+                conditions.put("ID", ID);
+                conditions.put("Name", u.getName());
+                done = session.updateObject(u, conditions, params);
+            }
+            if(u.getName().equals("")){
+                u = item;
+                session.save(u);
+            }
         } catch (IOException | SQLException e) {
             e.printStackTrace();
         }

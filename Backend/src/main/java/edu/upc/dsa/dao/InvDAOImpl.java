@@ -54,10 +54,11 @@ public class InvDAOImpl implements InvDAO{
             UserItem u = new UserItem();
             List<UserItem> list = getUserItems("'" + ID + "'");
             for(UserItem uitem : list){
+                logger.info("Estoy mirando el item " + uitem.getName());
                 if(uitem.getName().equals(item.getName())) {
                     uitem.setQuantity(Integer.toString(Integer.parseInt(uitem.getQuantity()) + 1));
                     u = uitem;
-                    logger.info("He encontrado el item que quiere comprar! Es " + u.toString());
+                    logger.info("He encontrado el item que quiere comprar! Ahora tendrá este item " + u.toString());
                     break;
                 }
             }

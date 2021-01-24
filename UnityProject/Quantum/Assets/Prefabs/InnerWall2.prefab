@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 567625968817298892}
   - component: {fileID: 691104912593422766}
   m_Layer: 8
-  m_Name: OuterWallIce
+  m_Name: InnerWall2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,5 +106,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0

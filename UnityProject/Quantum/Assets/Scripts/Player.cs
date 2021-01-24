@@ -80,11 +80,26 @@ public class Player : MonoBehaviour
 		if(other.tag == "Exit") {
 			Invoke("Restart", restartLevelDelay);
 		} else if(other.tag == "Pills") {
-				Healthnum += pointsPills;
-				Health.text = Healthnum.ToString();
+            if (Healthnum < 70)
+            {
+                if (Healthnum >= 50)
+                {
+
+                    Healthnum = 70;
+                    Health.text = Healthnum.ToString();
+                    other.gameObject.SetActive(false);
+                }
+                else {
+                    Healthnum += pointsPills;
+                    Health.text = Healthnum.ToString();
+                    other.gameObject.SetActive(false);
+                }
+                
+            }
+
 
 			//SoundManager.instance.RandomizeSfx(eatSound1, eatSound2);
-			other.gameObject.SetActive(false);
+			
 		} else if(other.tag == "Cristals") {
 			Crystals += pointsCrystals;
 			Cristals.text = Crystals.ToString();

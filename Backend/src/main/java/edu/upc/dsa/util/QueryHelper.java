@@ -85,6 +85,7 @@ public class QueryHelper {
             if(conditions.keySet().size() > k + 1){
                 sb.append("' AND '");
             }
+            k++;
         }
         logger.info(sb.toString());
         return sb.toString();

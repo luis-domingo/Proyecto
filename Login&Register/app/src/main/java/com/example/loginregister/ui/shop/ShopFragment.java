@@ -72,14 +72,14 @@ public class ShopFragment extends Fragment{
                                 public void onClick(DialogInterface dialog, int which) {
                                     Toast.makeText(getContext(), "You bought " + productList.get(position).getName() + " paying " + productList.get(position).getPrice(), Toast.LENGTH_SHORT).show();
                                     UserItem bought = new UserItem(productList.get(position).getName(), 1);
-                                    Call<Boolean> call = apiIface.buyItem(bought, sharedPreferences.getAll().get("ID").toString());
-                                    call.enqueue(new Callback<Boolean>() {
+                                    Call<String> call = apiIface.buyItem(bought, sharedPreferences.getAll().get("ID").toString());
+                                    call.enqueue(new Callback<String>() {
                                         @Override
-                                        public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                                        public void onResponse(Call<String> call, Response<String> response) {
                                             Toast.makeText(getContext(), productList.get(position).getName() + " was added to your inventory!", Toast.LENGTH_SHORT).show();
                                         }
                                         @Override
-                                        public void onFailure(Call<Boolean> call, Throwable throwable) {
+                                        public void onFailure(Call<String> call, Throwable throwable) {
                                             Toast.makeText(getContext(), "Error when adding " + productList.get(position).getName() + " to your inventory!", Toast.LENGTH_SHORT).show();
                                         }
                                     });

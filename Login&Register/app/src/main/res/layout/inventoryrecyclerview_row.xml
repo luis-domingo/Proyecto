@@ -21,17 +21,17 @@
             android:paddingTop="25dp"
             android:paddingRight="15dp"
             android:textAlignment="textStart"
-            android:textSize="25sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/inventoryItemNumber"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="3"
             android:paddingTop="25dp"
-            android:layout_weight= "3"
             android:paddingRight="15dp"
             android:textAlignment="center"
-            android:textSize="25sp" />
+            android:textSize="18sp" />
 
     </TableRow>
 

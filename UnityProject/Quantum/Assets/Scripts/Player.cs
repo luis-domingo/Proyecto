@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
 		if (Input.GetKeyUp (KeyCode.A) || Input.GetKeyUp (KeyCode.D) || Input.GetKeyUp (KeyCode.S) || Input.GetKeyUp (KeyCode.W)){
 			GetComponent<Animator>().SetBool("Walk",false);
 			rb.velocity= new Vector2(0,0);
+
 		}
 
 

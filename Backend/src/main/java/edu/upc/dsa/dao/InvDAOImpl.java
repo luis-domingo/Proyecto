@@ -26,14 +26,14 @@ public class InvDAOImpl implements InvDAO{
     public List<UserItem> getUserItems(String ID) throws SQLException {
         Session session = null;
         UserItem a = new UserItem();
-        List<UserItem> lista = new LinkedList<>();
+        List<UserItem> list = new LinkedList<>();
         logger.info("El usuario con ID: + " + ID + " está intentando ver su inventario");
         try {
             session = FactorySession.openSession();
             HashMap<String, String> hash = new HashMap<>();
             hash.put("ID", ID);
-            lista = session.findAllItems(a.getClass(), hash);
-            logger.info(lista.toString());
+            list = session.findAllItems(a.getClass(), hash);
+            logger.info(list.toString());
         }
         catch (IOException e) {
             logger.warn("Exception message: "  + e.getMessage());
@@ -41,7 +41,35 @@ public class InvDAOImpl implements InvDAO{
         finally {
             session.close();
         }
-        return lista;
+        return list;
+    }
+
+    @Override
+    public boolean buyItem(UserItem item, String ID){
+        Session session = null;
+        boolean done = false;
+        logger.info("The user with ID " + ID + " is trying to buy " + item.getName());
+        try{
+            session = FactorySession.openSession();
+            UserItem u = new UserItem();
+            List<UserItem> list = getUserItems(ID);
+            for(UserItem uitem : list){
+                if(uitem.getName().equals(item.getName())) {
+                    uitem.setQuantity(Integer.toString(Integer.parseInt(uitem.getQuantity()) + 1));
+                    u = uitem;
+                    break;
+                }
+            }
+            HashMap<String, String> params = new HashMap<>();
+            params.put("Quantity", u.getQuantity());
+            HashMap<String, String> conditions = new HashMap<>();
+            conditions.put("ID", ID);
+            conditions.put("Name", u.getName());
+            done = session.updateObject(u.getClass(), conditions, params);
+        } catch (IOException | SQLException e) {
+            e.printStackTrace();
+        }
+        return done;
     }
 
 }

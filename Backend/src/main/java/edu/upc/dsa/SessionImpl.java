@@ -76,10 +76,6 @@ public class SessionImpl implements Session {
         return res;
     }
 
-    public void update(Object object) {
-
-    }
-
     public void delete(Object object) {
 
     }
@@ -121,6 +117,20 @@ public class SessionImpl implements Session {
 
     public List<Object> query(String query, Class theClass, HashMap params) {
         return null;
+    }
+
+    public boolean updateObject(Object newObject, HashMap<String, String> conditions, HashMap<String, String> params){
+        String updateQuery = QueryHelper.createQueryUPDATE(newObject.getClass(), params, conditions);
+        ResultSet res = null;
+        PreparedStatement pstm = null;
+        try{
+            pstm = conn.prepareStatement(updateQuery);
+            res = pstm.executeQuery();
+            return res != null;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            return false;
+        }
     }
 
 }

@@ -25,4 +25,6 @@ public interface APIInterface {
     @POST("/dsaApp/inventory/listObjects")
     Call<List<UserItem>> getUserItems(@Body String id);
 
+    @POST("/dsaApp/inventory/putItem")
+    Call<UserItem> buyItem (@Body UserItem item, String id);
 }

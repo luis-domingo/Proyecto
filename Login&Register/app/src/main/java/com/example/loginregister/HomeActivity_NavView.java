@@ -2,6 +2,7 @@ package com.example.loginregister;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -22,8 +23,6 @@ import androidx.appcompat.widget.Toolbar;
 public class HomeActivity_NavView extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    String username;
-    String ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +43,14 @@ public class HomeActivity_NavView extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_forum, R.id.nav_friends, R.id.nav_shop, R.id.nav_web, R.id.nav_yourInventory, R.id.nav_stats)
+                R.id.nav_home, R.id.nav_forum, R.id.nav_friends, R.id.nav_shop, R.id.nav_yourInventory, R.id.nav_stats)
                 .setDrawerLayout(drawer)
                 .build();
+        navigationView.getMenu().findItem(R.id.nav_web).setOnMenuItemClickListener(menuItem -> {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://147.83.7.205:8080/login.html"));
+            startActivity(browserIntent);
+            return true;
+        });
         navigationView.getMenu().findItem(R.id.nav_logOut).setOnMenuItemClickListener(menuItem -> {
             Intent loginActivity = new Intent(this, LoginActivity.class);
             loginActivity.putExtra("logout", true);
@@ -71,14 +75,4 @@ public class HomeActivity_NavView extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
-    public void setUsername(String u){
-        this.username = u;
-    }
-
-    public void setID(String id){
-        this.ID = id;
-    }
-
-
 }

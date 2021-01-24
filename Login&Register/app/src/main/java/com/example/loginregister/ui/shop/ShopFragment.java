@@ -1,5 +1,8 @@
 package com.example.loginregister.ui.shop;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +21,7 @@ import com.example.loginregister.APIClient;
 import com.example.loginregister.APIInterface;
 import com.example.loginregister.R;
 import com.example.loginregister.models.ShopItem;
+import com.example.loginregister.models.UserItem;
 import com.example.loginregister.utils.MyRecyclerViewShopAdapter;
 
 import java.util.LinkedList;
@@ -27,15 +31,19 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class ShopFragment extends Fragment{
 
     ShopViewModel shopViewModel;
     APIInterface apiIface;
     ProgressBar prg;
     List<ShopItem> productList = new LinkedList<>();
+    SharedPreferences sharedPreferences;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        sharedPreferences = this.getActivity().getSharedPreferences("mySharedPreferences", MODE_PRIVATE);
         apiIface = APIClient.getClient().create(APIInterface.class);
         shopViewModel = new ViewModelProvider(this).get(ShopViewModel.class);
         View root = inflater.inflate(R.layout.fragment_shop, container, false);
@@ -52,6 +60,42 @@ public class ShopFragment extends Fragment{
                     myRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                     MyRecyclerViewShopAdapter adapter;
                     adapter = new MyRecyclerViewShopAdapter(getContext(), productList);
+                    adapter.setOnItemClickListener(new MyRecyclerViewShopAdapter.ClickListener() {
+                        @Override
+                        public void onItemClick(int position, View v) {
+                            Log.d("grup3", "onItemClickPosition: " + position);
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                            builder.setTitle("Confirm payment");
+                            builder.setMessage("Are you sure you want to buy " + productList.get(position).getName() + " that costs " + productList.get(position).getPrice()+ "?");
+                            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Toast.makeText(getContext(), "You bought " + productList.get(position).getName() + " paying " + productList.get(position).getPrice(), Toast.LENGTH_SHORT).show();
+                                    UserItem bought = new UserItem(productList.get(position).getName(), 1);
+                                    Call<UserItem> call = apiIface.buyItem(bought, sharedPreferences.getAll().get("ID").toString());
+                                    call.enqueue(new Callback<UserItem>() {
+                                        @Override
+                                        public void onResponse(Call<UserItem> call, Response<UserItem> response) {
+                                            Toast.makeText(getContext(), productList.get(position).getName() + " was added to your inventory!", Toast.LENGTH_SHORT).show();
+                                        }
+                                        @Override
+                                        public void onFailure(Call<UserItem> call, Throwable throwable) {
+                                            Toast.makeText(getContext(), "Error when adding " + productList.get(position).getName() + " to your inventory!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                    dialog.dismiss();
+                                }
+                            });
+                            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                            AlertDialog alert = builder.create();
+                            alert.show();
+                        }
+                    });
                     myRecyclerView.setAdapter(adapter);
                     prg.setVisibility(View.GONE);
                 }

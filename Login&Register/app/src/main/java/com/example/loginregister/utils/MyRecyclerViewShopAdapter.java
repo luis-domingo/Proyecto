@@ -18,9 +18,10 @@ import java.util.List;
 import com.squareup.picasso.Picasso;
 
 
-public class MyRecyclerViewShopAdapter extends RecyclerView.Adapter<MyRecyclerViewShopAdapter.ViewHolder> {
+public class MyRecyclerViewShopAdapter extends RecyclerView.Adapter<MyRecyclerViewShopAdapter.ViewHolder>{
     List<ShopItem> productList = new LinkedList<>();
     Context context;
+    private static ClickListener clickListener;
 
 
     public MyRecyclerViewShopAdapter(Context context, List<ShopItem> productList) {
@@ -44,7 +45,7 @@ public class MyRecyclerViewShopAdapter extends RecyclerView.Adapter<MyRecyclerVi
         Picasso.get().load("http://147.83.7.205:8080/" + productList.get(position).getIdString() + ".jpg").into(viewHolder.imgViewIcon);
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView txtViewTitle;
         public ImageView imgViewIcon;
@@ -53,10 +54,27 @@ public class MyRecyclerViewShopAdapter extends RecyclerView.Adapter<MyRecyclerVi
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
             txtViewTitle = (TextView) itemLayoutView.findViewById(R.id.shopItemName);
+            itemLayoutView.setOnClickListener(this);
             imgViewIcon = (ImageView) itemLayoutView.findViewById(R.id.shopItemImage);
             txtViewPrice = (TextView) itemLayoutView.findViewById(R.id.shopItemNumber);
         }
+
+        @Override
+        public void onClick(View v) {
+            clickListener.onItemClick(getAdapterPosition(), v);
+        }
+
     }
+
+    public void setOnItemClickListener(ClickListener clickListener){
+        MyRecyclerViewShopAdapter.clickListener = clickListener;
+    }
+
+    public interface ClickListener{
+        void onItemClick(int position, View v);
+    }
+
+
 
 
     @Override

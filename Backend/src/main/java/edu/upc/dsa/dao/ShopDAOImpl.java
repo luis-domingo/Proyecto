@@ -3,6 +3,7 @@ package edu.upc.dsa.dao;
 import edu.upc.dsa.FactorySession;
 import edu.upc.dsa.Session;
 import edu.upc.dsa.models.ShopItem;
+import edu.upc.dsa.models.UserItem;
 import edu.upc.dsa.util.ObjectHelper;
 import org.apache.log4j.Logger;
 
@@ -43,5 +44,7 @@ public class ShopDAOImpl implements ShopDAO{
         }
         return lista;
     }
+
+
 
 }

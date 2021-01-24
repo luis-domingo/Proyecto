@@ -9,10 +9,12 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponses;
 import org.apache.log4j.Logger;
 
+import javax.print.attribute.standard.Media;
 import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
@@ -48,6 +50,23 @@ public class InventoryService {
             return resp;
         } else {
             return Response.status(404).entity(null).build();
+        }
+    }
+
+    @POST
+    @ApiOperation(value = "Buy Shop Item", notes = "")
+    @ApiResponses(value = {
+    })
+
+    @Path("/buyItem")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response buyItem(UserItem item, @QueryParam("id")String id){
+        boolean done = manInv.buyItem(item, id);
+        if (done) {
+            return Response.status(200).build();
+        } else {
+            return Response.status(404).build();
         }
     }
 }

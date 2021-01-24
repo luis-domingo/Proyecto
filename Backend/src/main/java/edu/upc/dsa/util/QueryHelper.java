@@ -72,4 +72,22 @@ public class QueryHelper {
         return sb.toString();
     }
 
+    public static String createQueryUPDATE(Class theClass, HashMap<String, String> params, HashMap<String, String> conditions){
+        StringBuffer sb = new StringBuffer();
+        sb.append("UPDATE ").append(theClass.getSimpleName()).append(" SET ");
+        for(String paramsKey : params.keySet()){
+            sb.append(paramsKey).append(" = ").append(params.get(paramsKey));
+        }
+        sb.append(" WHERE ");
+        int k = 0;
+        for(String condKey : conditions.keySet()){
+            sb.append(condKey).append(" = ").append(conditions.get(condKey));
+            if(conditions.keySet().size() > k + 1){
+                sb.append(" AND ");
+            }
+        }
+        logger.info(sb.toString());
+        return sb.toString();
+    }
+
 }

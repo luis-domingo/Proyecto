@@ -53,8 +53,8 @@ public class MyRecyclerViewShopAdapter extends RecyclerView.Adapter<MyRecyclerVi
 
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
-            txtViewTitle = (TextView) itemLayoutView.findViewById(R.id.shopItemName);
             itemLayoutView.setOnClickListener(this);
+            txtViewTitle = (TextView) itemLayoutView.findViewById(R.id.shopItemName);
             imgViewIcon = (ImageView) itemLayoutView.findViewById(R.id.shopItemImage);
             txtViewPrice = (TextView) itemLayoutView.findViewById(R.id.shopItemNumber);
         }

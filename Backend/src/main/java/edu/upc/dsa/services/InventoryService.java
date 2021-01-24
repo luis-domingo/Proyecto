@@ -58,14 +58,12 @@ public class InventoryService {
 
     @Path("/buyItem")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public Response buyItem(UserItem item){
-        Boolean done = manInv.buyItem(item);
-        GenericEntity<Boolean> body = new GenericEntity<Boolean>(done){};
+        boolean done = manInv.buyItem(item);
         if (done) {
-            return Response.status(200).entity("done").build();
+            return Response.status(200).build();
         } else {
-            return Response.status(404).entity(null).build();
+            return Response.status(404).build();
         }
     }
 }

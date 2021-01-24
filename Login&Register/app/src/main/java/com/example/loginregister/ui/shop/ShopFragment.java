@@ -72,14 +72,19 @@ public class ShopFragment extends Fragment{
                                 public void onClick(DialogInterface dialog, int which) {
                                     Toast.makeText(getContext(), "You bought " + productList.get(position).getName() + " paying " + productList.get(position).getPrice(), Toast.LENGTH_SHORT).show();
                                     UserItem bought = new UserItem(productList.get(position).getName(), 1, sharedPreferences.getAll().get("ID").toString());
-                                    Call<String> call = apiIface.buyItem(bought);
-                                    call.enqueue(new Callback<String>() {
+                                    Call<Void> call = apiIface.buyItem(bought);
+                                    call.enqueue(new Callback<Void>() {
                                         @Override
-                                        public void onResponse(Call<String> call, Response<String> response) {
-                                            Toast.makeText(getContext(), productList.get(position).getName() + " was added to your inventory!", Toast.LENGTH_SHORT).show();
+                                        public void onResponse(Call<Void> call, Response<Void> response) {
+                                            if(response.code()==200) {
+                                                Toast.makeText(getContext(), productList.get(position).getName() + " was added to your inventory!", Toast.LENGTH_SHORT).show();
+                                            }
+                                            else{
+                                                Toast.makeText(getContext(), "An error has occurred", Toast.LENGTH_SHORT).show();
+                                            }
                                         }
                                         @Override
-                                        public void onFailure(Call<String> call, Throwable throwable) {
+                                        public void onFailure(Call<Void> call, Throwable throwable) {
                                             Toast.makeText(getContext(), "Error when adding " + productList.get(position).getName() + " to your inventory!", Toast.LENGTH_SHORT).show();
                                         }
                                     });

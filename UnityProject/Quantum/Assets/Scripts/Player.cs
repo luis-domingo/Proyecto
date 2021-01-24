@@ -4,153 +4,56 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Player : MovingObject
+public class Player : MonoBehaviour
 {
 
 
-	public int pointsCrystals = 10;
-	public int pointsPills = 20;
-	public int pointsDamage = 5;
-	public float restartLevelDelay = 1f;
-	public Text CrystalsText;
-	public Text HealthText;
-//	public AudioClip moveSound1;
-//	public AudioClip moveSound2;
-//	public AudioClip eatSound1;
-//	public AudioClip eatSound2;
-//	public AudioClip drinkSound1;
-//	public AudioClip drinkSound2;
-//	public AudioClip gameOverSound;
-
-	private Animator animator;
-	private SpriteRenderer spriteRenderer;
-	private int Crystals;
-	private int Health;
-	private Vector2 touchOrigin = -Vector2.one;
 
 	// Use this for initialization
-	protected override void Start()
+	void Start()
 	{
-		animator = GetComponent<Animator>();
-		spriteRenderer = GetComponent<SpriteRenderer>();
-		Crystals = GameManager.instance.playerCrystals;
-		Health = GameManager.instance.playerHealth;
-		//CrystalText.text = "Crystal: " + Crystals;
-		//HealthText.text = "Health: " + Health;
-		base.Start();
+
 	}
 
-	private void OnDisable()
-	{
-		GameManager.instance.playerHealth = Health;
-		GameManager.instance.playerCrystals = Crystals;
-	}
 
 
 	// Update is called once per frame
 	void Update()
 	{
-		if (!GameManager.instance.playersTurn) return;
+		if (Input.GetKey(KeyCode.D)){
+			if (GetComponent<SpriteRenderer>().flipX==true){
+				GetComponent<SpriteRenderer>().flipX=false;
+			}
+			GetComponent<Animator>().SetBool("Walk",true);
+			transform.Translate(0.015f,0,0);
+		}
+		else if (Input.GetKey(KeyCode.A)){
+			if (GetComponent<SpriteRenderer>().flipX==false){
+				GetComponent<SpriteRenderer>().flipX=true;
+			}
+			GetComponent<Animator>().SetBool("Walk",true);
+			transform.Translate(-0.015f,0,0);
+		}
+		else if (Input.GetKey(KeyCode.W)){
+			if (GetComponent<SpriteRenderer>().flipY==true){
+				GetComponent<SpriteRenderer>().flipY=false;
+			}
+			GetComponent<Animator>().SetBool("Walk",true);
+			transform.Translate(0,0.015f,0);
+		}
+		else if (Input.GetKey(KeyCode.S)){
 
-		int horizontal = 0;
-		int vertical = 0;
-
-		#if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WEBPLAYER
-
-		horizontal = (int)Input.GetAxisRaw("Horizontal");
-		vertical = (int)Input.GetAxisRaw("Vertical");
-
-		if (horizontal != 0)
-		{
-			vertical = 0;
+			GetComponent<Animator>().SetBool("Walk",true);
+			transform.Translate(0,-0.015f,0);
 		}
 
-		#else
-
-		if(Input.touchCount > 0) {
-		Touch myTouch = Input.touches[0];
-		if(myTouch.phase == TouchPhase.Began) {
-		touchOrigin = myTouch.position;
-		} else if(myTouch.phase == TouchPhase.Ended && touchOrigin.x >= 0) {
-		Vector2 touchEnd = myTouch.position;
-		float x = touchEnd.x - touchOrigin.x;
-		float y = touchEnd.y - touchOrigin.y;
-		touchOrigin.x = -1;
-		if(Mathf.Abs(x) > Mathf.Abs(y)) {
-		horizontal = x > 0 ? 1 : -1;
-		} else {
-		vertical = y > 0 ? 1 : -1;
-		}
-		}
-
-		}
-
-		#endif
-
-		if(horizontal < 0)
-		{
-			spriteRenderer.flipX = true;
-		}
-
-		if (horizontal > 0)
-		{
-			spriteRenderer.flipX = false;
+		if (Input.GetKeyUp (KeyCode.A) || Input.GetKeyUp (KeyCode.D) || Input.GetKeyUp (KeyCode.S) || Input.GetKeyUp (KeyCode.W)){
+			GetComponent<Animator>().SetBool("Walk",false);
 		}
 
 
 	}
 
-	protected override void AttemptMove<T>(int xDir, int yDir)
-	{
 
-		base.AttemptMove<T>(xDir, yDir);
-
-		RaycastHit2D hit;
-		if(Move(xDir,yDir, out hit)) {
-			//SoundManager.instance.RandomizeSfx(moveSound1, moveSound2);
-		}
-		CheckIfGameOver();
-
-		GameManager.instance.playersTurn = false;
-	}
-
-
-	void OnTriggerEnter2D(Collider2D other)
-	{
-		if(other.tag == "Exit") {
-			Invoke("Restart", restartLevelDelay);
-		} else if(other.tag == "Pills") {
-			Health += pointsPills;
-			//HealthText.text = "+" + pointsPills + " Health: " + Health;
-			//SoundManager.instance.RandomizeSfx(eatSound1, eatSound2);
-			other.gameObject.SetActive(false);
-		} else if(other.tag == "Crystals") {
-			Crystals += pointsCrystals;
-			//CrystalText.text = "+" + pointsCrystals + " Crystals: " + Crystals;
-			//SoundManager.instance.RandomizeSfx(drinkSound2, drinkSound2);
-			other.gameObject.SetActive(false);
-
-		} else if (other.tag =="Damage"){
-			Health -= pointsDamage;
-			//HealthText.text = "-" + pointsDamage + " Health: " + Health;
-			//SoundManager.instance.RandomizeSfx(eatSound1, eatSound2);
-		}
-	}
-
-	private void Restart() {
-		//Application.LoadLevel(Application.loadedLevel);
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-	}
-
-
-
-	private void CheckIfGameOver()
-	{
-		if(Health <= 0) {
-			//SoundManager.instance.PlaySingle(gameOverSound);
-			//SoundManager.instance.musicSource.Stop();
-			GameManager.instance.GameOver();
-		}
-	}
 
 }

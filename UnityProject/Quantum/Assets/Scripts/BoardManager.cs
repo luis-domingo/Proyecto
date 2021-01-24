@@ -37,9 +37,10 @@ public class BoardManager : MonoBehaviour
 
     private Transform boardHolder;
     private List<Vector3> gridPositionsCleanerPart1 = new List<Vector3>(); 
+
     public void Start()
     {
-        mainCamera = GameObject.FindWithTag("MainCamera");
+        //mainCamera = GameObject.FindWithTag("MainCamera");
     }
 
 
@@ -53,34 +54,34 @@ public class BoardManager : MonoBehaviour
 
         String map =
             "#############################\r\n"
-+ "# I       I   MPI   I     I #\r\n"
-+ "# IIIIIII I IIIII III IIIII #\r\n"
-+ "#     I  C   H  I I     I   #\r\n"
-+ "# IIIII IIIII I I I IIIIIII #\r\n"
-+ "#       I     IDI I I   I   #\r\n"
-+ "# IIIIIII III I I III I III #\r\n"
-+ "# I  C  I I  DI I     I   I #\r\n"
-+ "# I IIIII I I I III IIIII I #\r\n"
-+ "#   I   I I I I I  D  I I   #\r\n"
-+ "#II I I IIIII III I I I ITII#\r\n"
-+ "# I   I C   U  C  I I   I   #\r\n"
-+ "# III III I I III I I III I #\r\n"
-+ "#   C I   I I I   I I     I #\r\n"
-+ "# IIIIIIIIIII IIIII IIIIIII #\r\n"
-+ "#  CI I   CD  I  C  H I     #\r\n"
-+ "# I I III IIIII IIIIIII IIII#\r\n"
-+ "# I I   C     I D I  C  I   #\r\n"
-+ "# I III III I IIIII I III I #\r\n"
-+ "# I I I   I I D I   I  C  I #\r\n"
-+ "#CI I IIIII III I IIIIIIIII #\r\n"
-+ "# I I   C   I I I I  C    I #\r\n"
-+ "# I IIIII I I III I IIIII I #\r\n"
-+ "# I D I C ID  I D I I     I #\r\n"
-+ "#IIII I III III IIIII III I #\r\n"
-+ "#  C  I I C IH  I I I I C   #\r\n"
-+ "# III I I I I III I III I I #\r\n"
-+ "# I   I I I I  EI       I I #\r\n"
-+ "#############################\r\n";  
+			+ "# I       I         I     I #\r\n"
+			+ "# IIIIIII I        II IIIII #\r\n"
+			+ "#     I  C   H          I   #\r\n"
+			+ "# IIIII IIIII I I I IIIIIII #\r\n"
+			+ "#       I     IDI I I   I   #\r\n"
+			+ "# IIIIIII III I I III I III #\r\n"
+			+ "# I  C  I I  DI I     I   I #\r\n"
+			+ "# I IIIII I I I III IIIII I #\r\n"
+			+ "#   I   I I I I I  D  I I   #\r\n"
+			+ "#II I I IIIII III I I I ITII#\r\n"
+			+ "# I   I C   U  C  I I   I   #\r\n"
+			+ "# III III I I III I I III I #\r\n"
+			+ "#   C I   I I I   I I     I #\r\n"
+			+ "# IIIIIIIIIII IIIII IIIIIII #\r\n"
+			+ "#  CI I   CD  I  C  H I     #\r\n"
+			+ "# I I III IIIII IIIIIII IIII#\r\n"
+			+ "# I I   C     I D I  C  I   #\r\n"
+			+ "# I III III I IIIII I III I #\r\n"
+			+ "# I I I   I I D I   I  C  I #\r\n"
+			+ "#CI I IIIII III I IIIIIIIII #\r\n"
+			+ "# I I   C   I I I I  C    I #\r\n"
+			+ "# I IIIII I I III I IIIII I #\r\n"
+			+ "# I D I C ID  I D I I     I #\r\n"
+			+ "#IIII I III III IIIII III I #\r\n"
+			+ "#  C  I I C IH  I I I I C   #\r\n"
+			+ "# III I I I I III I III I I #\r\n"
+			+ "# I   I I I I  EI       I I #\r\n"
+			+ "#############################\r\n";  
 
         map = map.Replace("\r\n", "\n");
         String[] lines = map.Split('\n');
@@ -115,7 +116,7 @@ public class BoardManager : MonoBehaviour
                     break;
 
                 case 'P'://Player
-                    playerinstance = Instantiate(player, new Vector3(x, rows - y, 0f), Quaternion.identity);
+                    //playerinstance = Instantiate(player, new Vector3(x, rows - y, 0f), Quaternion.identity);
                     intantiateFloor(x, rows - y, rows, columns);
                     break;
 
@@ -186,8 +187,8 @@ public class BoardManager : MonoBehaviour
         }
 		
 
-        CameraFollow camerascript = mainCamera.GetComponent<CameraFollow>();
-        camerascript.following = playerinstance;
+        //CameraFollow camerascript = mainCamera.GetComponent<CameraFollow>();
+        //camerascript.following = playerinstance;
 		
 
 

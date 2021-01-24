@@ -81,9 +81,9 @@ public class QueryHelper {
         sb.append(" WHERE ");
         int k = 0;
         for(String condKey : conditions.keySet()){
-            sb.append(condKey).append(" = '").append(conditions.get(condKey));
+            sb.append(condKey).append(" = '").append(conditions.get(condKey)).append("'");
             if(conditions.keySet().size() > k + 1){
-                sb.append("' AND ");
+                sb.append(" AND ");
             }
             k++;
         }

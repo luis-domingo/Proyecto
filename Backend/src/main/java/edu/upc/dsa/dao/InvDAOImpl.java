@@ -65,7 +65,7 @@ public class InvDAOImpl implements InvDAO{
             HashMap<String, String> conditions = new HashMap<>();
             conditions.put("ID", ID);
             conditions.put("Name", u.getName());
-            done = session.updateObject(u.getClass(), conditions, params);
+            done = session.updateObject(u, conditions, params);
         } catch (IOException | SQLException e) {
             e.printStackTrace();
         }

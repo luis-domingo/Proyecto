@@ -1,5 +1,6 @@
 package com.example.loginregister;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -25,7 +26,10 @@ public class HomeActivity_NavView extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     SharedPreferences sp;
+    TextView nombre;
+    TextView ID;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,8 +67,9 @@ public class HomeActivity_NavView extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         sp = this.getSharedPreferences("mySharedPreferences",MODE_PRIVATE);
-        TextView nombre = (TextView) findViewById(R.id.textNombre1);
-        TextView ID = (TextView) findViewById(R.id.textView);
+        View headerView = navigationView.getHeaderView(0);
+        nombre = (TextView)headerView.findViewById(R.id.textNombre1);
+        ID = (TextView)headerView.findViewById(R.id.textView);
         nombre.setText("Usuario: " + sp.getAll().get("Username").toString());
         ID.setText("ID: " + sp.getAll().get("ID").toString());
     }

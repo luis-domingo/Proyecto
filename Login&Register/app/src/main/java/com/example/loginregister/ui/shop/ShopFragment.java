@@ -71,8 +71,8 @@ public class ShopFragment extends Fragment{
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     Toast.makeText(getContext(), "You bought " + productList.get(position).getName() + " paying " + productList.get(position).getPrice(), Toast.LENGTH_SHORT).show();
-                                    UserItem bought = new UserItem(productList.get(position).getName(), 1);
-                                    Call<String> call = apiIface.buyItem(bought, sharedPreferences.getAll().get("ID").toString());
+                                    UserItem bought = new UserItem(productList.get(position).getName(), 1, sharedPreferences.getAll().get("ID").toString());
+                                    Call<String> call = apiIface.buyItem(bought);
                                     call.enqueue(new Callback<String>() {
                                         @Override
                                         public void onResponse(Call<String> call, Response<String> response) {

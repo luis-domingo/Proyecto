@@ -3,6 +3,7 @@ package edu.upc.dsa.models;
 public class UserItem {
     String name;
     String quantity;
+    String ID;
 
     public String getName() {
         return name;
@@ -20,11 +21,20 @@ public class UserItem {
         this.quantity = quantity;
     }
 
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
     @Override
     public String toString() {
         return "UserItem{" +
                 "name='" + name + '\'' +
-                ", quantity=" + quantity +
+                ", quantity='" + quantity + '\'' +
+                ", ID='" + ID + '\'' +
                 '}';
     }
 }

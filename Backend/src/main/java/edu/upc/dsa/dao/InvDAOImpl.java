@@ -45,14 +45,14 @@ public class InvDAOImpl implements InvDAO{
     }
 
     @Override
-    public boolean buyItem(UserItem item, String ID){
+    public boolean buyItem(UserItem item){
         Session session = null;
         boolean done = false;
-        logger.info("The user with ID " + ID + " is trying to buy " + item.getName());
+        logger.info("The user with ID " + item.getID() + " is trying to buy " + item.getName());
         try{
             session = FactorySession.openSession();
             UserItem u = new UserItem();
-            List<UserItem> list = getUserItems("'" + ID + "'");
+            List<UserItem> list = getUserItems("'" + item.getID() + "'");
             for(UserItem uitem : list){
                 if(uitem.getName().equals(item.getName())) {
                     uitem.setQuantity(Integer.toString(Integer.parseInt(uitem.getQuantity()) + 1));
@@ -65,7 +65,7 @@ public class InvDAOImpl implements InvDAO{
                 HashMap<String, String> params = new HashMap<>();
                 params.put("Quantity", u.getQuantity());
                 HashMap<String, String> conditions = new HashMap<>();
-                conditions.put("ID", ID);
+                conditions.put("ID", item.getID());
                 conditions.put("Name", u.getName());
                 done = session.updateObject(u, conditions, params);
             }

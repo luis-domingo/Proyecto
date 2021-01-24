@@ -69,9 +69,9 @@ public class InvDAOImpl implements InvDAO{
                 conditions.put("Name", u.getName());
                 done = session.updateObject(u, conditions, params);
             }
-            logger.info(u.toString());
             if(u.getName() == null){
                 u = item;
+                logger.info(u.toString());
                 session.save(u);
             }
         } catch (IOException | SQLException e) {

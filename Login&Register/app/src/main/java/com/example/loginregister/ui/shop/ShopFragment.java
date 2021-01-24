@@ -76,7 +76,12 @@ public class ShopFragment extends Fragment{
                                     call.enqueue(new Callback<String>() {
                                         @Override
                                         public void onResponse(Call<String> call, Response<String> response) {
-                                            Toast.makeText(getContext(), productList.get(position).getName() + " was added to your inventory!", Toast.LENGTH_SHORT).show();
+                                            if(response.code()==200) {
+                                                Toast.makeText(getContext(), productList.get(position).getName() + " was added to your inventory!", Toast.LENGTH_SHORT).show();
+                                            }
+                                            else{
+                                                Toast.makeText(getContext(), "An error has occurred", Toast.LENGTH_SHORT).show();
+                                            }
                                         }
                                         @Override
                                         public void onFailure(Call<String> call, Throwable throwable) {

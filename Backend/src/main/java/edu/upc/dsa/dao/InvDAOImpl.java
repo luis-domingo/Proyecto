@@ -57,6 +57,7 @@ public class InvDAOImpl implements InvDAO{
                 if(uitem.getName().equals(item.getName())) {
                     uitem.setQuantity(Integer.toString(Integer.parseInt(uitem.getQuantity()) + 1));
                     u = uitem;
+                    logger.info("He encontrado el item que quiere comprar! Es " + u.toString());
                     break;
                 }
             }

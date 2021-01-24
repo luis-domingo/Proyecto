@@ -58,10 +58,10 @@ public class InventoryService {
     @ApiResponses(value = {
     })
 
-    @Path("/buyItem")
+    @Path("/buyItem/{id}")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response buyItem(UserItem item, @QueryParam("id")String id){
+    public Response buyItem(UserItem item, @PathParam("id")String id){
         boolean done = manInv.buyItem(item, id);
         if (done) {
             return Response.status(200).build();

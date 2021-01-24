@@ -70,7 +70,6 @@ public class ShopFragment extends Fragment{
                             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Toast.makeText(getContext(), "You bought " + productList.get(position).getName() + " paying " + productList.get(position).getPrice(), Toast.LENGTH_SHORT).show();
                                     UserItem bought = new UserItem(productList.get(position).getName(), 1, sharedPreferences.getAll().get("ID").toString());
                                     Call<Void> call = apiIface.buyItem(bought);
                                     call.enqueue(new Callback<Void>() {

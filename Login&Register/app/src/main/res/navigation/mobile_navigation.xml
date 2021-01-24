@@ -16,11 +16,6 @@
         android:label="@string/menu_forum"
         tools:layout="@layout/fragment_forum" />
     <fragment
-        android:id="@+id/nav_friends"
-        android:name="com.example.loginregister.ui.friends.FriendsFragment"
-        android:label="@string/menu_friends"
-        tools:layout="@layout/fragment_friends" />
-    <fragment
         android:id="@+id/nav_yourInventory"
         android:name="com.example.loginregister.ui.inventory.InventoryFragment"
         android:label="@string/menu_inventory"
@@ -40,6 +35,11 @@
         android:name="com.example.loginregister.ui.web.WebFragment"
         android:label="@string/menu_web"
         tools:layout="@layout/fragment_web" />
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.loginregister.ui.profile.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
 
 
 </navigation>

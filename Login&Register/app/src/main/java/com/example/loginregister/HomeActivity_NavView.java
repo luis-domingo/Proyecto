@@ -7,12 +7,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.squareup.picasso.Picasso;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -28,6 +30,7 @@ public class HomeActivity_NavView extends AppCompatActivity {
     SharedPreferences sp;
     TextView nombre;
     TextView ID;
+    ImageView icono;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -49,7 +52,7 @@ public class HomeActivity_NavView extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_forum, R.id.nav_friends, R.id.nav_shop, R.id.nav_yourInventory, R.id.nav_stats)
+                R.id.nav_home, R.id.nav_forum, R.id.nav_profile, R.id.nav_shop, R.id.nav_yourInventory, R.id.nav_stats)
                 .setDrawerLayout(drawer)
                 .build();
         navigationView.getMenu().findItem(R.id.nav_web).setOnMenuItemClickListener(menuItem -> {
@@ -72,6 +75,8 @@ public class HomeActivity_NavView extends AppCompatActivity {
         ID = (TextView)headerView.findViewById(R.id.textView);
         nombre.setText("Usuario: " + sp.getAll().get("Username").toString());
         ID.setText("ID: " + sp.getAll().get("ID").toString());
+        icono = (ImageView)headerView.findViewById(R.id.imageView);
+        Picasso.get().load("147.83.7.205:8080/" + sp.getAll().get("ID").toString() + ".jpg").into(icono);
     }
 
     @Override

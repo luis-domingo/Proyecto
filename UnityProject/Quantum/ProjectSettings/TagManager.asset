@@ -8,6 +8,12 @@ TagManager:
   - Cristals
   - Signals
   - Damage
+  - UI
+  - Pills
+  - Pista
+  - healtht
+  - cristalt
+  - pistat
   layers:
   - Default
   - TransparentFX

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 1
-  lastUpdatedAtString: 2021-01-24T16:19:46.169+01:00
-  initializedAtString: 2021-01-24T16:19:46.169+01:00
+  lastUpdatedAtString: 2021-01-24T18:47:25.953+01:00
+  initializedAtString: 2021-01-24T18:47:25.953+01:00
   currentGitRemote:
     name: origin
     url: https://github.com/luis-domingo/Proyecto.git

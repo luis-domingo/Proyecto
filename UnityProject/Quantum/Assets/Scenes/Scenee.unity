@@ -551,7 +551,7 @@ GameObject:
   - component: {fileID: 447747625}
   m_Layer: 5
   m_Name: CrystalText
-  m_TagString: Damage
+  m_TagString: cristalt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -971,7 +971,7 @@ GameObject:
   - component: {fileID: 1108293449}
   m_Layer: 5
   m_Name: PistaText
-  m_TagString: Damage
+  m_TagString: pistat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1447,7 +1447,7 @@ GameObject:
   - component: {fileID: 1779777787}
   m_Layer: 5
   m_Name: HealthText
-  m_TagString: Damage
+  m_TagString: healtht
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

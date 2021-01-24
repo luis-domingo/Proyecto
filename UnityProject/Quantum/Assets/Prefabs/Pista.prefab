@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 980532997493749595}
   m_Layer: 8
   m_Name: Pista
-  m_TagString: Cristals
+  m_TagString: Pista
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

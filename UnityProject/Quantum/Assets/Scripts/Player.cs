@@ -7,22 +7,22 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 
+	public int pointsCrystals = 10;
+	public int pointsPills = 20;
+	public int pointsDamage = 5;
+	public float restartLevelDelay = 1f;
+	private Text Cristals;
+	private Text Health;
+	private Text Pista;
 	public float speed=3;
+	private int Crystals;
+	private int Healthnum;
 	Rigidbody2D rb;
-    
-    //definimos los objetos
 
-    public int pointsCrystals = 10;
-    public int pointsPills = 20;
-    public int pointsDamage = 5;
     //public Text CrystalsText;
     //public Text HealthText;
 
-    private Animator animator;
-    private SpriteRenderer spriteRenderer;
 
-    public int Crystals = 0;
-    public int Health  = 70;
     public bool Derbool, Izqbool, Upbool, Downbool;
 
     public void DerTrue()
@@ -58,17 +58,45 @@ public class Player : MonoBehaviour
         Downbool = false;
     }
 	// Use this for initialization
-	private void Start()
+	protected void Start()
 	{
 		rb= GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        Crystals = GameManager.instance.playerCrystals;
-        Health = GameManager.instance.playerHealth;
-        //CrystalText.text = "Crystal: " + Crystals;
-        //HealthText.text = "Health: " + Health;
+
+		Crystals = GameManager.instance.playerCrystals;
+		Healthnum= GameManager.instance.playerHealth;
+		Cristals = GameObject.FindWithTag("cristalt").GetComponent(typeof(Text)) as Text;
+		Health = GameObject.FindWithTag("healtht").GetComponent(typeof(Text)) as Text;
+		Pista = GameObject.FindWithTag("pistat").GetComponent(typeof(Text)) as Text;
 	}
 
+	private void OnDisable()
+	{
+		GameManager.instance.playerHealth = Healthnum;
+		GameManager.instance.playerCrystals = Crystals;
+	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if(other.tag == "Exit") {
+			Invoke("Restart", restartLevelDelay);
+		} else if(other.tag == "Pills") {
+				Healthnum += pointsPills;
+				Health.text = Healthnum.ToString();
+
+			//SoundManager.instance.RandomizeSfx(eatSound1, eatSound2);
+			other.gameObject.SetActive(false);
+		} else if(other.tag == "Cristals") {
+			Crystals += pointsCrystals;
+			Cristals.text = Crystals.ToString();
+			//SoundManager.instance.RandomizeSfx(drinkSound2, drinkSound2);
+			other.gameObject.SetActive(false);
+
+		} else if (other.tag =="Damage"){
+			Healthnum -= pointsDamage;
+			Health.text = Healthnum.ToString();
+			//SoundManager.instance.RandomizeSfx(eatSound1, eatSound2);
+		}
+	}
 
 
 	// Update is called once per frame
@@ -112,13 +140,23 @@ public class Player : MonoBehaviour
         {
 			GetComponent<Animator>().SetBool("Walk",false);
 			rb.velocity= new Vector2(0,0);
-
 		}
 
-        
+	}
+
+	private void CheckIfGameOver()
+	{
+		if(Healthnum <= 0) {
+			//SoundManager.instance.PlaySingle(gameOverSound);
+			//SoundManager.instance.musicSource.Stop();
+			GameManager.instance.GameOver();
+		}
 	}
 
 
 
-
+	private void Restart() {
+		//Application.LoadLevel(Application.loadedLevel);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
 }

@@ -8,14 +8,11 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponses;
 import org.apache.log4j.Logger;
-import sun.net.www.content.text.Generic;
 
-import javax.print.attribute.standard.Media;
 import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
@@ -63,10 +60,10 @@ public class InventoryService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response buyItem(UserItem item, @PathParam("id")String id){
-        boolean done = manInv.buyItem(item, id);
+        Boolean done = manInv.buyItem(item, id);
         GenericEntity<Boolean> body = new GenericEntity<Boolean>(done){};
         if (done) {
-            return Response.status(200).entity(body).build();
+            return Response.status(200).entity("done").build();
         } else {
             return Response.status(404).entity(null).build();
         }

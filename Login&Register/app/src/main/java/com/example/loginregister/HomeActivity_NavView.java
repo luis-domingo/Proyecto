@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -23,6 +24,7 @@ import androidx.appcompat.widget.Toolbar;
 public class HomeActivity_NavView extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,11 @@ public class HomeActivity_NavView extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        sp = this.getSharedPreferences("mySharedPreferences",MODE_PRIVATE);
+        TextView nombre = (TextView) findViewById(R.id.textNombre1);
+        TextView ID = (TextView) findViewById(R.id.textView);
+        nombre.setText("Usuario: " + sp.getAll().get("Username").toString());
+        ID.setText("ID: " + sp.getAll().get("ID").toString());
     }
 
     @Override

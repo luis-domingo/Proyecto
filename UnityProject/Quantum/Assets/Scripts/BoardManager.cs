@@ -57,7 +57,7 @@ public class BoardManager : MonoBehaviour
 + "# IIIIIII I IIIII III IIIII #\r\n"
 + "#     I  C   H  I I     I   #\r\n"
 + "# IIIII IIIII I I I IIIIIII #\r\n"
-+ "# I     I     IDI I I   I   #\r\n"
++ "#       I     IDI I I   I   #\r\n"
 + "# IIIIIII III I I III I III #\r\n"
 + "# I  C  I I  DI I     I   I #\r\n"
 + "# I IIIII I I I III IIIII I #\r\n"

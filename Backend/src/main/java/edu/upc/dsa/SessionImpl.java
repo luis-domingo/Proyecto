@@ -62,10 +62,9 @@ public class SessionImpl implements Session {
             int i = 1;
             String [] fields = ObjectHelper.getFields(entity);
             for(int j = 1; j < fields.length; j++){
-                pstm.setObject(i,ObjectHelper.getter(entity, fields[j]));
+                pstm.setObject(i,ObjectHelper.getter(entity, fields[j].substring(0,1).toLowerCase() + fields[j].substring(1)));
                 i++;
             }
-
             logger.info("La query que mando a la BBDD es " + pstm.toString());
             res = pstm.executeQuery();
             res.next();

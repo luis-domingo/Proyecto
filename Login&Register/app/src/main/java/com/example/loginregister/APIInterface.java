@@ -30,6 +30,6 @@ public interface APIInterface {
     @POST("/dsaApp/inventory/listObjects")
     Call<List<UserItem>> getUserItems(@Body String id);
 
-    @POST("/dsaApp/inventory/buyItem/{id}")
+    @POST("/dsaApp/inventory/buyItem")
     Call<String> buyItem (@Body UserItem item);
 }

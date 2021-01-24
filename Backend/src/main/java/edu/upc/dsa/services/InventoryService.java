@@ -60,10 +60,10 @@ public class InventoryService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response buyItem(UserItem item){
-        Boolean done = manInv.buyItem(item);
+        boolean done = manInv.buyItem(item);
         GenericEntity<Boolean> body = new GenericEntity<Boolean>(done){};
         if (done) {
-            return Response.status(200).entity("done").build();
+            return Response.status(200).entity(body).build();
         } else {
             return Response.status(404).entity(null).build();
         }

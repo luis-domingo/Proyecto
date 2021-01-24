@@ -73,6 +73,7 @@ public class InvDAOImpl implements InvDAO{
                 u = item;
                 logger.info(u.toString());
                 session.save(u);
+                done = true;
             }
         } catch (IOException | SQLException e) {
             e.printStackTrace();

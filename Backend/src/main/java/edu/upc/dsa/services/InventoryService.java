@@ -58,13 +58,12 @@ public class InventoryService {
 
     @Path("/buyItem")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public Response buyItem(UserItem item){
         boolean done = manInv.buyItem(item);
         if (done) {
-            return Response.status(200).entity(true).build();
+            return Response.status(200).build();
         } else {
-            return Response.status(404).entity(false).build();
+            return Response.status(404).build();
         }
     }
 }

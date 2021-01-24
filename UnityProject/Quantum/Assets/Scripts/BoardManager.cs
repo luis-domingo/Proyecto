@@ -55,8 +55,8 @@ public class BoardManager : MonoBehaviour
         String map =
             "#############################\r\n"
 			+ "# I       I         I     I #\r\n"
-			+ "# IIIIIII I        II IIIII #\r\n"
-			+ "#     I  C   H          I   #\r\n"
+			+ "# IIIIIII I  H     II IIIII #\r\n"
+			+ "#     I  C              I   #\r\n"
 			+ "# IIIII IIIII I I I IIIIIII #\r\n"
 			+ "#       I     IDI I I   I   #\r\n"
 			+ "# IIIIIII III I I III I III #\r\n"

@@ -27,7 +27,7 @@ public class InvDAOImpl implements InvDAO{
         Session session = null;
         UserItem a = new UserItem();
         List<UserItem> list = new LinkedList<>();
-        logger.info("El usuario con ID: + " + ID + " está intentando ver su inventario");
+        logger.info("El usuario con ID: " + ID + " está intentando ver su inventario");
         try {
             session = FactorySession.openSession();
             HashMap<String, String> hash = new HashMap<>();
@@ -52,7 +52,7 @@ public class InvDAOImpl implements InvDAO{
         try{
             session = FactorySession.openSession();
             UserItem u = new UserItem();
-            List<UserItem> list = getUserItems(ID);
+            List<UserItem> list = getUserItems("'" + ID + "'");
             for(UserItem uitem : list){
                 if(uitem.getName().equals(item.getName())) {
                     uitem.setQuantity(Integer.toString(Integer.parseInt(uitem.getQuantity()) + 1));

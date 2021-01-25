@@ -2,6 +2,7 @@ package edu.upc.dsa.services;
 
 import edu.upc.dsa.dao.UsuarioDAO;
 import edu.upc.dsa.dao.UsuarioDAOImpl;
+import edu.upc.dsa.models.UserImg;
 import edu.upc.dsa.models.Usuario;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -63,11 +64,11 @@ public class RegisterService {
     @ApiResponses(value = {
     })
 
-    @Path("/setImage/{id}")
-    public Response setImage(@PathParam("id")String id, String image) throws IOException {
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(image.getBytes());
+    @Path("/setImage")
+    public Response setImage(UserImg image) throws IOException {
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(image.getImage().getBytes());
 
-        ImageIO.write(ImageIO.read(byteArrayInputStream), "jpg", new File("/public/" + id + ".jpg"));
+        ImageIO.write(ImageIO.read(byteArrayInputStream), "jpg", new File("/public/" + image.getName() + ".jpg"));
 
         return Response.status(200).build();
     }

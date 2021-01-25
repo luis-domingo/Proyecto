@@ -1,12 +1,9 @@
 package com.example.loginregister.ui.profile;
 
 import android.app.Activity;
-import android.app.Instrumentation;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
@@ -16,9 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -27,14 +22,11 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.loginregister.APIClient;
 import com.example.loginregister.APIInterface;
 import com.example.loginregister.R;
-import com.example.loginregister.models.Img_Pojo;
+import com.example.loginregister.models.UserImg;
 import com.squareup.picasso.Picasso;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.logging.Logger;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -112,15 +104,14 @@ public class ProfileFragment extends Fragment {
         String image = convertToString();
         String imageName = sharedPreferences.getAll().get("ID").toString();
         APIInterface apiIface = APIClient.getClient().create(APIInterface.class);
-        Call<Img_Pojo> call = apiIface.setImage(imageName, image);
-        call.enqueue(new Callback<Img_Pojo>(){
+        Call<Void> call = apiIface.setImage(new UserImg(imageName, image));
+        call.enqueue(new Callback<Void>(){
             @Override
-            public void onResponse(Call<Img_Pojo> call, Response<Img_Pojo> response) {
-                Img_Pojo img_pojo = response.body();
-                Log.i("grup3", "Done!" + img_pojo.getResponse());
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Log.i("grup3", "Done!");
             }
             @Override
-            public void onFailure(Call<Img_Pojo> call, Throwable throwable) {
+            public void onFailure(Call<Void> call, Throwable throwable) {
                 Log.i("grup3", "Server Response : " + throwable.toString());
             }
         });

@@ -25,17 +25,4 @@ import java.io.IOException;
 public class ImagesService {
     final static Logger logger = Logger.getLogger(edu.upc.dsa.services.RegisterService.class);
 
-
-    @POST
-    @ApiOperation(value = "Set Image", notes = "")
-    @ApiResponses(value = {
-    })
-
-    @Path("/setImage")
-    public Response setPicture(UserImg image) throws IOException {
-        logger.info("El usuario que quiere registrar su foto tiene ID " + image.getName());
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(image.getImage().getBytes());
-        ImageIO.write(ImageIO.read(byteArrayInputStream), "jpg", new File("/public/userImages" + image.getName() + ".jpg"));
-        return Response.status(200).build();
-    }
 }

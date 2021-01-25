@@ -13,14 +13,13 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import org.apache.log4j.Logger;
 
 
-@Api(value = "/usuarios", description = "Endpoint to Track Service")
+@Api(value = "/usuarios", description = "Endpoint to User Service")
 @Path("/usuarios")
 public class RegisterService {
     private UsuarioDAO manuser;
@@ -59,7 +58,7 @@ public class RegisterService {
         }
     }
 
-    @POST
+    @PUT
     @ApiOperation(value = "Set Image", notes = "")
     @ApiResponses(value = {
     })
@@ -69,7 +68,7 @@ public class RegisterService {
     public Response setImage(UserImg image) throws IOException {
         logger.info("El usuario que quiere registrar su foto tiene ID " + image.getName());
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(image.getImage().getBytes());
-        ImageIO.write(ImageIO.read(byteArrayInputStream), "jpg", new File("/public/" + image.getName() + ".jpg"));
+        ImageIO.write(ImageIO.read(byteArrayInputStream), "jpg", new File("/public/userImages" + image.getName() + ".jpg"));
         return Response.status(200).build();
     }
 }

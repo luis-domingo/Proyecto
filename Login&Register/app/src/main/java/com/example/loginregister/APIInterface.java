@@ -11,6 +11,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 
 
 public interface APIInterface {
@@ -30,6 +31,6 @@ public interface APIInterface {
     @POST("/dsaApp/inventory/buyItem")
     Call<Void> buyItem (@Body UserItem item);
 
-    @POST("/dsaApp/usuarios/setImage")
+    @PUT("/dsaApp/usuarios/setImage")
     Call<Void> setImage (@Body UserImg image);
 }

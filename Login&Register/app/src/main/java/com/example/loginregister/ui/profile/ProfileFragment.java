@@ -96,7 +96,7 @@ public class ProfileFragment extends Fragment {
     private String convertToString()
     {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        photo.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
+        photo.compress(Bitmap.CompressFormat.JPEG,50,byteArrayOutputStream);
         byte[] imgByte = byteArrayOutputStream.toByteArray();
         return Base64.encodeToString(imgByte, Base64.DEFAULT);
     }
@@ -104,7 +104,8 @@ public class ProfileFragment extends Fragment {
         String image = convertToString();
         String imageName = sharedPreferences.getAll().get("ID").toString();
         APIInterface apiIface = APIClient.getClient().create(APIInterface.class);
-        Call<Void> call = apiIface.setImage(new UserImg(imageName, image));
+        UserImg img = new UserImg(imageName, image);
+        Call<Void> call = apiIface.setImage(img);
         call.enqueue(new Callback<Void>(){
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {

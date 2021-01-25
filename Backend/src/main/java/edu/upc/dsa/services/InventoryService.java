@@ -18,7 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-@Api(value = "/inventory", description = "Endpoint to Track Service")
+@Api(value = "/inventory", description = "Endpoint to Inventory Service")
 @Path("/inventory")
 public class InventoryService {
     private InvDAO manInv;

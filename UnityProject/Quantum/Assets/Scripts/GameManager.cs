@@ -17,8 +17,8 @@ public class GameManager : MonoBehaviour {
 
 	private int level = 1;
 	private bool doingSetup;
-	private Text levelText;
-	private GameObject levelImage;
+	//private Text levelText;
+	//private GameObject levelImage;
 
 	// Use this for initialization
 	void Awake () {

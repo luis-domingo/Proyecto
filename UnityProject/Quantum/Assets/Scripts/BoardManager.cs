@@ -55,7 +55,7 @@ public class BoardManager : MonoBehaviour
         String map =
             "#############################\r\n"
 			+ "# I       I         I     I #\r\n"
-			+ "# IIIIIII I  H     II IIIII #\r\n"
+			+ "# IIIIIII I  H  M  II IIIII #\r\n"
 			+ "#     I  C              I   #\r\n"
 			+ "# IIIII IIIII I I I IIIIIII #\r\n"
 			+ "#       I     IDI I I   I   #\r\n"
@@ -126,16 +126,15 @@ public class BoardManager : MonoBehaviour
                     instanceIwall.transform.SetParent(boardHolder);
                     break;
 
-                case 'D'://FloorDamage
-                    GameObject toInstantiate2 = floorDamage[Random.Range(0, floorDamage.Length)];
-                    GameObject instanceDwall = Instantiate(toInstantiate2, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
-                    instanceDwall.transform.SetParent(boardHolder);
-                    break;
 
                 case 'H': //pills
-                    GameObject instancePills = Instantiate(items[1], new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
-                    instancePills.transform.SetParent(boardHolder);
-                    intantiateFloor(x, rows - y, rows, columns);
+					float rand2=Random.value;
+					if (rand2<=0.60f){
+						GameObject instancePillsprob = Instantiate(items[1], new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
+						instancePillsprob.transform.SetParent(boardHolder);
+
+					}
+					intantiateFloor(x, rows - y, rows, columns);
                     break;
 
                 case 'M': //Pista
@@ -176,9 +175,20 @@ public class BoardManager : MonoBehaviour
                     intantiateFloor(x, rows - y, rows, columns);
                     break;
 
-                default:
-                    intantiateFloor(x, rows - y, rows, columns);
-                    break;
+                default://floor or damage floors
+
+					float rand= Random.value;
+					if (rand<=0.15f){
+						GameObject toInstantiateprob = floorDamage[Random.Range(0, floorDamage.Length)];
+						GameObject instanceDprobwall = Instantiate(toInstantiateprob, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
+						instanceDprobwall.transform.SetParent(boardHolder);
+					}else {
+						intantiateFloor(x, rows - y, rows, columns);
+					}
+
+
+					break;
+
 
                 }
             }

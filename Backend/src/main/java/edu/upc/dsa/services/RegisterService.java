@@ -63,8 +63,8 @@ public class RegisterService {
     @ApiResponses(value = {
     })
 
-    @Path("/setImage")
-    public Response setImage(String id, String image) throws IOException {
+    @Path("/setImage/{id}")
+    public Response setImage(@PathParam("id")String id, String image) throws IOException {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(image.getBytes());
 
         ImageIO.write(ImageIO.read(byteArrayInputStream), "jpg", new File("/public/" + id + ".jpg"));

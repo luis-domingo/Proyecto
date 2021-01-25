@@ -39,6 +39,6 @@ public interface APIInterface {
     Call<Void> buyItem (@Body UserItem item);
 
     @Multipart
-    @POST("/dsaApp/usuarios/setImage")
-    Call<Img_Pojo> setImage (@Part("id") String id, @Part String image);
+    @POST("/dsaApp/usuarios/setImage/{id}")
+    Call<Img_Pojo> setImage (@Path("id") String id, @Part String image);
 }

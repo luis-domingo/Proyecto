@@ -11,7 +11,7 @@ public class APIClient {
     public static Retrofit getClient() {
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
-        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY).redactHeader("Content-Type: application/json");
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
 

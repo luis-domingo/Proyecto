@@ -93,26 +93,24 @@ public class Player : MonoBehaviour
                 else {
                     Healthnum += pointsPills;
                     Health.text = Healthnum.ToString();
-                    SoundManager.instance.RandomizeSfx(pillEfx);
+                    
                     other.gameObject.SetActive(false);
                 }
+				SoundManager.instance.RandomizeSfx(pillEfx);
                 
             }
 
 
-			//SoundManager.instance.RandomizeSfx(eatSound1, eatSound2);
 			
 		} else if(other.tag == "Cristals") {
 			Crystals += pointsCrystals;
 			Cristals.text = Crystals.ToString();
-			//SoundManager.instance.RandomizeSfx(drinkSound2, drinkSound2);
 			other.gameObject.SetActive(false);
 
 
 		} else if (other.tag =="Damage"){
 			Healthnum -= pointsDamage;
 			Health.text = Healthnum.ToString();
-			//SoundManager.instance.RandomizeSfx(eatSound1, eatSound2);
 		}
 	}
 
@@ -127,7 +125,6 @@ public class Player : MonoBehaviour
 				GetComponent<SpriteRenderer>().flipX=false;
 			}
 				GetComponent<Animator>().SetBool("Walk",true);
-				//transform.Translate(0.015f,0,0);
 			rb.velocity=new Vector2(speed,0);
 
 		}
@@ -136,7 +133,6 @@ public class Player : MonoBehaviour
 				GetComponent<SpriteRenderer>().flipX=true;
 			}
 			GetComponent<Animator>().SetBool("Walk",true);
-			//transform.Translate(-0.015f,0,0);
 			rb.velocity=new Vector2(-speed,0);
 		}
 		else if (Input.GetKey(KeyCode.W) || Upbool){
@@ -144,13 +140,11 @@ public class Player : MonoBehaviour
 				GetComponent<SpriteRenderer>().flipY=false;
 			}
 			GetComponent<Animator>().SetBool("Walk",true);
-			//transform.Translate(0,0.015f,0);
 			rb.velocity=new Vector2(0,speed);
 		}
 		else if (Input.GetKey(KeyCode.S) || Downbool){
 
 			GetComponent<Animator>().SetBool("Walk",true);
-			//transform.Translate(0,-0.015f,0);
 			rb.velocity=new Vector2(0,-speed);
 		}
 
@@ -165,7 +159,6 @@ public class Player : MonoBehaviour
 	private void CheckIfGameOver()
 	{
 		if(Healthnum <= 0) {
-			//SoundManager.instance.PlaySingle(gameOverSound);
 			SoundManager.instance.musicSource.Stop();
 			GameManager.instance.GameOver();
 		}

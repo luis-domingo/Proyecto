@@ -1,5 +1,6 @@
 package com.example.loginregister;
 
+import com.example.loginregister.models.Img_Pojo;
 import com.example.loginregister.models.ShopItem;
 import com.example.loginregister.models.UserItem;
 import com.example.loginregister.models.Usuario;
@@ -39,5 +40,5 @@ public interface APIInterface {
 
     @Multipart
     @POST("/dsaApp/usuarios/setImage")
-    Call<ResponseBody> setImage (@Part("id") String id, @Part MultipartBody.Part image);
+    Call<Img_Pojo> setImage (@Part("id") String id, @Part String image);
 }

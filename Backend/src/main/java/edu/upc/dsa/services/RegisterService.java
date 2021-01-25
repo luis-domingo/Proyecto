@@ -74,7 +74,7 @@ public class RegisterService {
             logger.info(imatge);
             Base64.Decoder decoder = Base64.getDecoder();
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(decoder.decode(imatge));
-            ImageIO.write(ImageIO.read(byteArrayInputStream), "jpg", new File("/public/userImages" + image.getName() + ".jpg"));
+            ImageIO.write(ImageIO.read(byteArrayInputStream), "jpg", new File("./public/userImages/" + image.getName() + ".jpg"));
         }catch(Throwable t){
             t.printStackTrace();
         }

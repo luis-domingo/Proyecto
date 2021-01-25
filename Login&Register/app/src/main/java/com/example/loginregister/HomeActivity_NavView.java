@@ -76,7 +76,7 @@ public class HomeActivity_NavView extends AppCompatActivity {
         nombre.setText("Usuario: " + sp.getAll().get("Username").toString());
         ID.setText("ID: " + sp.getAll().get("ID").toString());
         icono = (ImageView)headerView.findViewById(R.id.imageView);
-        Picasso.get().load("147.83.7.205:8080/" + sp.getAll().get("ID").toString() + ".jpg").into(icono);
+        Picasso.get().load("147.83.7.205:8080/userItems/" + sp.getAll().get("ID").toString() + ".jpg").into(icono);
     }
 
     @Override

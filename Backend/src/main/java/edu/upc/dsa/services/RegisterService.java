@@ -2,19 +2,24 @@ package edu.upc.dsa.services;
 
 import edu.upc.dsa.dao.UsuarioDAO;
 import edu.upc.dsa.dao.UsuarioDAOImpl;
+import edu.upc.dsa.models.UserImg;
 import edu.upc.dsa.models.Usuario;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponses;
 
+import javax.imageio.ImageIO;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import org.apache.log4j.Logger;
 
 
-@Api(value = "/usuarios", description = "Endpoint to Track Service")
+@Api(value = "/usuarios", description = "Endpoint to User Service")
 @Path("/usuarios")
 public class RegisterService {
     private UsuarioDAO manuser;
@@ -51,6 +56,20 @@ public class RegisterService {
         } else {
             return Response.status(404).entity(null).build();
         }
-
     }
+
+    @POST
+    @ApiOperation(value = "Set Image", notes = "")
+    @ApiResponses(value = {
+    })
+
+    @Path("/setImage")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response setPicture(UserImg image) throws IOException {
+        logger.info("El usuario que quiere registrar su foto tiene ID " + image.getName());
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(image.getImage().getBytes());
+        ImageIO.write(ImageIO.read(byteArrayInputStream), "jpg", new File("/public/userImages" + image.getName() + ".jpg"));
+        return Response.status(200).build();
+    }
+
 }

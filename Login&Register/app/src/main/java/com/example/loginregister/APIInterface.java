@@ -1,20 +1,19 @@
 package com.example.loginregister;
 
 import com.example.loginregister.models.ShopItem;
+import com.example.loginregister.models.UserImg;
 import com.example.loginregister.models.UserItem;
 import com.example.loginregister.models.Usuario;
 
-import java.util.HashMap;
 import java.util.List;
+import javax.ws.rs.core.GenericEntity;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Param;
-import retrofit2.http.ParamQuerys;
-import retrofit2.http.Path;
-import retrofit2.http.Query;
+import retrofit2.http.PUT;
+
 
 public interface APIInterface {
 
@@ -32,4 +31,7 @@ public interface APIInterface {
 
     @POST("/dsaApp/inventory/buyItem")
     Call<Void> buyItem (@Body UserItem item);
+
+    @PUT("/dsaApp/usuarios/setImage")
+    Call<Void> setImage (@Body UserImg image);
 }

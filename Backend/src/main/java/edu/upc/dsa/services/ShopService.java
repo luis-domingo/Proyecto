@@ -18,7 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-@Api(value = "/shop", description = "Endpoint to Track Service")
+@Api(value = "/shop", description = "Endpoint to Shop Service")
 @Path("/shop")
 public class ShopService {
     private ShopDAO manshop;

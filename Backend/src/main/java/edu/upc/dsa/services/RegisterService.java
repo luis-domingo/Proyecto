@@ -16,6 +16,8 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Base64;
+
 import org.apache.log4j.Logger;
 
 
@@ -66,9 +68,16 @@ public class RegisterService {
     @Path("/setImage")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response setPicture(UserImg image) throws IOException {
-        logger.info("El usuario que quiere registrar su foto tiene ID " + image.getName());
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(image.getImage().getBytes());
-        ImageIO.write(ImageIO.read(byteArrayInputStream), "jpg", new File("/public/userImages" + image.getName() + ".jpg"));
+        try {
+            logger.info("El usuario que quiere registrar su foto tiene ID " + image.getName());
+            String imatge = image.getName().replace("\n", "");
+            logger.info(imatge);
+            Base64.Decoder decoder = Base64.getDecoder();
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(decoder.decode(imatge));
+            ImageIO.write(ImageIO.read(byteArrayInputStream), "jpg", new File("/public/userImages" + image.getName() + ".jpg"));
+        }catch(Throwable t){
+            t.printStackTrace();
+        }
         return Response.status(200).build();
     }
 

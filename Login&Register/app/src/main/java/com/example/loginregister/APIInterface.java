@@ -1,6 +1,7 @@
 package com.example.loginregister;
 
 import com.example.loginregister.models.ShopItem;
+import com.example.loginregister.models.Stats;
 import com.example.loginregister.models.UserImg;
 import com.example.loginregister.models.UserItem;
 import com.example.loginregister.models.Usuario;
@@ -32,6 +33,9 @@ public interface APIInterface {
     @POST("/dsaApp/inventory/buyItem")
     Call<Void> buyItem (@Body UserItem item);
 
-    @PUT("/dsaApp/usuarios/setImage")
+    @POST("/dsaApp/usuarios/setImage")
     Call<Void> setImage (@Body UserImg image);
+
+    @GET("/dsaApp/stats/getAllStats")
+    Call<List<Stats>> getStats();
 }

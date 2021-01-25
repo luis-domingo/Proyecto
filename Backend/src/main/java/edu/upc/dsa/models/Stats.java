@@ -1,26 +1,26 @@
 package edu.upc.dsa.models;
 
 public class Stats {
-    String id;
+    String name;
     String games;
     String best;
     String last;
 
     public Stats(){}
 
-    public Stats(String id, String games, String best, String last){
-        this.id = id;
+    public Stats(String name, String games, String best, String last){
+        this.name = name;
         this.games = games;
         this.best = best;
         this.last = last;
     }
 
-    public String getId() {
-        return id;
+    public String getName() {
+        return name;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getGames() {

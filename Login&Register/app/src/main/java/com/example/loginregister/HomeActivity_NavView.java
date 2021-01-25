@@ -76,13 +76,17 @@ public class HomeActivity_NavView extends AppCompatActivity {
         nombre.setText("Usuario: " + sp.getAll().get("Username").toString());
         ID.setText("ID: " + sp.getAll().get("ID").toString());
         icono = (ImageView)headerView.findViewById(R.id.imageView);
-        Picasso.get().load("147.83.7.205:8080/userItems/" + sp.getAll().get("ID").toString() + ".jpg").into(icono);
+        Picasso.get().load("http://147.83.7.205:8080/userImages/" + sp.getAll().get("ID").toString() + ".jpg").into(icono);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home_activity_nav_view, menu);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        icono = (ImageView)headerView.findViewById(R.id.imageView);
+        Picasso.get().load("http://147.83.7.205:8080/userImages/" + sp.getAll().get("ID").toString() + ".jpg").into(icono);
         return true;
     }
 

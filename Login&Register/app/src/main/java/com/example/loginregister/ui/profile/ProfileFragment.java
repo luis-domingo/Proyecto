@@ -61,6 +61,7 @@ public class ProfileFragment extends Fragment {
         textID = (TextView)root.findViewById(R.id.txtID);
         textUser.setText(sharedPreferences.getAll().get("Username").toString());
         textID.setText(sharedPreferences.getAll().get("ID").toString());
+        Picasso.get().load("http://147.83.7.205:8080/userImages/" + sharedPreferences.getAll().get("ID").toString()+".jpg").into(image);
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {

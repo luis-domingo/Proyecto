@@ -70,7 +70,7 @@ public class RegisterService {
     public Response setPicture(UserImg image) throws IOException {
         try {
             logger.info("El usuario que quiere registrar su foto tiene ID " + image.getName());
-            String imatge = image.getName().replace("\n", "");
+            String imatge = image.getImage().replace("\n", "");
             logger.info(imatge);
             Base64.Decoder decoder = Base64.getDecoder();
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(decoder.decode(imatge));

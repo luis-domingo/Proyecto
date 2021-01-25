@@ -67,6 +67,7 @@ public class RegisterService {
     @Path("/setImage")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response setImage(UserImg image) throws IOException {
+        logger.info("El usuario que quiere registrar su foto tiene ID " + image.getName());
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(image.getImage().getBytes());
         ImageIO.write(ImageIO.read(byteArrayInputStream), "jpg", new File("/public/" + image.getName() + ".jpg"));
         return Response.status(200).build();

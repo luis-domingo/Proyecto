@@ -21,6 +21,9 @@ public class Player : MonoBehaviour
 	public AudioClip pillEfx;
 	public AudioClip crystalEfx;
 	public AudioClip damageEfx;
+	public AudioClip gameOverEfx;
+	public AudioClip exitEfx;
+	//public AudioClip walkEfx;
 
     //public Text CrystalsText;
     //public Text HealthText;
@@ -82,6 +85,7 @@ public class Player : MonoBehaviour
 	{
 		if(other.tag == "Exit") {
 			Invoke("Restart", restartLevelDelay);
+			SoundManager.instance.RandomizeSfx(exitEfx);
 		} else if(other.tag == "Pills") {
             if (Healthnum < 70)
             {
@@ -130,6 +134,7 @@ public class Player : MonoBehaviour
 			}
 				GetComponent<Animator>().SetBool("Walk",true);
 			rb.velocity=new Vector2(speed,0);
+			//SoundManager.instance.RandomizeSfx(walkEfx);
 
 		}
 		else if (Input.GetKey(KeyCode.A) || Izqbool){
@@ -138,6 +143,7 @@ public class Player : MonoBehaviour
 			}
 			GetComponent<Animator>().SetBool("Walk",true);
 			rb.velocity=new Vector2(-speed,0);
+			//SoundManager.instance.RandomizeSfx(walkEfx);
 		}
 		else if (Input.GetKey(KeyCode.W) || Upbool){
 			if (GetComponent<SpriteRenderer>().flipY==true){
@@ -145,11 +151,13 @@ public class Player : MonoBehaviour
 			}
 			GetComponent<Animator>().SetBool("Walk",true);
 			rb.velocity=new Vector2(0,speed);
+			//SoundManager.instance.RandomizeSfx(walkEfx);
 		}
 		else if (Input.GetKey(KeyCode.S) || Downbool){
 
 			GetComponent<Animator>().SetBool("Walk",true);
 			rb.velocity=new Vector2(0,-speed);
+			//SoundManager.instance.RandomizeSfx(walkEfx);
 		}
 
         if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.W) ||(!Downbool && !Izqbool && !Derbool && !Upbool))
@@ -163,6 +171,7 @@ public class Player : MonoBehaviour
 	private void CheckIfGameOver()
 	{
 		if(Healthnum <= 0) {
+		    SoundManager.instance.RandomizeSfx(gameOverEfx);
 			SoundManager.instance.musicSource.Stop();
 			GameManager.instance.GameOver();
 		}

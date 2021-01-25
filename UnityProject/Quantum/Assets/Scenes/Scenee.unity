@@ -1952,6 +1952,21 @@ PrefabInstance:
       propertyPath: damageEfx
       value: 
       objectReference: {fileID: 8300000, guid: 9254f926453d5dc42bea23a5d809dde4, type: 3}
+    - target: {fileID: 8797845508275381710, guid: 825ff08cf6a238a4d874dcabc23d4a8d,
+        type: 3}
+      propertyPath: exitEfx
+      value: 
+      objectReference: {fileID: 8300000, guid: ff5f85da24bc943d1abdc5760a22bc81, type: 3}
+    - target: {fileID: 8797845508275381710, guid: 825ff08cf6a238a4d874dcabc23d4a8d,
+        type: 3}
+      propertyPath: gameOverEfx
+      value: 
+      objectReference: {fileID: 8300000, guid: efb749d4b5993c946891231a5dccd9c3, type: 3}
+    - target: {fileID: 8797845508275381710, guid: 825ff08cf6a238a4d874dcabc23d4a8d,
+        type: 3}
+      propertyPath: walkEfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 67cf501c5a17f934ab7da26a039081b0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 825ff08cf6a238a4d874dcabc23d4a8d, type: 3}
 --- !u!4 &1213363561 stripped

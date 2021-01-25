@@ -28,6 +28,8 @@ import com.squareup.picasso.Picasso;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+import javax.ws.rs.core.GenericEntity;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -45,12 +47,14 @@ public class ProfileFragment extends Fragment {
     TextView textID;
     Bitmap photo;
     Spinner sp;
+    APIInterface apiIface;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         profileViewModel =
                 new ViewModelProvider(this).get(ProfileViewModel.class);
         sharedPreferences = this.getActivity().getSharedPreferences("mySharedPreferences", MODE_PRIVATE);
+        apiIface = APIClient.getClient().create(APIInterface.class);
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
         image = (ImageView)root.findViewById(R.id.imageView3);
         textUser = (TextView)root.findViewById(R.id.txtUsername);
@@ -103,7 +107,6 @@ public class ProfileFragment extends Fragment {
     private void uploadImage(){
         String image = convertToString();
         String imageName = sharedPreferences.getAll().get("ID").toString();
-        APIInterface apiIface = APIClient.getClient().create(APIInterface.class);
         UserImg img = new UserImg(imageName, image);
         Call<Void> call = apiIface.setImage(img);
         call.enqueue(new Callback<Void>(){

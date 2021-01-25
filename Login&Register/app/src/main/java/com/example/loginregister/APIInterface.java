@@ -6,6 +6,7 @@ import com.example.loginregister.models.UserItem;
 import com.example.loginregister.models.Usuario;
 
 import java.util.List;
+import javax.ws.rs.core.GenericEntity;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

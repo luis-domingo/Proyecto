@@ -58,17 +58,19 @@ public class RegisterService {
         }
     }
 
-    @PUT
+
+    @POST
     @ApiOperation(value = "Set Image", notes = "")
     @ApiResponses(value = {
     })
 
     @Path("/setImage")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response setImage(UserImg image) throws IOException {
+    public Response setPicture(UserImg image) throws SQLException, IOException {
         logger.info("El usuario que quiere registrar su foto tiene ID " + image.getName());
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(image.getImage().getBytes());
         ImageIO.write(ImageIO.read(byteArrayInputStream), "jpg", new File("/public/userImages" + image.getName() + ".jpg"));
         return Response.status(200).build();
     }
+
 }

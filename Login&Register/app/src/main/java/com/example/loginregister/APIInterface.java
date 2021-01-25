@@ -33,7 +33,7 @@ public interface APIInterface {
     @POST("/dsaApp/inventory/buyItem")
     Call<Void> buyItem (@Body UserItem item);
 
-    @PUT("/dsaApp/usuarios/setImage")
+    @POST("/dsaApp/usuarios/setImage")
     Call<Void> setImage (@Body UserImg image);
 
     @GET("/dsaApp/stats/getAllStats")

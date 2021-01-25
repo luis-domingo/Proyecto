@@ -32,8 +32,6 @@ public class ImagesService {
     })
 
     @Path("/setImage")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public Response setPicture(UserImg image) throws IOException {
         logger.info("El usuario que quiere registrar su foto tiene ID " + image.getName());
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(image.getImage().getBytes());

@@ -16,6 +16,8 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.squareup.picasso.Picasso;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -48,6 +50,30 @@ public class HomeActivity_NavView extends AppCompatActivity {
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+
+            }
+
+            @Override
+            public void onDrawerOpened(@NonNull View drawerView) {
+                NavigationView navigationView = drawerView.findViewById(R.id.nav_view);
+                View headerView = navigationView.getHeaderView(0);
+                icono = (ImageView)headerView.findViewById(R.id.imageView);
+                Picasso.get().load("http://147.83.7.205:8080/userImages/" + sp.getAll().get("ID").toString() + ".jpg").into(icono);
+            }
+
+            @Override
+            public void onDrawerClosed(@NonNull View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
+            }
+        });
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -83,10 +109,6 @@ public class HomeActivity_NavView extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home_activity_nav_view, menu);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        View headerView = navigationView.getHeaderView(0);
-        icono = (ImageView)headerView.findViewById(R.id.imageView);
-        Picasso.get().load("http://147.83.7.205:8080/userImages/" + sp.getAll().get("ID").toString() + ".jpg").into(icono);
         return true;
     }
 

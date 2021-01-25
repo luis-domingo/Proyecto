@@ -110,15 +110,18 @@ public class Player : MonoBehaviour
 			
 		} else if(other.tag == "Cristals") {
 			Crystals += pointsCrystals;
+			GameManager.instance.playerCrystals = Crystals;
 			Cristals.text = Crystals.ToString();
 			SoundManager.instance.RandomizeSfx(crystalEfx);
 			other.gameObject.SetActive(false);
 
 
 		} else if (other.tag =="Damage"){
+			
 			Healthnum -= pointsDamage;
 			Health.text = Healthnum.ToString();
 			SoundManager.instance.RandomizeSfx(damageEfx);
+			CheckIfGameOver();
 		}
 	}
 

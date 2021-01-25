@@ -14,6 +14,7 @@ TagManager:
   - healtht
   - cristalt
   - pistat
+  - gameovertext
   layers:
   - Default
   - TransparentFX

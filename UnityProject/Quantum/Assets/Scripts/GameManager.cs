@@ -17,8 +17,12 @@ public class GameManager : MonoBehaviour {
 
 	private int level = 1;
 	private bool doingSetup;
-	//private Text levelText;
-	//private GameObject levelImage;
+	private Text Level5Text;
+	private GameObject level1Image;
+	private GameObject level2Image;
+	private GameObject level3Image;
+	private GameObject level4Image;
+	private GameObject level5Image;
 
 	// Use this for initialization
 	void Awake () {
@@ -31,37 +35,77 @@ public class GameManager : MonoBehaviour {
 		DontDestroyOnLoad(gameObject);
 		boardScript = GetComponent<BoardManager>();
 
-		InitGame();
+		InitGame(level);
 	}
 
 	private void OnLevelWasLoaded(int index)
 	{
 		level++;
-		InitGame();
+		InitGame(level);
 	}
 
-	private void HideLevelImage() {        
-		//levelImage.SetActive(false);
+	private void HideLevel1Image() {        
+		level1Image.SetActive(false);
 		doingSetup = false;
 	}
 
-	void InitGame() {
-		doingSetup = true;
+	private void HideLevel2Image() {        
+		level2Image.SetActive(false);
+		doingSetup = false;
+	}
 
-//		levelImage = GameObject.Find("LevelImage");
-//		levelText = GameObject.Find("LevelText").GetComponent<Text>();
-//		levelText.text = "Level: " + level;        
-//		levelImage.SetActive(true);        
-//		Invoke("HideLevelImage", levelStartDelay);
-//
-//
+	private void HideLevel3Image() {        
+		level3Image.SetActive(false);
+		doingSetup = false;
+	}
+
+	private void HideLevel4Image() {        
+		level4Image.SetActive(false);
+		doingSetup = false;
+	}
+
+
+	void InitGame(int level) {
+		doingSetup = true;
+		level1Image = GameObject.Find("Level1Image");
+		level2Image = GameObject.Find("Level2Image");
+		level3Image = GameObject.Find("Level3Image");
+		level4Image = GameObject.Find("Level4Image");
+		level5Image = GameObject.Find("DeathImage");
+
+		level1Image.SetActive(false);
+		level2Image.SetActive(false);   
+		level3Image.SetActive(false);   
+		level4Image.SetActive(false);   
+		level5Image.SetActive(false);  
+
+		if (level==1){
+
+			level1Image.SetActive(true);        
+			Invoke("HideLevel1Image", levelStartDelay);
+		}else if(level==2){  
+			level2Image.SetActive(true);        
+			Invoke("HideLevel2Image", levelStartDelay);
+		}else if(level==3){
+			level3Image.SetActive(true);        
+			Invoke("HideLevel3Image", levelStartDelay);
+		}else if(level==4){     
+			level4Image.SetActive(true);        
+			Invoke("HideLevel4Image", levelStartDelay);
+		}
+
+
+
 		boardScript.BoardSetup(level);
 	}
 
 	public void GameOver() {
+		level5Image.SetActive(true);
+		Level5Text = GameObject.FindWithTag("gameovertext").GetComponent(typeof(Text)) as Text;
+
+		Level5Text.text = "Has acabado con: "+playerCrystals +" cristales en el nivel " + level;
+
 		enabled = false;
-		//levelText.text = "You lost at level: " + level ;
-		//levelImage.SetActive(true);
 	}
 
 	// Update is called once per frame

@@ -18,8 +18,8 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
-@Api(value = "/shop", description = "Endpoint to Shop Service")
-@Path("/shop")
+@Api(value = "/stats", description = "Endpoint to Shop Service")
+@Path("/stats")
 public class StatsService {
     private StatsDAO manStats;
 
@@ -32,7 +32,7 @@ public class StatsService {
     @ApiResponses(value = {
     })
 
-    @Path("/listObjects")
+    @Path("/getAllStats")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getItems() throws SQLException {
         List<Stats> listStats = manStats.getAllStats();

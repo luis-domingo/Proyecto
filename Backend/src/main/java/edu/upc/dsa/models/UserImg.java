@@ -4,6 +4,9 @@ public class UserImg {
     String name;
     String image;
 
+    public UserImg() {
+    }
+
     public String getName() {
         return name;
     }

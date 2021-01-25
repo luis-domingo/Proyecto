@@ -52,7 +52,7 @@ public class BoardManager : MonoBehaviour
         boardHolder.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         GameObject playerinstance = new GameObject("Player");
 
-        String map =
+		String map = 
             "#############################\r\n"
 			+ "# I       I         I     I #\r\n"
 			+ "# IIIIIII I  H  M  II IIIII #\r\n"
@@ -89,41 +89,72 @@ public class BoardManager : MonoBehaviour
         int columns = 29;
         int rows = 29;
 
-
+	
         for (int y = 0; y < rows; y++)
         {
             for (int x = 0; x < columns; x++)
             {
-                char chr = lines[y][x];
+
+				char chr = lines[y][x];
                 switch (chr)
                 {
                 case '#': //Outer Wall UPDATE SEGUN LEVEL
-                    GameObject toInstantiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
-                    GameObject instance = Instantiate(toInstantiate, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
-                    instance.transform.SetParent(boardHolder);
+					if (level==1){
+	                    GameObject toInstantiate = outerWallTiles[0];
+	                    GameObject instance = Instantiate(toInstantiate, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
+						instance.transform.SetParent(boardHolder);
+					}else if (level==2){
+						GameObject toInstantiate = outerWallTiles[1];
+						GameObject instance = Instantiate(toInstantiate, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
+						instance.transform.SetParent(boardHolder);
+					}else if (level==3){
+						GameObject toInstantiate = outerWallTiles[2];
+						GameObject instance = Instantiate(toInstantiate, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
+						instance.transform.SetParent(boardHolder);
+					}else if (level==4){
+						GameObject toInstantiate = outerWallTiles[3];
+						GameObject instance = Instantiate(toInstantiate, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
+						instance.transform.SetParent(boardHolder);
+					}
+
                     break;
 
                 case 'E': //EXIT
                     GameObject instanceExit = Instantiate(exit, new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
                     instanceExit.transform.SetParent(boardHolder);
-                    intantiateFloor(x, rows - y, rows, columns);
+					intantiateFloor(x, rows - y, rows, columns, level);
                     break;
 
                 case 'C': // cristal
                     GameObject instanceCrystal = Instantiate(items[0], new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
                     instanceCrystal.transform.SetParent(boardHolder);
-                    intantiateFloor(x, rows - y, rows, columns);
+					intantiateFloor(x, rows - y, rows, columns, level);
                     break;
 
                 case 'P'://Player
                     //playerinstance = Instantiate(player, new Vector3(x, rows - y, 0f), Quaternion.identity);
-                    intantiateFloor(x, rows - y, rows, columns);
+					intantiateFloor(x, rows - y, rows, columns, level);
                     break;
 
                 case 'I': //IWall UPDATE SEGUN LEVEL
-                    GameObject toInstantiate3 = innerwallTiles[Random.Range(0, innerwallTiles.Length)];
-                    GameObject instanceIwall = Instantiate(toInstantiate3, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
-                    instanceIwall.transform.SetParent(boardHolder);
+					if (level==1){
+						GameObject toInstantiate3 = innerwallTiles[0];
+						GameObject instanceIwall = Instantiate(toInstantiate3, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
+						instanceIwall.transform.SetParent(boardHolder);
+					}else if(level==2){
+						GameObject toInstantiate3 = innerwallTiles[1];
+						GameObject instanceIwall = Instantiate(toInstantiate3, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
+						instanceIwall.transform.SetParent(boardHolder);
+					}else if(level==3){
+						GameObject toInstantiate3 = innerwallTiles[2];
+						GameObject instanceIwall = Instantiate(toInstantiate3, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
+						instanceIwall.transform.SetParent(boardHolder);
+					}else if(level==4){
+						GameObject toInstantiate3 = innerwallTiles[3];
+						GameObject instanceIwall = Instantiate(toInstantiate3, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
+						instanceIwall.transform.SetParent(boardHolder);
+					}
+
                     break;
 
 
@@ -134,56 +165,75 @@ public class BoardManager : MonoBehaviour
 						instancePillsprob.transform.SetParent(boardHolder);
 
 					}
-					intantiateFloor(x, rows - y, rows, columns);
+					intantiateFloor(x, rows - y, rows, columns, level);
                     break;
 
                 case 'M': //Pista
                     GameObject instancePista = Instantiate(items[2], new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
                     instancePista.transform.SetParent(boardHolder);
-                    intantiateFloor(x, rows - y, rows, columns);
+					intantiateFloor(x, rows - y, rows, columns, level);
                     break;
 
                 case 'T': //SAbajo
                     GameObject instanceSAbajo = Instantiate(signals[0], new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
                     instanceSAbajo.transform.SetParent(boardHolder);
-                    intantiateFloor(x, rows - y, rows, columns);
+					intantiateFloor(x, rows - y, rows, columns, level);
                     break;
 
                 case 'Y': //SArriba
                     GameObject instanceSArriba = Instantiate(signals[1], new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
                     instanceSArriba.transform.SetParent(boardHolder);
-                    intantiateFloor(x, rows - y, rows, columns);
+					intantiateFloor(x, rows - y, rows, columns, level);
                     break;
 
                 case 'U': //SDerecha
                     GameObject instanceSDerecha = Instantiate(signals[2], new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
                     instanceSDerecha.transform.SetParent(boardHolder);
-                    intantiateFloor(x, rows - y, rows, columns);
+					intantiateFloor(x, rows - y, rows, columns, level);
                     break;
 
 
                 case 'O': //SIzquierda                     
                     GameObject instanceSIzquierda = Instantiate(signals[3], new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
                     instanceSIzquierda.transform.SetParent(boardHolder);
-                    intantiateFloor(x, rows - y, rows, columns);
+					intantiateFloor(x, rows - y, rows, columns, level);
                     break;
 
 
                 case 'S': //SDeath                     
                     GameObject instanceSDeath = Instantiate(signals[4], new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
                     instanceSDeath.transform.SetParent(boardHolder);
-                    intantiateFloor(x, rows - y, rows, columns);
+					intantiateFloor(x, rows - y, rows, columns, level);
                     break;
 
                 default://floor or damage floors
 
 					float rand= Random.value;
 					if (rand<=0.15f){
-						GameObject toInstantiateprob = floorDamage[Random.Range(0, floorDamage.Length)];
-						GameObject instanceDprobwall = Instantiate(toInstantiateprob, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
-						instanceDprobwall.transform.SetParent(boardHolder);
+						if (level==1){
+							GameObject toInstantiateprob = floorDamage[0];
+							GameObject instanceDprobwall = Instantiate(toInstantiateprob, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
+							instanceDprobwall.transform.SetParent(boardHolder);
+						}else if(level==2){
+							GameObject toInstantiateprob = floorDamage[1];
+							GameObject instanceDprobwall = Instantiate(toInstantiateprob, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
+							instanceDprobwall.transform.SetParent(boardHolder);
+						}else if(level==3){
+							GameObject toInstantiateprob = floorDamage[2];
+							GameObject instanceDprobwall = Instantiate(toInstantiateprob, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
+							instanceDprobwall.transform.SetParent(boardHolder);
+						}else if(level==4){
+							GameObject toInstantiateprob = floorDamage[3];
+							GameObject instanceDprobwall = Instantiate(toInstantiateprob, new Vector3(x, rows-y, 0f), Quaternion.identity) as GameObject;
+							instanceDprobwall.transform.SetParent(boardHolder);
+						}
+
+
+
+
+
 					}else {
-						intantiateFloor(x, rows - y, rows, columns);
+						intantiateFloor(x, rows - y, rows, columns, level);
 					}
 
 
@@ -191,27 +241,44 @@ public class BoardManager : MonoBehaviour
 
 
                 }
+
             }
 
 
         }
 		
 
-        //CameraFollow camerascript = mainCamera.GetComponent<CameraFollow>();
-        //camerascript.following = playerinstance;
-		
+
 
 
     }
 
-    public void intantiateFloor(int x, int y, int rows, int columns)
+    public void intantiateFloor(int x, int y, int rows, int columns, int level)
     {
-        GameObject floorToInstatiate = floorTiles[Random.Range(0, floorTiles.Length)];
-        //if (x == 1 || x == columns - 2 || y == 2 || y == rows - 1)
-        //    floorToInstatiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
-		
-        GameObject instanceFloor = Instantiate(floorToInstatiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
-        instanceFloor.transform.SetParent(boardHolder);
+		if (level==1){
+			GameObject floorToInstatiate = floorTiles[0];
+
+			GameObject instanceFloor = Instantiate(floorToInstatiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+			instanceFloor.transform.SetParent(boardHolder);
+		}else if(level==2){
+			GameObject floorToInstatiate = floorTiles[1];
+
+			GameObject instanceFloor = Instantiate(floorToInstatiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+			instanceFloor.transform.SetParent(boardHolder);
+		}else if(level==3){
+			GameObject floorToInstatiate = floorTiles[2];
+
+			GameObject instanceFloor = Instantiate(floorToInstatiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+			instanceFloor.transform.SetParent(boardHolder);
+		}else if(level==4){
+			GameObject floorToInstatiate = floorTiles[Random.Range(3,4)];
+
+			GameObject instanceFloor = Instantiate(floorToInstatiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+			instanceFloor.transform.SetParent(boardHolder);
+		}
+
+
+
     }
 
 
@@ -219,7 +286,6 @@ public class BoardManager : MonoBehaviour
     public void SetUpScene()
     {
         BoardSetup(level);
-        //LayoutObjectAtRandom(cleanersSprite, cleanerCount.minimum, cleanerCount.maximum);
 
     }
 

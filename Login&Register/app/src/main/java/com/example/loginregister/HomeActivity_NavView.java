@@ -3,14 +3,17 @@ package com.example.loginregister;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.loginregister.utils.ImageDownloader;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -61,7 +64,9 @@ public class HomeActivity_NavView extends AppCompatActivity {
                 NavigationView navigationView = drawerView.findViewById(R.id.nav_view);
                 View headerView = navigationView.getHeaderView(0);
                 icono = (ImageView)headerView.findViewById(R.id.imageView);
-                Picasso.get().load("http://147.83.7.205:8080/userImages/" + sp.getAll().get("ID").toString() + ".jpg").into(icono);
+                ImageDownloader imageDownloader = new ImageDownloader();
+                Bitmap photo = imageDownloader.downloadImage(sp.getAll().get("ID").toString());
+                icono.setImageBitmap(photo);
             }
 
             @Override
@@ -102,7 +107,9 @@ public class HomeActivity_NavView extends AppCompatActivity {
         nombre.setText("Usuario: " + sp.getAll().get("Username").toString());
         ID.setText("ID: " + sp.getAll().get("ID").toString());
         icono = (ImageView)headerView.findViewById(R.id.imageView);
-        Picasso.get().load("http://147.83.7.205:8080/userImages/" + sp.getAll().get("ID").toString() + ".jpg").into(icono);
+        ImageDownloader imageDownloader = new ImageDownloader();
+        Bitmap photo = imageDownloader.downloadImage(sp.getAll().get("ID").toString());
+        icono.setImageBitmap(photo);
     }
 
     @Override

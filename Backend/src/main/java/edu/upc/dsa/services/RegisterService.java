@@ -9,16 +9,23 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponses;
 
 import javax.imageio.ImageIO;
+import javax.imageio.plugins.jpeg.JPEGImageWriteParam;
+import javax.imageio.stream.FileImageOutputStream;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.awt.image.WritableRaster;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Base64;
 
 import org.apache.log4j.Logger;
+import sun.jvm.hotspot.utilities.BitMap;
 
 
 @Api(value = "/usuarios", description = "Endpoint to User Service")
@@ -74,11 +81,34 @@ public class RegisterService {
             logger.info(imatge);
             Base64.Decoder decoder = Base64.getDecoder();
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(decoder.decode(imatge));
-            ImageIO.write(ImageIO.read(byteArrayInputStream), "jpg", new File("./public/userImages/" + image.getName() + ".jpg"));
+            ImageIO.write(ImageIO.read(byteArrayInputStream), "jpg", new File("../userImages/" + image.getName() + ".jpg"));
         }catch(Throwable t){
             t.printStackTrace();
         }
         return Response.status(200).build();
     }
+    @POST
+    @ApiOperation(value = "Set Image", notes="")
+    @ApiResponses(value={
+    })
 
+    @Path("/getImage")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getPicture(String id){
+        try{
+            BufferedImage bufferedImage = ImageIO.read(new File("../userImages/" + id +".jpg"));
+            WritableRaster raster = bufferedImage.getRaster();
+            DataBufferByte data = (DataBufferByte)raster.getDataBuffer();
+            byte[] imgByte = data.getData();
+            Base64.Encoder encoder = Base64.getEncoder();
+            String imagenString = encoder.encodeToString(imgByte);
+            return Response.status(200).entity(imagenString).build();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+            return Response.status(500).entity(null).build();
+        }
+    }
 }

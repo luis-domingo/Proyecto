@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 6
-  lastUpdatedAtString: 2021-01-24T22:07:07.089+01:00
-  initializedAtString: 2021-01-24T21:32:33.117+01:00
+  lastUpdatedAtString: 2021-01-25T17:07:23.138+01:00
+  initializedAtString: 2021-01-25T16:54:46.719+01:00
   entries:
   - path: UnityProject\Quantum\Assembly-CSharp.csproj
     fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assembly-CSharp.csproj
@@ -22,331 +22,33 @@ MonoBehaviour:
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
-  - path: UnityProject\Quantum\Assets\Prefabs\Background.prefab
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Prefabs\Background.prefab
-    projectPath: Assets\Prefabs\Background.prefab
+  - path: UnityProject\Quantum\Assembly-CSharp-Editor-firstpass.csproj
+    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assembly-CSharp-Editor-firstpass.csproj
+    projectPath: Assembly-CSharp-Editor-firstpass.csproj
+    originalPath: 
+    indexStatus: 0
+    workTreeStatus: 3
+  - path: UnityProject\Quantum\Assets\Songs.meta
+    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Songs.meta
+    projectPath: Assets\Songs.meta
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
-  - path: UnityProject\Quantum\Assets\Prefabs\Background.prefab.meta
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Prefabs\Background.prefab.meta
-    projectPath: Assets\Prefabs\Background.prefab.meta
+  - path: UnityProject\Quantum\Assets\Sprites.meta
+    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Sprites.meta
+    projectPath: Assets\Sprites.meta
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
-  - path: UnityProject\Quantum\Assets\Scripts\RandomBackground.cs
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Scripts\RandomBackground.cs
-    projectPath: Assets\Scripts\RandomBackground.cs
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Assets\Scripts\RandomBackground.cs.meta
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Scripts\RandomBackground.cs.meta
-    projectPath: Assets\Scripts\RandomBackground.cs.meta
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Assets\Textures\Textures\Plain Starfields\PlainStarfield_01.png.meta
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Textures\Textures\Plain
-      Starfields\PlainStarfield_01.png.meta
-    projectPath: Assets\Textures\Textures\Plain Starfields\PlainStarfield_01.png.meta
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: UnityProject\Quantum\Assets\Textures\Textures\Plain Starfields\PlainStarfield_02.png.meta
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Textures\Textures\Plain
-      Starfields\PlainStarfield_02.png.meta
-    projectPath: Assets\Textures\Textures\Plain Starfields\PlainStarfield_02.png.meta
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: UnityProject\Quantum\Assets\Textures\Textures\Plain Starfields\PlainStarfield_03.png.meta
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Textures\Textures\Plain
-      Starfields\PlainStarfield_03.png.meta
-    projectPath: Assets\Textures\Textures\Plain Starfields\PlainStarfield_03.png.meta
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: UnityProject\Quantum\Assets\Textures\Textures\Plain Starfields\PlainStarfield_04.png.meta
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Textures\Textures\Plain
-      Starfields\PlainStarfield_04.png.meta
-    projectPath: Assets\Textures\Textures\Plain Starfields\PlainStarfield_04.png.meta
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_01.png.meta
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_01.png.meta
-    projectPath: Assets\Textures\Textures\SingleNeb\SingleNeb_01.png.meta
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_02.png.meta
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_02.png.meta
-    projectPath: Assets\Textures\Textures\SingleNeb\SingleNeb_02.png.meta
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_03.png.meta
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_03.png.meta
-    projectPath: Assets\Textures\Textures\SingleNeb\SingleNeb_03.png.meta
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_04.png.meta
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_04.png.meta
-    projectPath: Assets\Textures\Textures\SingleNeb\SingleNeb_04.png.meta
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_05.png.meta
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_05.png.meta
-    projectPath: Assets\Textures\Textures\SingleNeb\SingleNeb_05.png.meta
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_06.png.meta
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_06.png.meta
-    projectPath: Assets\Textures\Textures\SingleNeb\SingleNeb_06.png.meta
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_07.png.meta
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_07.png.meta
-    projectPath: Assets\Textures\Textures\SingleNeb\SingleNeb_07.png.meta
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_08.png.meta
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_08.png.meta
-    projectPath: Assets\Textures\Textures\SingleNeb\SingleNeb_08.png.meta
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_09.png.meta
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_09.png.meta
-    projectPath: Assets\Textures\Textures\SingleNeb\SingleNeb_09.png.meta
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_10.png.meta
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Assets\Textures\Textures\SingleNeb\SingleNeb_10.png.meta
-    projectPath: Assets\Textures\Textures\SingleNeb\SingleNeb_10.png.meta
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
   - path: UnityProject\Quantum\Library\ArtifactDB
     fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\ArtifactDB
     projectPath: Library\ArtifactDB
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
-  - path: UnityProject\Quantum\Library\Artifacts\01\01001aab1793b595a6e839b8a0e5a4e2
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\01\01001aab1793b595a6e839b8a0e5a4e2
-    projectPath: Library\Artifacts\01\01001aab1793b595a6e839b8a0e5a4e2
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\0a\0a2b547d1d4834465296acc227c59692
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\0a\0a2b547d1d4834465296acc227c59692
-    projectPath: Library\Artifacts\0a\0a2b547d1d4834465296acc227c59692
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\0d\0d292c2f1b143e2b9fc4f2a2020d8b5a
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\0d\0d292c2f1b143e2b9fc4f2a2020d8b5a
-    projectPath: Library\Artifacts\0d\0d292c2f1b143e2b9fc4f2a2020d8b5a
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\10\10948256565ac2b6efaa112db161bd0d
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\10\10948256565ac2b6efaa112db161bd0d
-    projectPath: Library\Artifacts\10\10948256565ac2b6efaa112db161bd0d
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\19\191001938cc97f16ea94b4fc76a45f59
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\19\191001938cc97f16ea94b4fc76a45f59
-    projectPath: Library\Artifacts\19\191001938cc97f16ea94b4fc76a45f59
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\1a\1a74a813d00f9d3f5b3b2289607a9c5d
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\1a\1a74a813d00f9d3f5b3b2289607a9c5d
-    projectPath: Library\Artifacts\1a\1a74a813d00f9d3f5b3b2289607a9c5d
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\21\21950a3790c04df20fdb7a0c9f3feb47
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\21\21950a3790c04df20fdb7a0c9f3feb47
-    projectPath: Library\Artifacts\21\21950a3790c04df20fdb7a0c9f3feb47
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\27\271abd559d720130de913e6ef04478c9
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\27\271abd559d720130de913e6ef04478c9
-    projectPath: Library\Artifacts\27\271abd559d720130de913e6ef04478c9
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\2a\2a81579880e5afe4f4b24af9fb15e8bd
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\2a\2a81579880e5afe4f4b24af9fb15e8bd
-    projectPath: Library\Artifacts\2a\2a81579880e5afe4f4b24af9fb15e8bd
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\2d\2d840e582a617c5223a9c9c1ff0b0ad7
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\2d\2d840e582a617c5223a9c9c1ff0b0ad7
-    projectPath: Library\Artifacts\2d\2d840e582a617c5223a9c9c1ff0b0ad7
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\2f\2f57f3a29e871a8f5aef7fe3df5e40b7
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\2f\2f57f3a29e871a8f5aef7fe3df5e40b7
-    projectPath: Library\Artifacts\2f\2f57f3a29e871a8f5aef7fe3df5e40b7
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\31\31fb4dc27e23e23ade6b6529e077e0b1
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\31\31fb4dc27e23e23ade6b6529e077e0b1
-    projectPath: Library\Artifacts\31\31fb4dc27e23e23ade6b6529e077e0b1
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\32\3294f65b7e048637d60c3e00636c616c
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\32\3294f65b7e048637d60c3e00636c616c
-    projectPath: Library\Artifacts\32\3294f65b7e048637d60c3e00636c616c
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\35\35a72e326c28f28a9245f04ed17bbfa1
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\35\35a72e326c28f28a9245f04ed17bbfa1
-    projectPath: Library\Artifacts\35\35a72e326c28f28a9245f04ed17bbfa1
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\36\365afc39b9870b711f122f2cfdf9a82c
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\36\365afc39b9870b711f122f2cfdf9a82c
-    projectPath: Library\Artifacts\36\365afc39b9870b711f122f2cfdf9a82c
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\36\36a6db1153f0cfd424db9ba8bf239c9c
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\36\36a6db1153f0cfd424db9ba8bf239c9c
-    projectPath: Library\Artifacts\36\36a6db1153f0cfd424db9ba8bf239c9c
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\37\373577f78a0733ad54729d926639fae8
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\37\373577f78a0733ad54729d926639fae8
-    projectPath: Library\Artifacts\37\373577f78a0733ad54729d926639fae8
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\3a\3a617024e5a33f7b5cb1adca24574b6c
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\3a\3a617024e5a33f7b5cb1adca24574b6c
-    projectPath: Library\Artifacts\3a\3a617024e5a33f7b5cb1adca24574b6c
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\3b\3b3abab8aeab3f34a9fb6091e41deff8
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\3b\3b3abab8aeab3f34a9fb6091e41deff8
-    projectPath: Library\Artifacts\3b\3b3abab8aeab3f34a9fb6091e41deff8
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\3f\3ff90144fd5709b50d075495cb92db37
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\3f\3ff90144fd5709b50d075495cb92db37
-    projectPath: Library\Artifacts\3f\3ff90144fd5709b50d075495cb92db37
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\42\42874752eb68b087834dcfd2a5354c41
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\42\42874752eb68b087834dcfd2a5354c41
-    projectPath: Library\Artifacts\42\42874752eb68b087834dcfd2a5354c41
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\43\4374c0777cd26a7823f0fcb5d9feed09
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\43\4374c0777cd26a7823f0fcb5d9feed09
-    projectPath: Library\Artifacts\43\4374c0777cd26a7823f0fcb5d9feed09
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\47\47821bc612f36a96fa7d2528505c35e0
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\47\47821bc612f36a96fa7d2528505c35e0
-    projectPath: Library\Artifacts\47\47821bc612f36a96fa7d2528505c35e0
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\52\522d6343b9df0c8ec41ab7275837c53c
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\52\522d6343b9df0c8ec41ab7275837c53c
-    projectPath: Library\Artifacts\52\522d6343b9df0c8ec41ab7275837c53c
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\54\545ca8117c86736c32eec64cf6fd1b22
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\54\545ca8117c86736c32eec64cf6fd1b22
-    projectPath: Library\Artifacts\54\545ca8117c86736c32eec64cf6fd1b22
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\5e\5e7ab4681fa863d753ebda333050bb13
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\5e\5e7ab4681fa863d753ebda333050bb13
-    projectPath: Library\Artifacts\5e\5e7ab4681fa863d753ebda333050bb13
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\60\60ef1ba2b668a9fd2aa9d2d47854c5cc
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\60\60ef1ba2b668a9fd2aa9d2d47854c5cc
-    projectPath: Library\Artifacts\60\60ef1ba2b668a9fd2aa9d2d47854c5cc
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\61\61885dca586f97cf8a8f8231e1b5b948
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\61\61885dca586f97cf8a8f8231e1b5b948
-    projectPath: Library\Artifacts\61\61885dca586f97cf8a8f8231e1b5b948
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\62\620aa93fb0fd1be6b250c92edc867985
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\62\620aa93fb0fd1be6b250c92edc867985
-    projectPath: Library\Artifacts\62\620aa93fb0fd1be6b250c92edc867985
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\68\6875b351f1f82f2348a708f9194fc9a2
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\68\6875b351f1f82f2348a708f9194fc9a2
-    projectPath: Library\Artifacts\68\6875b351f1f82f2348a708f9194fc9a2
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\68\689e3becdce26ee1530943d645ee1c87
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\68\689e3becdce26ee1530943d645ee1c87
-    projectPath: Library\Artifacts\68\689e3becdce26ee1530943d645ee1c87
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\6a\6a85a2955d605e8c1635fc907a811f96
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\6a\6a85a2955d605e8c1635fc907a811f96
-    projectPath: Library\Artifacts\6a\6a85a2955d605e8c1635fc907a811f96
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\6c\6c814fbf02bfd0794e43c93341da87ae
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\6c\6c814fbf02bfd0794e43c93341da87ae
-    projectPath: Library\Artifacts\6c\6c814fbf02bfd0794e43c93341da87ae
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\6e\6e8d2eed96bcd8661448c80ca41bfd35
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\6e\6e8d2eed96bcd8661448c80ca41bfd35
-    projectPath: Library\Artifacts\6e\6e8d2eed96bcd8661448c80ca41bfd35
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\6e\6ebfaf6f668a4b61903eb637059d8568
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\6e\6ebfaf6f668a4b61903eb637059d8568
-    projectPath: Library\Artifacts\6e\6ebfaf6f668a4b61903eb637059d8568
+  - path: UnityProject\Quantum\Library\Artifacts\11\11ea3f449539af68adc2174ef1eb7528
+    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\11\11ea3f449539af68adc2174ef1eb7528
+    projectPath: Library\Artifacts\11\11ea3f449539af68adc2174ef1eb7528
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1
@@ -354,206 +56,32 @@ MonoBehaviour:
     fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\79\79a17068361ba3e8af4e1b74008ca176
     projectPath: Library\Artifacts\79\79a17068361ba3e8af4e1b74008ca176
     originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\7a\7af10ac758319dc79b8ae485dc56ba99
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\7a\7af10ac758319dc79b8ae485dc56ba99
-    projectPath: Library\Artifacts\7a\7af10ac758319dc79b8ae485dc56ba99
-    originalPath: 
     indexStatus: 0
     workTreeStatus: 5
   - path: UnityProject\Quantum\Library\Artifacts\7d\7d1e6551ed301c2e39b2b39a4fb9c68b
     fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\7d\7d1e6551ed301c2e39b2b39a4fb9c68b
     projectPath: Library\Artifacts\7d\7d1e6551ed301c2e39b2b39a4fb9c68b
     originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\85\852b191de956a5f4e40645ac7c50c77b
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\85\852b191de956a5f4e40645ac7c50c77b
-    projectPath: Library\Artifacts\85\852b191de956a5f4e40645ac7c50c77b
+    indexStatus: 0
+    workTreeStatus: 5
+  - path: UnityProject\Quantum\Library\Artifacts\8a\8a7ed83bb66ed00fdc6e70f84e35684b
+    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\8a\8a7ed83bb66ed00fdc6e70f84e35684b
+    projectPath: Library\Artifacts\8a\8a7ed83bb66ed00fdc6e70f84e35684b
     originalPath: 
     indexStatus: 0
     workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\86\86baf340ee2761a4bd2bd9aedc88b114
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\86\86baf340ee2761a4bd2bd9aedc88b114
-    projectPath: Library\Artifacts\86\86baf340ee2761a4bd2bd9aedc88b114
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\86\86e969abb1b70652fcb0958cf093bc58
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\86\86e969abb1b70652fcb0958cf093bc58
-    projectPath: Library\Artifacts\86\86e969abb1b70652fcb0958cf093bc58
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\88\88f6e0771a16552631a78225c9105ef6
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\88\88f6e0771a16552631a78225c9105ef6
-    projectPath: Library\Artifacts\88\88f6e0771a16552631a78225c9105ef6
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\89\899faa688e68a1741eab4441f7c371c0
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\89\899faa688e68a1741eab4441f7c371c0
-    projectPath: Library\Artifacts\89\899faa688e68a1741eab4441f7c371c0
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\8f\8f8e65b078bb3396da01ee711113b20d
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\8f\8f8e65b078bb3396da01ee711113b20d
-    projectPath: Library\Artifacts\8f\8f8e65b078bb3396da01ee711113b20d
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\91\91e4a5f3f84804753f8bde75192f6cf6
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\91\91e4a5f3f84804753f8bde75192f6cf6
-    projectPath: Library\Artifacts\91\91e4a5f3f84804753f8bde75192f6cf6
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\98\98d528d646f1e853b9643893ad997028
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\98\98d528d646f1e853b9643893ad997028
-    projectPath: Library\Artifacts\98\98d528d646f1e853b9643893ad997028
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\9a\9a5ee45046b29812a5e3b6e205f87e97
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\9a\9a5ee45046b29812a5e3b6e205f87e97
-    projectPath: Library\Artifacts\9a\9a5ee45046b29812a5e3b6e205f87e97
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\9b\9b7bf46e96300c39ec64d890c2b27131
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\9b\9b7bf46e96300c39ec64d890c2b27131
-    projectPath: Library\Artifacts\9b\9b7bf46e96300c39ec64d890c2b27131
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\a7\a7573821950538b5c64753576e84a855
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\a7\a7573821950538b5c64753576e84a855
-    projectPath: Library\Artifacts\a7\a7573821950538b5c64753576e84a855
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\a9\a90e4e1a0fd1906e9c3db5c1f2e4850f
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\a9\a90e4e1a0fd1906e9c3db5c1f2e4850f
-    projectPath: Library\Artifacts\a9\a90e4e1a0fd1906e9c3db5c1f2e4850f
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\a9\a9cff34ead2a90a9c861db60ba627ad6
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\a9\a9cff34ead2a90a9c861db60ba627ad6
-    projectPath: Library\Artifacts\a9\a9cff34ead2a90a9c861db60ba627ad6
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\aa\aa3bd28d19c329d433071d8a773267ad
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\aa\aa3bd28d19c329d433071d8a773267ad
-    projectPath: Library\Artifacts\aa\aa3bd28d19c329d433071d8a773267ad
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\ad\ad74ae1002399fccafb8f48266add792
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\ad\ad74ae1002399fccafb8f48266add792
-    projectPath: Library\Artifacts\ad\ad74ae1002399fccafb8f48266add792
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\ae\aeb50b0d792320f52f265d9da82cbb2e
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\ae\aeb50b0d792320f52f265d9da82cbb2e
-    projectPath: Library\Artifacts\ae\aeb50b0d792320f52f265d9da82cbb2e
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\b1\b1bbeb283dd81c58fcdee3c9ef7ecffa
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\b1\b1bbeb283dd81c58fcdee3c9ef7ecffa
-    projectPath: Library\Artifacts\b1\b1bbeb283dd81c58fcdee3c9ef7ecffa
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\b4\b46784d2e9b224ae0e7d33d59e262b95
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\b4\b46784d2e9b224ae0e7d33d59e262b95
-    projectPath: Library\Artifacts\b4\b46784d2e9b224ae0e7d33d59e262b95
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\b5\b58500b9af483c7155a79a272a1fd6f6
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\b5\b58500b9af483c7155a79a272a1fd6f6
-    projectPath: Library\Artifacts\b5\b58500b9af483c7155a79a272a1fd6f6
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\bd\bde30122bc197fd5819e7b6f75d5e640
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\bd\bde30122bc197fd5819e7b6f75d5e640
-    projectPath: Library\Artifacts\bd\bde30122bc197fd5819e7b6f75d5e640
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\bf\bfb33789d010866a0032cee0226131e1
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\bf\bfb33789d010866a0032cee0226131e1
-    projectPath: Library\Artifacts\bf\bfb33789d010866a0032cee0226131e1
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\c5\c52f4b29b775b90e3c36b46dd76ac5e1
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\c5\c52f4b29b775b90e3c36b46dd76ac5e1
-    projectPath: Library\Artifacts\c5\c52f4b29b775b90e3c36b46dd76ac5e1
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
   - path: UnityProject\Quantum\Library\Artifacts\c9\c9650927c595572314e4fe166e2865df
     fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\c9\c9650927c595572314e4fe166e2865df
     projectPath: Library\Artifacts\c9\c9650927c595572314e4fe166e2865df
     originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
+    indexStatus: 0
+    workTreeStatus: 5
   - path: UnityProject\Quantum\Library\Artifacts\d0\d0500cce533522b83bd8d654b4d5f1f3
     fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\d0\d0500cce533522b83bd8d654b4d5f1f3
     projectPath: Library\Artifacts\d0\d0500cce533522b83bd8d654b4d5f1f3
     originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\d9\d9fcd86656b1928a9db6ebff272540eb
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\d9\d9fcd86656b1928a9db6ebff272540eb
-    projectPath: Library\Artifacts\d9\d9fcd86656b1928a9db6ebff272540eb
-    originalPath: 
     indexStatus: 0
     workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\dd\dda6b54a40c044f3801c4b32753a2829
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\dd\dda6b54a40c044f3801c4b32753a2829
-    projectPath: Library\Artifacts\dd\dda6b54a40c044f3801c4b32753a2829
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\ed\ed2c7e353d8dae063d2de8a97fc29a8a
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\ed\ed2c7e353d8dae063d2de8a97fc29a8a
-    projectPath: Library\Artifacts\ed\ed2c7e353d8dae063d2de8a97fc29a8a
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\f2\f2c322f1bf252d6d66897b3b1ece43ce
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\f2\f2c322f1bf252d6d66897b3b1ece43ce
-    projectPath: Library\Artifacts\f2\f2c322f1bf252d6d66897b3b1ece43ce
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Library\Artifacts\f8\f8835f5b48c04961826ee93be8524b0c
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\f8\f8835f5b48c04961826ee93be8524b0c
-    projectPath: Library\Artifacts\f8\f8835f5b48c04961826ee93be8524b0c
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\fe\fe82496d10b07bfdb9cbd21148430fd3
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\fe\fe82496d10b07bfdb9cbd21148430fd3
-    projectPath: Library\Artifacts\fe\fe82496d10b07bfdb9cbd21148430fd3
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 5
-  - path: UnityProject\Quantum\Library\Artifacts\ff\ff7be8e3a23ba783124b8c68804d72a0
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\Artifacts\ff\ff7be8e3a23ba783124b8c68804d72a0
-    projectPath: Library\Artifacts\ff\ff7be8e3a23ba783124b8c68804d72a0
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
   - path: UnityProject\Quantum\Library\CurrentLayout-default.dwlt
     fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\CurrentLayout-default.dwlt
     projectPath: Library\CurrentLayout-default.dwlt
@@ -584,12 +112,6 @@ MonoBehaviour:
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
-  - path: UnityProject\Quantum\Library\InspectorExpandedItems.asset
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\InspectorExpandedItems.asset
-    projectPath: Library\InspectorExpandedItems.asset
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
   - path: UnityProject\Quantum\Library\SceneVisibilityState.asset
     fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\SceneVisibilityState.asset
     projectPath: Library\SceneVisibilityState.asset
@@ -614,39 +136,15 @@ MonoBehaviour:
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
-  - path: UnityProject\Quantum\Library\StateCache\Hierarchy\14b319-825ff08cf6a238a4d8.json
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\StateCache\Hierarchy\14b319-825ff08cf6a238a4d8.json
-    projectPath: Library\StateCache\Hierarchy\14b319-825ff08cf6a238a4d8.json
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: UnityProject\Quantum\Library\StateCache\Hierarchy\14b319-8d24760cbd720ee409.json
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\StateCache\Hierarchy\14b319-8d24760cbd720ee409.json
-    projectPath: Library\StateCache\Hierarchy\14b319-8d24760cbd720ee409.json
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
   - path: UnityProject\Quantum\Library\StateCache\Hierarchy\14b319-mainStage.json
     fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\StateCache\Hierarchy\14b319-mainStage.json
     projectPath: Library\StateCache\Hierarchy\14b319-mainStage.json
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
-  - path: UnityProject\Quantum\Library\StateCache\SceneView\2a9176-8d24760cbd720ee409.json
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\StateCache\SceneView\2a9176-8d24760cbd720ee409.json
-    projectPath: Library\StateCache\SceneView\2a9176-8d24760cbd720ee409.json
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
   - path: UnityProject\Quantum\Library\StateCache\SceneView\2a9176-mainStage.json
     fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Library\StateCache\SceneView\2a9176-mainStage.json
     projectPath: Library\StateCache\SceneView\2a9176-mainStage.json
-    originalPath: 
-    indexStatus: 0
-    workTreeStatus: 3
-  - path: UnityProject\Quantum\Quantum.userprefs
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Quantum.userprefs
-    projectPath: Quantum.userprefs
     originalPath: 
     indexStatus: 0
     workTreeStatus: 3
@@ -659,24 +157,6 @@ MonoBehaviour:
   - path: UnityProject\Quantum\Temp\UnityLockfile
     fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Temp\UnityLockfile
     projectPath: Temp\UnityLockfile
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Temp\UnityTempFile-47da05ca336e9b3449dc136623970409
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Temp\UnityTempFile-47da05ca336e9b3449dc136623970409
-    projectPath: Temp\UnityTempFile-47da05ca336e9b3449dc136623970409
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Temp\UnityTempFile-497e244376ae2e14f94b1235f841cf38
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Temp\UnityTempFile-497e244376ae2e14f94b1235f841cf38
-    projectPath: Temp\UnityTempFile-497e244376ae2e14f94b1235f841cf38
-    originalPath: 
-    indexStatus: 1
-    workTreeStatus: 1
-  - path: UnityProject\Quantum\Temp\UnityTempFile-4b64160bf0d005d4c957e6fea495ad36
-    fullPath: C:\Users\ajota\Desktop\ProyBackendDsa\Proyecto\UnityProject\Quantum\Temp\UnityTempFile-4b64160bf0d005d4c957e6fea495ad36
-    projectPath: Temp\UnityTempFile-4b64160bf0d005d4c957e6fea495ad36
     originalPath: 
     indexStatus: 1
     workTreeStatus: 1

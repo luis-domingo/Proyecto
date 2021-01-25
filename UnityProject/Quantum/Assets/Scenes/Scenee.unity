@@ -1937,6 +1937,21 @@ PrefabInstance:
       propertyPath: speed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8797845508275381710, guid: 825ff08cf6a238a4d874dcabc23d4a8d,
+        type: 3}
+      propertyPath: pillEfx
+      value: 
+      objectReference: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
+    - target: {fileID: 8797845508275381710, guid: 825ff08cf6a238a4d874dcabc23d4a8d,
+        type: 3}
+      propertyPath: crystalEfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 81652031b64c342cc8dbc59c138d77c5, type: 3}
+    - target: {fileID: 8797845508275381710, guid: 825ff08cf6a238a4d874dcabc23d4a8d,
+        type: 3}
+      propertyPath: damageEfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 9254f926453d5dc42bea23a5d809dde4, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 825ff08cf6a238a4d874dcabc23d4a8d, type: 3}
 --- !u!4 &1213363561 stripped
@@ -2360,7 +2375,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

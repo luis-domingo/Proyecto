@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
 	private int Healthnum;
 	Rigidbody2D rb;
 	public AudioClip pillEfx;
+	public AudioClip crystalEfx;
+	public AudioClip damageEfx;
 
     //public Text CrystalsText;
     //public Text HealthText;
@@ -105,12 +107,14 @@ public class Player : MonoBehaviour
 		} else if(other.tag == "Cristals") {
 			Crystals += pointsCrystals;
 			Cristals.text = Crystals.ToString();
+			SoundManager.instance.RandomizeSfx(crystalEfx);
 			other.gameObject.SetActive(false);
 
 
 		} else if (other.tag =="Damage"){
 			Healthnum -= pointsDamage;
 			Health.text = Healthnum.ToString();
+			SoundManager.instance.RandomizeSfx(damageEfx);
 		}
 	}
 

@@ -17,10 +17,7 @@ import javax.ws.rs.core.Response;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.awt.image.WritableRaster;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.sql.SQLException;
 import java.util.Base64;
 
@@ -97,14 +94,12 @@ public class RegisterService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getPicture(String id){
         try{
-            BufferedImage bufferedImage = ImageIO.read(new File("../userImages/" + id +".jpg"));
-            WritableRaster raster = bufferedImage.getRaster();
-            DataBufferByte data = (DataBufferByte)raster.getDataBuffer();
-            byte[] imgByte = data.getData();
+            DataInputStream dis = new DataInputStream(new FileInputStream("../userImages/" + id +".jpg"));
+            byte[] imgByte = new byte[dis.available()];
+            int numBytes = dis.read(imgByte, 0, dis.available());
             Base64.Encoder encoder = Base64.getEncoder();
             String imagenString = encoder.encodeToString(imgByte);
             return Response.status(200).entity(imagenString).build();
-
         } catch (IOException e) {
 
             e.printStackTrace();

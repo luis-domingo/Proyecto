@@ -45,7 +45,7 @@ public class StatsFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_stats, container, false);
 
         apiIface = APIClient.getClient().create(APIInterface.class);
-        prg = (ProgressBar)root.findViewById(R.id.progressBar);
+        prg = (ProgressBar)root.findViewById(R.id.progressBar2);
         prg.setVisibility(View.VISIBLE);
         Call<List<Stats>> call = apiIface.getStats();
         call.enqueue(new Callback<List<Stats>>() {

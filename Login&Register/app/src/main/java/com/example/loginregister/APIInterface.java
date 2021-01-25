@@ -39,6 +39,6 @@ public interface APIInterface {
     @GET("/dsaApp/stats/getAllStats")
     Call<List<Stats>> getStats();
 
-    @GET("/dsaApp/usuarios/getImage")
+    @POST("/dsaApp/usuarios/getImage")
     Call<String> getImage (@Body String id);
 }

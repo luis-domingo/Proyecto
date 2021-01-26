@@ -1,35 +1,26 @@
-package com.example.loginregister.ui.forum;
+package com.example.loginregister;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.loginregister.APIClient;
-import com.example.loginregister.APIInterface;
-import com.example.loginregister.R;
 import com.example.loginregister.models.ForumPublication;
 import com.example.loginregister.models.ForumTopic;
 import com.example.loginregister.utils.MyRecyclerViewForumPublicationsAdapter;
-import com.example.loginregister.utils.MyRecyclerViewForumTopicsAdapter;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -37,11 +28,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static android.content.Context.MODE_PRIVATE;
 
-public class ForumPublicationsFragment extends Fragment {
+public class ForumPublicationsActivity extends AppCompatActivity {
 
-    private ForumPublicationsViewModel forumPublicationsViewModel;
     APIInterface apiIface;
     List<ForumPublication> publicationList = new LinkedList<ForumPublication>();
     SharedPreferences mySharedPreferences;
@@ -50,16 +39,16 @@ public class ForumPublicationsFragment extends Fragment {
     String title;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_forum_publications);
         apiIface = APIClient.getClient().create(APIInterface.class);
-        mySharedPreferences = getActivity().getSharedPreferences("mySharedPreferences", MODE_PRIVATE);
-        forumPublicationsViewModel = new ViewModelProvider(this).get(ForumPublicationsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_forum_publications, container, false);
-        TextView txtTitle = (TextView)root.findViewById(R.id.txtTitleTopic);
-        editTextTextMultiLine = (EditText)root.findViewById(R.id.editTextTextMultiLine);
-        title = getActivity().getIntent().getExtras().get("title").toString();
+        mySharedPreferences = getSharedPreferences("mySharedPreferences", MODE_PRIVATE);
+        TextView txtTitle = (TextView)findViewById(R.id.txtTitleTopic);
+        editTextTextMultiLine = (EditText)findViewById(R.id.editTextTextMultiLine);
+        title = getIntent().getExtras().get("title").toString();
         txtTitle.setText("Topic: " + title);
-        id = getActivity().getIntent().getExtras().get("ID").toString();
+        id = getIntent().getExtras().get("ID").toString();
         ForumTopic topic = new ForumTopic(title, id);
         Call<List<ForumPublication>> call = apiIface.getPublications(topic);
         call.enqueue(new Callback<List<ForumPublication>>() {
@@ -68,14 +57,14 @@ public class ForumPublicationsFragment extends Fragment {
                 if (response.code() == 200){
                     Log.d("INFO", "onResponse: " + response.body());
                     publicationList = response.body();
-                    RecyclerView myRecyclerView = (RecyclerView)root.findViewById(R.id.publicationsTable);
-                    myRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                    RecyclerView myRecyclerView = (RecyclerView)findViewById(R.id.publicationsTable);
+                    myRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                     MyRecyclerViewForumPublicationsAdapter adapter;
-                    adapter = new MyRecyclerViewForumPublicationsAdapter(getContext(), publicationList);
+                    adapter = new MyRecyclerViewForumPublicationsAdapter(getApplicationContext(), publicationList);
                     myRecyclerView.setAdapter(adapter);
                 }
                 else{
-                    Toast.makeText(getContext(), "Error when connecting to the database.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Error when connecting to the database.", Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -83,7 +72,7 @@ public class ForumPublicationsFragment extends Fragment {
                 call.cancel();
             }
         });
-        Button button = (Button)root.findViewById(R.id.button3);
+        Button button = (Button)findViewById(R.id.button3);
         button.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -94,16 +83,15 @@ public class ForumPublicationsFragment extends Fragment {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         publicationList.add(newForumPublication);
-                        onCreateView(inflater, container, savedInstanceState);
+                        onCreate(savedInstanceState);
                     }
                     @Override
                     public void onFailure(Call<Void> call, Throwable throwable) {
-                        Toast.makeText(getContext(), "Error when connecting to the database.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Error when connecting to the database.", Toast.LENGTH_SHORT).show();
                         call.cancel();
                     }
                 });
             }
         });
-        return root;
     }
 }

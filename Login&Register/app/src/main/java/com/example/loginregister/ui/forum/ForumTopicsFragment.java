@@ -1,15 +1,12 @@
 package com.example.loginregister.ui.forum;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,22 +18,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loginregister.APIClient;
 import com.example.loginregister.APIInterface;
+import com.example.loginregister.ForumPublicationsActivity;
 import com.example.loginregister.R;
-import com.example.loginregister.models.ForumPublication;
 import com.example.loginregister.models.ForumTopic;
 import com.example.loginregister.utils.MyRecyclerViewForumTopicsAdapter;
 
-import org.w3c.dom.Text;
-
-import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import static android.content.Context.MODE_PRIVATE;
 
 public class ForumTopicsFragment extends Fragment {
 
@@ -64,7 +56,7 @@ public class ForumTopicsFragment extends Fragment {
                         @Override
                         public void onItemClick(int position, View v) {
                             Log.d("grup3", "onItemClickPosition: " + position);
-                            Intent openTopic = new Intent(getContext(), ForumPublication.class);
+                            Intent openTopic = new Intent(getContext(), ForumPublicationsActivity.class);
                             openTopic.putExtra("title", forumTopics.get(position).getTitle());
                             openTopic.putExtra("ID", forumTopics.get(position).getId());
                             startActivity(openTopic);

@@ -1,6 +1,7 @@
 package com.example.loginregister.utils;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,19 +39,19 @@ public class MyRecyclerViewForumTopicsAdapter extends RecyclerView.Adapter<MyRec
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         viewHolder.txtViewTitle.setText(topicList.get(position).getTitle());
-        viewHolder.txtViewPrice.setText(String.valueOf(topicList.get(position).getNumPublications()));
+        viewHolder.txtViewNumber.setText(String.valueOf(topicList.get(position).getNumPublications()));
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView txtViewTitle;
-        public TextView txtViewPrice;
+        public TextView txtViewNumber;
 
         public ViewHolder(View forumLayoutView) {
             super(forumLayoutView);
             forumLayoutView.setOnClickListener(this);
-            txtViewTitle = (TextView) forumLayoutView.findViewById(R.id.shopItemName);
-            txtViewPrice = (TextView) forumLayoutView.findViewById(R.id.shopItemNumber);
+            txtViewTitle = (TextView) forumLayoutView.findViewById(R.id.forumTxtTitle);
+            txtViewNumber = (TextView) forumLayoutView.findViewById(R.id.forumTxtNumber);
         }
 
         @Override

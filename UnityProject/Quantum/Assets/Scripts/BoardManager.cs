@@ -135,8 +135,12 @@ public class BoardManager : MonoBehaviour
                     break;
 
                 case 'C': // cristal
+					float rand3=Random.value;
+
+					if (rand3<=0.60f){
                     GameObject instanceCrystal = Instantiate(items[0], new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
                     instanceCrystal.transform.SetParent(boardHolder);
+					}
 					intantiateFloor(x, rows - y, rows, columns, level);
                     break;
 
@@ -169,6 +173,8 @@ public class BoardManager : MonoBehaviour
 
                 case 'H': //pills
 					float rand2=Random.value;
+
+
 					if (rand2<=0.60f){
 						GameObject instancePillsprob = Instantiate(items[1], new Vector3(x, rows - y, 0f), Quaternion.identity) as GameObject;
 						instancePillsprob.transform.SetParent(boardHolder);
@@ -218,7 +224,18 @@ public class BoardManager : MonoBehaviour
                 default://floor or damage floors
 
 					float rand= Random.value;
-					if (rand<=0.15f){
+					float difficult=0;
+					if(level==1){
+						difficult=0.15f;
+					}else if(level==2){
+						difficult=0.18f;
+					}else if(level==3){
+						difficult=0.2f;
+					}else if(level==3){
+						difficult=0.25f;
+					}
+
+					if (rand<=difficult){
 						int ytemp= rows-y;
 						if (x==13 && ytemp==27){
 							intantiateFloor(x, rows - y, rows, columns, level);

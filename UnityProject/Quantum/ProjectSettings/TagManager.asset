@@ -17,6 +17,7 @@ TagManager:
   - gameovertext
   - pistaImg
   - wintext
+  - timett
   layers:
   - Default
   - TransparentFX

@@ -14,9 +14,11 @@ public class Player : MonoBehaviour
 	private Text Cristals;
 	private Text Health;
 	private Text Pista;
+	private Text Time;
 	public float speed=3;
 	private int Crystals;
 	private int Healthnum;
+	private float Times;
 	Rigidbody2D rb;
 	public AudioClip pillEfx;
 	public AudioClip crystalEfx;
@@ -88,9 +90,11 @@ public class Player : MonoBehaviour
 
 		Crystals = GameManager.instance.playerCrystals;
 		Healthnum= GameManager.instance.playerHealth;
+		Times = GameManager.instance.availableTime;
 		Cristals = GameObject.FindWithTag("cristalt").GetComponent(typeof(Text)) as Text;
 		Health = GameObject.FindWithTag("healtht").GetComponent(typeof(Text)) as Text;
 		Pista = GameObject.FindWithTag("pistat").GetComponent(typeof(Text)) as Text;
+		Time = GameObject.FindWithTag("timett").GetComponent(typeof(Text)) as Text;
 		pistaImage = GameObject.Find("PistaImage");
 		pistaImage.SetActive(false);
 		lvl = GameManager.instance.level;
@@ -102,6 +106,7 @@ public class Player : MonoBehaviour
 	{
 		GameManager.instance.playerHealth = Healthnum;
 		GameManager.instance.playerCrystals = Crystals;
+		GameManager.instance.availableTime = Times;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -187,7 +192,7 @@ public class Player : MonoBehaviour
 	void Update()
 	{
 	    SomthingTrue();
-
+		CheckIfGameOverTime();
 
 		if (Input.GetKey(KeyCode.D) || Derbool){
 			if (GetComponent<SpriteRenderer>().flipX==true){
@@ -230,13 +235,21 @@ public class Player : MonoBehaviour
 
 	private void CheckIfGameOver()
 	{
-		if(Healthnum <= 0) {
+		if(Healthnum <= 0 ) {
 		    SoundManager.instance.RandomizeSfx(gameOverEfx);
 			SoundManager.instance.musicSource.Stop();
 			GameManager.instance.GameOver();
 		}
 	}
 
+	private void CheckIfGameOverTime()
+	{
+		if(Times <= 0 ) {
+			SoundManager.instance.RandomizeSfx(gameOverEfx);
+			SoundManager.instance.musicSource.Stop();
+			GameManager.instance.GameOver();
+		}
+	}
 
 
 	private void Restart() {

@@ -80,7 +80,7 @@ MonoBehaviour:
   innerwallTiles:
   - {fileID: 3642130626053915306, guid: 85c4eaa667b46cd438645f62d6349364, type: 3}
   - {fileID: 7615271997499556381, guid: 94e9b69246f30294eb0d452817e7c90d, type: 3}
-  - {fileID: 2765972836595966945, guid: 72f6427a0870a1f45b791add62f5f306, type: 3}
+  - {fileID: 7561569842915188669, guid: d9ca2c1486443b84d8cea54eeedee6b7, type: 3}
   - {fileID: 6053598528241921394, guid: e3589bc212ddc5346afa2a64f7ba5f3b, type: 3}
   outerWallTiles:
   - {fileID: 3447892592573003873, guid: d0ffbf462e325c945baffa44c9c6bd59, type: 3}
@@ -90,7 +90,7 @@ MonoBehaviour:
   floorDamage:
   - {fileID: 5961915487165215421, guid: d06b8f150dad0f24980591c919add67f, type: 3}
   - {fileID: 2059024927795111910, guid: 7c040fd6157da5c49ba479ccd0388273, type: 3}
-  - {fileID: 7873540775631319959, guid: 89f3320a6e7cc6042938f38952da25ff, type: 3}
+  - {fileID: 7879866946680061014, guid: e32c73dcb4ea95f468dbeab6ddb41b50, type: 3}
   - {fileID: 3671982182072623025, guid: 5973f408a37dc424da6b839b8064edc9, type: 3}
   signals:
   - {fileID: 6959664923769833966, guid: d1f3065e4687cde46abdfa1e7f065a8b, type: 3}

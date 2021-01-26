@@ -65,8 +65,7 @@ public class HomeActivity_NavView extends AppCompatActivity {
                 View headerView = navigationView.getHeaderView(0);
                 icono = (ImageView)headerView.findViewById(R.id.imageView);
                 ImageDownloader imageDownloader = new ImageDownloader();
-                Bitmap photo = imageDownloader.downloadImage(sp.getAll().get("ID").toString());
-                icono.setImageBitmap(photo);
+                imageDownloader.downloadAndSetImage(sp.getAll().get("ID").toString(), icono);
             }
 
             @Override
@@ -108,8 +107,7 @@ public class HomeActivity_NavView extends AppCompatActivity {
         ID.setText("ID: " + sp.getAll().get("ID").toString());
         icono = (ImageView)headerView.findViewById(R.id.imageView);
         ImageDownloader imageDownloader = new ImageDownloader();
-        Bitmap photo = imageDownloader.downloadImage(sp.getAll().get("ID").toString());
-        icono.setImageBitmap(photo);
+        imageDownloader.downloadAndSetImage(sp.getAll().get("ID").toString(), icono);
     }
 
     @Override

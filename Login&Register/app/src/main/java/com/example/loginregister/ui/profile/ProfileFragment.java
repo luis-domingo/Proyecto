@@ -65,8 +65,7 @@ public class ProfileFragment extends Fragment {
         textUser.setText(sharedPreferences.getAll().get("Username").toString());
         textID.setText(sharedPreferences.getAll().get("ID").toString());
         ImageDownloader imageDownloader = new ImageDownloader();
-        photo = imageDownloader.downloadImage(sharedPreferences.getAll().get("ID").toString());
-        image.setImageBitmap(photo);
+        imageDownloader.downloadAndSetImage(sharedPreferences.getAll().get("ID").toString(), image);
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {

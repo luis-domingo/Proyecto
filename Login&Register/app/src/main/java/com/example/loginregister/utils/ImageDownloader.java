@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
 import android.util.Log;
+import android.widget.ImageView;
 
 import com.example.loginregister.APIClient;
 import com.example.loginregister.APIInterface;
@@ -23,22 +24,23 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class ImageDownloader {
     APIInterface apiIface;
+    Bitmap bitmap;
 
-    public Bitmap downloadImage(String ID){
+    public void downloadAndSetImage(String ID, ImageView imageView){
 
         apiIface = APIClient.getClient().create(APIInterface.class);
         UserImg auxUserImg = new UserImg(ID);
         Call<UserImg> call = apiIface.getImage(auxUserImg);
-        final Bitmap[] bitmap = {null};
 
         call.enqueue(new Callback<UserImg>() {
             @Override
             public void onResponse(Call<UserImg> call, Response<UserImg> response) {
                 if(response.code() == 200){
                     Log.i("grup3", "Ho has fet molt bé");
-                    String imatge = response.body().toString().replace("\n", "");
+                    String imatge = response.body().getImage().replace("\n", "");
                     byte[] bytes = Base64.decode(imatge, Base64.DEFAULT);
-                    bitmap[0] = BitmapFactory.decodeByteArray(bytes, 0,bytes.length);
+                    bitmap = BitmapFactory.decodeByteArray(bytes, 0,bytes.length);
+                    imageView.setImageBitmap(bitmap);
                 }
                 else{
                     Log.i("grup3", "No ho has fet tan bé (else)");
@@ -49,6 +51,5 @@ public class ImageDownloader {
                 Log.i("grup3", "No ho has fet tan bé (failure)");
             }
         });
-        return bitmap[0];
     }
 }

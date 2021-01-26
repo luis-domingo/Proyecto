@@ -69,7 +69,6 @@ public class RegisterService {
         try {
             logger.info("El usuario que quiere registrar su foto tiene ID " + image.getName());
             String imatge = image.getImage().replace("\n", "");
-            logger.info(imatge);
             Base64.Decoder decoder = Base64.getDecoder();
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(decoder.decode(imatge));
             ImageIO.write(ImageIO.read(byteArrayInputStream), "jpg", new File("../userImages/" + image.getName() + ".jpg"));
@@ -94,11 +93,9 @@ public class RegisterService {
             byte[] imgByte = dis.readAllBytes();
             Base64.Encoder encoder = Base64.getEncoder();
             String imagenString = encoder.encodeToString(imgByte);
-            logger.info(imagenString);
             image.setImage(imagenString);
             return Response.status(200).entity(image).build();
         } catch (IOException e) {
-
             e.printStackTrace();
             return Response.status(500).entity(null).build();
         }

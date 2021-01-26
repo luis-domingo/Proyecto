@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
 	public AudioClip exitEfx;
 	public AudioClip paperEfx;
 	private GameObject pistaImage;
-	private int lvl;
+	public int lvl;
 
 
 
@@ -105,8 +105,18 @@ public class Player : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if(other.tag == "Exit") {
-			Invoke("Restart", restartLevelDelay);
-			SoundManager.instance.RandomizeSfx(exitEfx);
+			lvl = GameManager.instance.level;
+			if (lvl==4){
+				GameManager.instance.GameWin();
+				//SoundManager efecto Win
+			}else{
+				GetComponent<Animator>().SetBool("teleport",true);
+				Invoke("Restart", restartLevelDelay);
+				SoundManager.instance.RandomizeSfx(exitEfx);
+			}
+
+
+
 		} else if(other.tag == "Pills") {
             if (Healthnum < 70)
             {
@@ -184,7 +194,6 @@ public class Player : MonoBehaviour
 				GetComponent<Animator>().SetBool("Walk",true);
 			rb.velocity=new Vector2(speed,0);
 
-			//SoundManager.instance.RandomizeSfx(walkEfx);
 
 		}
 		else if (Input.GetKey(KeyCode.A) || Izqbool){
@@ -193,8 +202,6 @@ public class Player : MonoBehaviour
 			}
 			GetComponent<Animator>().SetBool("Walk",true);
 			rb.velocity=new Vector2(-speed,0);
-
-			//SoundManager.instance.RandomizeSfx(walkEfx);
 		}
 		else if (Input.GetKey(KeyCode.W) || Upbool){
 			if (GetComponent<SpriteRenderer>().flipY==true){
@@ -203,14 +210,12 @@ public class Player : MonoBehaviour
 			GetComponent<Animator>().SetBool("Walk",true);
 			rb.velocity=new Vector2(0,speed);
 
-			//SoundManager.instance.RandomizeSfx(walkEfx);
 		}
 		else if (Input.GetKey(KeyCode.S) || Downbool){
 
 			GetComponent<Animator>().SetBool("Walk",true);
 			rb.velocity=new Vector2(0,-speed);
 
-			//SoundManager.instance.RandomizeSfx(walkEfx);
 		}
 
         if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.W) ||(!Downbool && !Izqbool && !Derbool && !Upbool))

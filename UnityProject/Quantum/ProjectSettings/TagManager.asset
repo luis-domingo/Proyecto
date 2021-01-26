@@ -15,6 +15,8 @@ TagManager:
   - cristalt
   - pistat
   - gameovertext
+  - pistaImg
+  - wintext
   layers:
   - Default
   - TransparentFX

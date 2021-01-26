@@ -23,6 +23,11 @@ public class GameManager : MonoBehaviour {
 	private GameObject level3Image;
 	private GameObject level4Image;
 	private GameObject level5Image;
+	private GameObject winImage;
+	private GameObject ship;
+	private Text Cristals;
+	private Text Health;
+	private Text Win;
     public bool Gameoverbool = false;
 
 	// Use this for initialization
@@ -50,8 +55,21 @@ public class GameManager : MonoBehaviour {
             InitGame(level);
         }
         else {
+			if (level<4){
             level++;
             InitGame(level);
+				Cristals = GameObject.FindWithTag("cristalt").GetComponent(typeof(Text)) as Text;
+				Health = GameObject.FindWithTag("healtht").GetComponent(typeof(Text)) as Text;
+				Health.text = playerHealth.ToString();
+				Cristals.text = playerCrystals.ToString();
+
+			}else{
+
+				playerHealth = 70;
+				playerCrystals = 0;
+				level = 1;
+				InitGame(level);
+			}
         }
        
 	}
@@ -59,54 +77,76 @@ public class GameManager : MonoBehaviour {
 	private void HideLevel1Image() {        
 		level1Image.SetActive(false);
 		doingSetup = false;
+		GameObject playerinstance = GameObject.Find("Player");
+		playerinstance.GetComponent<Animator>().SetBool("teleport",false);
 	}
 
 	private void HideLevel2Image() {        
 		level2Image.SetActive(false);
 		doingSetup = false;
+		GameObject playerinstance = GameObject.Find("Player");
+
+		playerinstance.GetComponent<Animator>().SetBool("teleport",false);
+
 	}
 
 	private void HideLevel3Image() {        
 		level3Image.SetActive(false);
 		doingSetup = false;
+		GameObject playerinstance = GameObject.Find("Player");
+		playerinstance.GetComponent<Animator>().SetBool("teleport",false);
 	}
 
 	private void HideLevel4Image() {        
 		level4Image.SetActive(false);
 		doingSetup = false;
+		GameObject playerinstance = GameObject.Find("Player");
+		playerinstance.GetComponent<Animator>().SetBool("teleport",false);
 	}
 
 
 	void InitGame(int level) {
+		
 		doingSetup = true;
+
 		level1Image = GameObject.Find("Level1Image");
 		level2Image = GameObject.Find("Level2Image");
 		level3Image = GameObject.Find("Level3Image");
 		level4Image = GameObject.Find("Level4Image");
 		level5Image = GameObject.Find("DeathImage");
+		winImage = GameObject.Find("WinImage");
+		ship = GameObject.Find("Spaceship");
 
 		level1Image.SetActive(false);
 		level2Image.SetActive(false);   
 		level3Image.SetActive(false);   
 		level4Image.SetActive(false);   
-		level5Image.SetActive(false);  
+		level5Image.SetActive(false);
+		winImage.SetActive(false);  
 
 		if (level==1){
 
 			level1Image.SetActive(true);        
 			Invoke("HideLevel1Image", levelStartDelay);
+			//GetComponent<Animator>().SetBool("teleport",true);
 		}else if(level==2){  
+			ship.SetActive(false); 
 			level2Image.SetActive(true);        
 			Invoke("HideLevel2Image", levelStartDelay);
+			//GetComponent<Animator>().SetBool("teleport",true);
 		}else if(level==3){
+			ship.SetActive(false); 
 			level3Image.SetActive(true);        
 			Invoke("HideLevel3Image", levelStartDelay);
-		}else if(level==4){     
+			//GetComponent<Animator>().SetBool("teleport",true);
+		}else if(level==4){
+			ship.SetActive(false);
 			level4Image.SetActive(true);        
 			Invoke("HideLevel4Image", levelStartDelay);
+			//GetComponent<Animator>().SetBool("teleport",true);
 		}
 
-		SoundManager.instance.musicSource.Play();
+		//SoundManager.instance.musicSource.Play();
 
 		boardScript.BoardSetup(level);
 	}
@@ -117,6 +157,13 @@ public class GameManager : MonoBehaviour {
 
 		Level5Text.text = "Has acabado con: "+playerCrystals +" cristales en el nivel " + level;
         Gameoverbool = true;
+		enabled = false;
+	}
+
+	public void GameWin() {
+		winImage.SetActive(true);
+		Win = GameObject.FindWithTag("wintext").GetComponent(typeof(Text)) as Text;
+		Win.text= "Has salvado la Tierra con " +playerCrystals.ToString() + " cristales, ahora puedes usarlos para comprar objetos nuevos";
 		enabled = false;
 	}
 

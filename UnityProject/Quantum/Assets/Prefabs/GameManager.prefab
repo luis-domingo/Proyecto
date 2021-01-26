@@ -50,6 +50,8 @@ MonoBehaviour:
   turnDelay: 0.1
   levelStartDelay: 5
   playersTurn: 1
+  level: 1
+  Gameoverbool: 0
 --- !u!114 &2324034979082490783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,4 +99,4 @@ MonoBehaviour:
   - {fileID: 7613105240487506933, guid: 4ae52ee336dbd7f4cba19b735270e735, type: 3}
   - {fileID: 6620713486713732564, guid: 27b026865bec69649b1d65ea8d610257, type: 3}
   player: {fileID: 5319363268569601101, guid: 825ff08cf6a238a4d874dcabc23d4a8d, type: 3}
-  level: 1
+  ship: {fileID: 549266205480037902, guid: 275cf6d40ef376f4eb17c8d763a19b29, type: 3}

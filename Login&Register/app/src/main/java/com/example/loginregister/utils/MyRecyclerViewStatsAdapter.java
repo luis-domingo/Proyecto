@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.loginregister.R;
 import com.example.loginregister.models.Stats;
-import com.example.loginregister.models.UserItem;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -51,9 +50,9 @@ public class MyRecyclerViewStatsAdapter extends RecyclerView.Adapter<MyRecyclerV
 
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
-            statsName = (TextView) itemLayoutView.findViewById(R.id.statsName);
-            statsGames = (TextView) itemLayoutView.findViewById(R.id.statsGames);
-            statsBest = (TextView) itemLayoutView.findViewById(R.id.statsBest);
+            statsName = (TextView) itemLayoutView.findViewById(R.id.publicationName);
+            statsGames = (TextView) itemLayoutView.findViewById(R.id.publicationDate);
+            statsBest = (TextView) itemLayoutView.findViewById(R.id.publicationContent);
             statsLast = (TextView) itemLayoutView.findViewById(R.id.statsLast);
         }
     }

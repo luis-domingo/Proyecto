@@ -4,13 +4,13 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ForumViewModel extends ViewModel {
+public class ForumTopicsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public ForumViewModel() {
+    public ForumTopicsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is forum fragment");
+        mText.setValue("This is topics fragment");
     }
 
     public LiveData<String> getText() {

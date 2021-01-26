@@ -22,6 +22,7 @@ import com.example.loginregister.APIInterface;
 import com.example.loginregister.R;
 import com.example.loginregister.models.ShopItem;
 import com.example.loginregister.models.UserItem;
+import com.example.loginregister.utils.MyRecyclerViewForumTopicsAdapter;
 import com.example.loginregister.utils.MyRecyclerViewShopAdapter;
 
 import java.util.LinkedList;

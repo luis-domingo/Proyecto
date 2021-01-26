@@ -105,9 +105,6 @@ public class HomeActivity_NavView extends AppCompatActivity {
         ID = (TextView)headerView.findViewById(R.id.textView);
         nombre.setText("Usuario: " + sp.getAll().get("Username").toString());
         ID.setText("ID: " + sp.getAll().get("ID").toString());
-        icono = (ImageView)headerView.findViewById(R.id.imageView);
-        ImageDownloader imageDownloader = new ImageDownloader();
-        imageDownloader.downloadAndSetImage(sp.getAll().get("ID").toString(), icono);
     }
 
     @Override

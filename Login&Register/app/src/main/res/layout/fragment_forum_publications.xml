@@ -18,7 +18,7 @@
         app:layout_constraintVertical_bias="0.879" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/publicationsTable"
         android:layout_width="318dp"
         android:layout_height="273dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -53,7 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.167"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/publicationsTable"
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
@@ -63,10 +63,11 @@
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
+        android:text="Message"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/publicationsTable"
         app:layout_constraintVertical_bias="0.674" />
 </androidx.constraintlayout.widget.ConstraintLayout>

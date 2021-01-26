@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,7 +38,7 @@ public class MyRecyclerViewForumTopicsAdapter extends RecyclerView.Adapter<MyRec
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
         viewHolder.txtViewTitle.setText(topicList.get(position).getTitle());
-        viewHolder.txtViewPrice.setText(String.valueOf(topicList.get(position).getListPublications().size()));
+        viewHolder.txtViewPrice.setText(String.valueOf(topicList.get(position).getNumPublications()));
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

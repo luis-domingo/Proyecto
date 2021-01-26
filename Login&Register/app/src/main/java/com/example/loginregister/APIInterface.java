@@ -56,5 +56,5 @@ public interface APIInterface {
     Call<List<ForumTopic>> getTopics();
 
     @POST("/dsaApp/forum/listPublications")
-    Call<List<ForumPublication>> getPublications(@Body ForumPublication publication);
+    Call<List<ForumPublication>> getPublications(@Body ForumTopic topic);
 }

@@ -29,7 +29,7 @@
         app:layout_constraintVertical_bias="0.187" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/txtTitleTopic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Topic: "

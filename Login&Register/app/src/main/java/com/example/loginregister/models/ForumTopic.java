@@ -41,4 +41,11 @@ public class ForumTopic {
     public ForumTopic(){
 
     }
+
+    public ForumTopic(String title, String id) {
+        this.title = title;
+        this.id = id;
+    }
+
+
 }

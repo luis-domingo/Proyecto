@@ -8,7 +8,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,6 +26,9 @@ import com.example.loginregister.models.ForumPublication;
 import com.example.loginregister.models.ForumTopic;
 import com.example.loginregister.utils.MyRecyclerViewForumTopicsAdapter;
 
+import org.w3c.dom.Text;
+
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -74,6 +79,27 @@ public class ForumTopicsFragment extends Fragment {
             @Override
             public void onFailure(Call<List<ForumTopic>> call, Throwable throwable) {
                 call.cancel();
+            }
+        });
+        Button button = (Button)root.findViewById(R.id.button4);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView txtTitle = (TextView)root.findViewById(R.id.editTextTextTitle);
+                ForumTopic newForumTopic = new ForumTopic(txtTitle.getText().toString(), "", 0);
+                Call<Void> call = apiIface.addTopic(newForumTopic);
+                call.enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        forumTopics.add(newForumTopic);
+                        onCreateView(inflater, container, savedInstanceState);
+                    }
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable throwable) {
+                        Toast.makeText(getContext(), "Error when connecting to the database.", Toast.LENGTH_SHORT).show();
+                        call.cancel();
+                    }
+                });
             }
         });
         return root;

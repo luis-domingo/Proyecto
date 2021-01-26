@@ -84,7 +84,38 @@ public class ForumTopicsFragment extends Fragment {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         forumTopics.add(newForumTopic);
-                        onCreateView(inflater, container, savedInstanceState);
+                        Call<List<ForumTopic>> call1 = apiIface.getTopics();
+                        call1.enqueue(new Callback<List<ForumTopic>>() {
+                            @Override
+                            public void onResponse(Call<List<ForumTopic>> call1, Response<List<ForumTopic>> response) {
+                                if (response.code() == 200){
+                                    Log.d("INFO", "onResponse: " + response.body());
+                                    forumTopics = response.body();
+                                    RecyclerView myRecyclerView = (RecyclerView)root.findViewById(R.id.topicsTable);
+                                    myRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                                    MyRecyclerViewForumTopicsAdapter adapter;
+                                    adapter = new MyRecyclerViewForumTopicsAdapter(getContext(), forumTopics);
+                                    adapter.setOnItemClickListener(new MyRecyclerViewForumTopicsAdapter.ClickListener() {
+                                        @Override
+                                        public void onItemClick(int position, View v) {
+                                            Log.d("grup3", "onItemClickPosition: " + position);
+                                            Intent openTopic = new Intent(getContext(), ForumPublicationsActivity.class);
+                                            openTopic.putExtra("title", forumTopics.get(position).getTitle());
+                                            openTopic.putExtra("ID", forumTopics.get(position).getId());
+                                            startActivity(openTopic);
+                                        }
+                                    });
+                                    myRecyclerView.setAdapter(adapter);
+                                }
+                                else{
+                                    Toast.makeText(getContext(), "Error when connecting to the database.", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            @Override
+                            public void onFailure(Call<List<ForumTopic>> call1, Throwable throwable) {
+                                call1.cancel();
+                            }
+                        });
                     }
                     @Override
                     public void onFailure(Call<Void> call, Throwable throwable) {

@@ -27,6 +27,26 @@ public class CoinsDAOImpl implements CoinsDAO{
     }
 
     @Override
+    public void newUser(String id) throws SQLException {
+        Session session = null;
+        Coins c = new Coins();
+        c.setId(id);
+        c.setCoins("0");
+        try {
+            session = FactorySession.openSession();
+
+            //We put the values in Coins table of the BBDD
+            session.save(c);
+        }
+        catch (IOException e) {
+            logger.warn("Exception message: "  + e.getMessage());
+        }
+        finally {
+            session.close();
+        }
+    }
+
+    @Override
     public int getCoins(String id) throws SQLException {
         int numberCoins = 0;
         Session session = null;

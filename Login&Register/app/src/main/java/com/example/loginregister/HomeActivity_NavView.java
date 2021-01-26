@@ -3,24 +3,23 @@ package com.example.loginregister;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.loginregister.models.Coins;
+import com.example.loginregister.models.Usuario;
 import com.example.loginregister.utils.ImageDownloader;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
-import com.squareup.picasso.Picasso;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -29,9 +28,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class HomeActivity_NavView extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    APIInterface apiIface;
     SharedPreferences sp;
     TextView nombre;
     TextView ID;
@@ -105,6 +109,29 @@ public class HomeActivity_NavView extends AppCompatActivity {
         ID = (TextView)headerView.findViewById(R.id.textView);
         nombre.setText("Usuario: " + sp.getAll().get("Username").toString());
         ID.setText("ID: " + sp.getAll().get("ID").toString());
+        TextView txtCoins = (TextView)findViewById(R.id.txtCoins);
+        Usuario user = new Usuario(sp.getAll().get("Username").toString(), sp.getAll().get("ID").toString());
+        apiIface = APIClient.getClient().create(APIInterface.class);
+        Call<Coins> call = apiIface.getCoins(user);
+        call.enqueue(new Callback<Coins>() {
+            @Override
+            public void onResponse(Call<Coins> call, Response<Coins> response) {
+                if (response.code() == 200) {
+                    //Tenemos que recoger también el ID del usuario
+                    Coins coins = response.body();
+                    Log.i("grup3", coins.getCoins());
+                    txtCoins.setText(coins.getCoins());
+                } else {
+                    Toast.makeText(getApplicationContext(), "Error when logging in.", Toast.LENGTH_SHORT).show();
+                    Log.i("grup3", "Coins records for this user not found");
+                }
+            }
+            @Override
+            public void onFailure(Call<Coins> call, Throwable t) {
+                Log.i("grup3", "Error when connecting", t);
+                call.cancel();
+            }
+        });
     }
 
     @Override

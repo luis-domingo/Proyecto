@@ -1,5 +1,6 @@
 package com.example.loginregister;
 
+import com.example.loginregister.models.Coins;
 import com.example.loginregister.models.ForumPublication;
 import com.example.loginregister.models.ForumTopic;
 import com.example.loginregister.models.ShopItem;
@@ -18,6 +19,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Path;
 
 
 public interface APIInterface {
@@ -57,4 +59,11 @@ public interface APIInterface {
 
     @POST("/dsaApp/forum/listPublications")
     Call<List<ForumPublication>> getPublications(@Body ForumTopic topic);
+
+    @POST("/dsaApp/coins/getCoins")
+    Call<Coins> getCoins(@Body Usuario user);
+
+    @POST("/dsaApp/coins/updateCoins")
+    Call<Void> updateCoins(@Body Coins coins);
+
 }

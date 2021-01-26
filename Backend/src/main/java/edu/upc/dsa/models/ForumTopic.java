@@ -1,5 +1,7 @@
 package edu.upc.dsa.models;
 
+import edu.upc.dsa.util.RandomUtils;
+
 public class ForumTopic {
     String title;
     String id;
@@ -31,12 +33,12 @@ public class ForumTopic {
     }
 
     public ForumTopic(String title, String id, int numPublications) {
+        this();
         this.title = title;
-        this.id = id;
         this.numPublications = numPublications;
     }
 
     public ForumTopic(){
-
+        this.id = RandomUtils.getId();
     }
 }

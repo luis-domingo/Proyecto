@@ -77,13 +77,35 @@ public class ForumPublicationsActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                ForumPublication newForumPublication = new ForumPublication(mySharedPreferences.getAll().get("Username").toString(), LocalDateTime.now().toString(), editTextTextMultiLine.getText().toString(), title);
+                ForumPublication newForumPublication = new ForumPublication(mySharedPreferences.getAll().get("Username").toString(), LocalDateTime.now().toString(), editTextTextMultiLine.getText().toString(), id);
                 Call<Void> call = apiIface.addPublication(newForumPublication);
                 call.enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         publicationList.add(newForumPublication);
-                        onCreate(savedInstanceState);
+                        ForumTopic topic = new ForumTopic(title, id);
+                        Call<List<ForumPublication>> call1 = apiIface.getPublications(topic);
+                        call1.enqueue(new Callback<List<ForumPublication>>() {
+                            @Override
+                            public void onResponse(Call<List<ForumPublication>> call1, Response<List<ForumPublication>> response) {
+                                if (response.code() == 200){
+                                    Log.d("INFO", "onResponse: " + response.body());
+                                    publicationList = response.body();
+                                    RecyclerView myRecyclerView = (RecyclerView)findViewById(R.id.publicationsTable);
+                                    myRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                                    MyRecyclerViewForumPublicationsAdapter adapter;
+                                    adapter = new MyRecyclerViewForumPublicationsAdapter(getApplicationContext(), publicationList);
+                                    myRecyclerView.setAdapter(adapter);
+                                }
+                                else{
+                                    Toast.makeText(getApplicationContext(), "Error when connecting to the database.", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                            @Override
+                            public void onFailure(Call<List<ForumPublication>> call, Throwable throwable) {
+                                call1.cancel();
+                            }
+                        });
                     }
                     @Override
                     public void onFailure(Call<Void> call, Throwable throwable) {

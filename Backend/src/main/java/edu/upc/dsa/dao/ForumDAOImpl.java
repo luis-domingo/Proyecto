@@ -73,12 +73,12 @@ public class ForumDAOImpl implements ForumDAO{
         ResultSet res = null;
         try {
             session = FactorySession.openSession();
-            logger.info("Alguien esta a punto de publicar en el tema " + forumPublication.getTopic() + " el siguiente mensaje " + forumPublication.getContent());
+            logger.info("Alguien esta a punto de publicar en el tema " + forumPublication.getIdTopic() + " el siguiente mensaje " + forumPublication.getContent());
             session.save(forumPublication);
 
             //Actualizacion del numero de publicaciones en ForumTopic
             ForumTopic tp = new ForumTopic();
-            tp.setId(forumPublication.getTopic());
+            tp.setId(forumPublication.getIdTopic());
             res = (ResultSet)session.get(tp);
             int updateNum = res.getInt(3);
             updateNum ++;

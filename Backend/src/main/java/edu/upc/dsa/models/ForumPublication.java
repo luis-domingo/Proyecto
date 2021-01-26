@@ -30,11 +30,11 @@ public class ForumPublication {
         this.content = content;
     }
 
-    public String getTopic() {
+    public String getIdTopic() {
         return idTopic;
     }
 
-    public void setTopic(String topic) {
+    public void setIdTopic(String topic) {
         this.idTopic = topic;
     }
 

@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour {
 			Invoke("HideLevel4Image", levelStartDelay);
 		}
 
-
+		SoundManager.instance.musicSource.Play();
 
 		boardScript.BoardSetup(level);
 	}

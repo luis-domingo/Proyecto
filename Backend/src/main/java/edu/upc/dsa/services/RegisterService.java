@@ -100,4 +100,29 @@ public class RegisterService {
             return Response.status(500).entity(null).build();
         }
     }
+
+    @POST
+    @ApiOperation(value = "Get Coins of an User", notes="")
+    @ApiResponses(value={
+    })
+
+    @Path("/getCoins")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getPicture(Usuario user){
+        return Response.status(200).build();
+    }
+
+    @POST
+    @ApiOperation(value = "Update Coins of an User", notes="")
+    @ApiResponses(value={
+    })
+
+    @Path("/updateCoins")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getPicture(){
+        return Response.status(200).build();
+    }
+
 }

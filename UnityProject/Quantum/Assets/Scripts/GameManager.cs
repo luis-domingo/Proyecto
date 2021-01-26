@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour {
 	private Text Health;
 	private Text Win;
     public bool Gameoverbool = false;
+    //public AudioClip musicFinal;
+    //public AudioClip musicBeginning;
 
 	// Use this for initialization
 	void Awake () {
@@ -128,6 +130,7 @@ public class GameManager : MonoBehaviour {
 
 			level1Image.SetActive(true);        
 			Invoke("HideLevel1Image", levelStartDelay);
+			//SoundManager.instance.RandomizeSfx(musicBeginning);
 			//GetComponent<Animator>().SetBool("teleport",true);
 		}else if(level==2){  
 			ship.SetActive(false); 
@@ -143,24 +146,35 @@ public class GameManager : MonoBehaviour {
 			ship.SetActive(false);
 			level4Image.SetActive(true);        
 			Invoke("HideLevel4Image", levelStartDelay);
+			SoundManager.instance.musicSource.Stop();
+			SoundManager.instance.musicFinal.Play();
 			//GetComponent<Animator>().SetBool("teleport",true);
 		}
 
-		//SoundManager.instance.musicSource.Play();
+
 
 		boardScript.BoardSetup(level);
+
+
 	}
 
 	public void GameOver() {
+
+	    if(level == 4){
+	        SoundManager.instance.musicFinal.Stop();
+	    }
 		level5Image.SetActive(true);
 		Level5Text = GameObject.FindWithTag("gameovertext").GetComponent(typeof(Text)) as Text;
 
 		Level5Text.text = "Has acabado con: "+playerCrystals +" cristales en el nivel " + level;
         Gameoverbool = true;
 		enabled = false;
+
 	}
 
 	public void GameWin() {
+	
+	    SoundManager.instance.musicFinal.Stop();
 		winImage.SetActive(true);
 		Win = GameObject.FindWithTag("wintext").GetComponent(typeof(Text)) as Text;
 		Win.text= "Has salvado la Tierra con " +playerCrystals.ToString() + " cristales, ahora puedes usarlos para comprar objetos nuevos";

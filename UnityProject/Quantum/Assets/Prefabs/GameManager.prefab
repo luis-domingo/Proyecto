@@ -50,7 +50,7 @@ MonoBehaviour:
   turnDelay: 0.1
   levelStartDelay: 5
   playersTurn: 1
-  level: 1
+  level: 3
   Gameoverbool: 0
 --- !u!114 &2324034979082490783
 MonoBehaviour:

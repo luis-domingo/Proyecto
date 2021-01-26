@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
 	public AudioClip gameOverEfx;
 	public AudioClip exitEfx;
 	public AudioClip paperEfx;
+	public AudioClip musicBeginning;
 	private GameObject pistaImage;
 	public int lvl;
 
@@ -94,6 +95,7 @@ public class Player : MonoBehaviour
 		pistaImage.SetActive(false);
 		lvl = GameManager.instance.level;
 
+
 	}
 
 	private void OnDisable()
@@ -162,14 +164,14 @@ public class Player : MonoBehaviour
 		        Pista.text = "Bienvenido agente Cooper!\n Su nave se ha estrellado y para reparala debes recoger todos los\n minerales que puedas y encontrar la salida de cada planeta.\n Cuidado! El terreno es hostil.\n A la aventura! ";
 		    }
 		    else if (lvl == 2){
-                Pista.text = "Has logrado superar el primer nivel!\n No olvides recoger minerales y evitar aquellas partes del suelo\n que parecen distintas...\n En la tierra Murph sigue trabajando en una solución,\n pero parece que estás solo en esto.\n Suerte carck! ";
+                Pista.text = "Has logrado superar el primer nivel!\n No olvides recoger minerales y evitar aquellas partes del suelo\n que parecen distintas...\n En la tierra Murph sigue trabajando en una solución,\n pero parece que estás solo en esto.\n Suerte crack! ";
             }
             else if (lvl == 3){
                 Pista.text = "Te estás acercando, este nivel está más caliente\n que los empastes de un dragón!\n Sigue así y encontrarás la salida, pantera.\n En este tiempo que llevas fuera, tu Betis ha ganado dos Champions!";
 
             }
             else if (lvl == 4){
-                Pista.text = "Ya casi lo tienes!\n Este parece ser un nivel interdimensional,\n que las luces de neón no supongan un problema. ";
+                Pista.text = "Ya casi lo tienes!\n Este parece ser un nivel interdimensional,\n que las luces de neón no supongan un problema.\n Que la suerte esté de tu lado, en la tierra esperan tu regreso. ";
             }
 		    SoundManager.instance.RandomizeSfx(paperEfx);
 		    AllFalse();

@@ -3,6 +3,7 @@ package edu.upc.dsa.dao;
 import edu.upc.dsa.FactorySession;
 import edu.upc.dsa.Session;
 import edu.upc.dsa.models.Coins;
+import edu.upc.dsa.models.ForumTopic;
 import org.apache.log4j.Logger;
 
 import javax.xml.transform.Result;
@@ -10,6 +11,7 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 public class CoinsDAOImpl implements CoinsDAO{
@@ -53,14 +55,19 @@ public class CoinsDAOImpl implements CoinsDAO{
         ResultSet res = null;
         Coins c = new Coins();
         c.setId(id);
+        List<Coins> list = new LinkedList<>();
         try {
             session = FactorySession.openSession();
 
             //We get the values from the table Coins
-            res = (ResultSet)session.get(c);
+            HashMap<String, String> conditions = new HashMap<String, String>();
+            conditions.put("id", id);
+            list = session.findAllItems(c.getClass(), conditions);
+
+            c = list.get(0);
 
             //Set the coins to return
-            numberCoins = Integer.parseInt(res.getString(2));
+            numberCoins = Integer.parseInt(c.getCoins());
 
         }
         catch (IOException e) {

@@ -9,20 +9,14 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponses;
 
 import javax.imageio.ImageIO;
-import javax.imageio.plugins.jpeg.JPEGImageWriteParam;
-import javax.imageio.stream.FileImageOutputStream;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.awt.image.WritableRaster;
 import java.io.*;
 import java.sql.SQLException;
 import java.util.Base64;
 
 import org.apache.log4j.Logger;
-import sun.jvm.hotspot.utilities.BitMap;
 
 
 @Api(value = "/usuarios", description = "Endpoint to User Service")
@@ -95,9 +89,11 @@ public class RegisterService {
         try{
             String image = id.substring(1, id.length()-1);
             DataInputStream dis = new DataInputStream(new FileInputStream("../userImages/" + image +".jpg"));
+            logger.info("El usuario con ID " + id + " está intentando ver su imagen");
+            logger.info(dis);
             byte[] imgByte = new byte[dis.available()];
             Base64.Encoder encoder = Base64.getEncoder();
-            String imagenString = "'" + encoder.encodeToString(imgByte) + "'";
+            String imagenString = encoder.encodeToString(imgByte);
             return Response.status(200).entity(imagenString).build();
         } catch (IOException e) {
 

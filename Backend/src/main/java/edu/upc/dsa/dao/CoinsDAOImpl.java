@@ -52,7 +52,6 @@ public class CoinsDAOImpl implements CoinsDAO{
     public int getCoins(String id) throws SQLException {
         int numberCoins = 0;
         Session session = null;
-        ResultSet res = null;
         Coins c = new Coins();
         c.setId(id);
         List<Coins> list = new LinkedList<>();
@@ -61,7 +60,7 @@ public class CoinsDAOImpl implements CoinsDAO{
 
             //We get the values from the table Coins
             HashMap<String, String> conditions = new HashMap<String, String>();
-            conditions.put("id", id);
+            conditions.put("id", "'" + id + "'");
             list = session.findAllItems(c.getClass(), conditions);
 
             c = list.get(0);

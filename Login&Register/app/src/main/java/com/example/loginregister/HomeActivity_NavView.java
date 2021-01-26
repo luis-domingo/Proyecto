@@ -110,7 +110,7 @@ public class HomeActivity_NavView extends AppCompatActivity {
         nombre.setText("Usuario: " + sp.getAll().get("Username").toString());
         ID.setText("ID: " + sp.getAll().get("ID").toString());
         TextView txtCoins = (TextView)findViewById(R.id.txtCoins);
-        Usuario user = new Usuario(sp.getAll().get("Username").toString(), sp.getAll().get("ID").toString());
+        Usuario user = new Usuario(sp.getAll().get("Username").toString(), "", sp.getAll().get("ID").toString());
         apiIface = APIClient.getClient().create(APIInterface.class);
         Call<Coins> call = apiIface.getCoins(user);
         call.enqueue(new Callback<Coins>() {

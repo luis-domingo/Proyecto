@@ -1,7 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_scrollView1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment"/>
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:background="@drawable/fondo_2"
+    android:fillViewport="true"
+    android:scrollbarStyle="insideOverlay"
+    android:scrollbars="vertical">
+
+    <TableRow
+        android:id="@+id/linea1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/shopItemImage"
+            android:layout_width="0dp"
+            android:layout_height="110dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:paddingBottom="0dp"
+            app:srcCompat="@drawable/quantum" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/linea2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:paddingRight="15dp"
+            android:text="Sobre QUANTUM"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/linea3"
+        android:layout_width="match_parent"
+        android:layout_height="212dp">
+
+        <TextView
+            android:id="@+id/descripcion"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:text="A Quantum l’agent Cooper, immers a una missió secreta de la NASA per trobar un planeta al qual poder migrar ja que la Terra té els dies comptats, pateix un accident amb la seva nau i queda atrapat a Gargantúa. Per poder tornar a la Terra, ha de superar diferents proves de diverses dificultats. L'objectiu del joc és que l’agent Cooper aconsegueixi superar les proves en el menor temps possible"
+            android:textAlignment="viewStart"
+            android:textSize="14sp" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/linea5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/title2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:paddingRight="15dp"
+            android:text="Descripció"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/linea6"
+        android:layout_width="match_parent"
+        android:layout_height="212dp">
+
+        <TextView
+            android:id="@+id/juego"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:text="El joc està dividit en 4 nivells on augmenta la dificultat progressivament. Els nivells són planetes que estan definits com un laberint. Trobem nivells de gel, terra, lava i neó"
+            android:textAlignment="viewStart"
+            android:textSize="14sp" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/linea7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:fadeScrollbars="true"
+            android:isScrollContainer="true"
+            android:nestedScrollingEnabled="true"
+            android:overScrollMode="always"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:paddingBottom="0dp"
+            android:scrollbarAlwaysDrawHorizontalTrack="true"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarDefaultDelayBeforeFade="1000"
+            android:scrollbars="vertical"
+            app:srcCompat="@drawable/mapa1" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/linea8"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img2"
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:paddingBottom="0dp"
+            app:srcCompat="@drawable/mapa2" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/linea9"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img3"
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:paddingBottom="0dp"
+            app:srcCompat="@drawable/mapa3" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/linea10"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img10"
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:paddingBottom="0dp"
+            app:srcCompat="@drawable/mapa4" />
+    </TableRow>
+</TableLayout>

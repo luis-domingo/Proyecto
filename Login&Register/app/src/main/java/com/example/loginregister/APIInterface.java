@@ -6,6 +6,8 @@ import com.example.loginregister.models.UserImg;
 import com.example.loginregister.models.UserItem;
 import com.example.loginregister.models.Usuario;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 import javax.ws.rs.core.GenericEntity;
 
@@ -40,5 +42,5 @@ public interface APIInterface {
     Call<List<Stats>> getStats();
 
     @POST("/dsaApp/usuarios/getImage")
-    Call<String> getImage (@Body String id);
+    Call<UserImg> getImage (@Body UserImg auxUserImg);
 }

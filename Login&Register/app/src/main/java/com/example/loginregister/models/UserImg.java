@@ -4,6 +4,10 @@ public class UserImg {
     String name;
     String image;
 
+    public UserImg(String id) {
+        this.name = id;
+    }
+
     public String getName() {
         return name;
     }

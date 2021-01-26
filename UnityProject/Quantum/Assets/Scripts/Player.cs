@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
 	public AudioClip gameOverEfx;
 	public AudioClip exitEfx;
 	//public AudioClip walkEfx;
+	public AudioClip paperEfx;
 
     //public Text CrystalsText;
     //public Text HealthText;
@@ -63,6 +64,15 @@ public class Player : MonoBehaviour
     {
         Downbool = false;
     }
+
+    public void AllFalse()
+    {
+        Upfalse();
+        Downfalse();
+        Izqfalse();
+        Derfalse();
+    }
+
 	// Use this for initialization
 	protected void Start()
 	{
@@ -122,7 +132,14 @@ public class Player : MonoBehaviour
 			Health.text = Healthnum.ToString();
 			SoundManager.instance.RandomizeSfx(damageEfx);
 			CheckIfGameOver();
+		} else if (other.tag =="Pista"){
+
+		    SoundManager.instance.RandomizeSfx(paperEfx);
+		    AllFalse();
+		    Pista.text = "Bienvenido agente Cooper, su nave se ha estrellado y para reparala debes recoger todos los minerales que puedas y encontrar la salida de cada planeta. Cuidado! El terreno es hostil. A la aventura! ";
+
 		}
+
 	}
 
 

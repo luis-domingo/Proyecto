@@ -30,11 +30,11 @@ public class ForumPublication {
         this.content = content;
     }
 
-    public String getTopic() {
+    public String getIdTopic() {
         return idTopic;
     }
 
-    public void setTopic(String topic) {
+    public void setIdTopic(String topic) {
         this.idTopic = topic;
     }
 
@@ -46,5 +46,15 @@ public class ForumPublication {
     }
 
     public ForumPublication() {
+    }
+
+    @Override
+    public String toString() {
+        return "ForumPublication{" +
+                "name='" + name + '\'' +
+                ", date='" + date + '\'' +
+                ", content='" + content + '\'' +
+                ", idTopic='" + idTopic + '\'' +
+                '}';
     }
 }

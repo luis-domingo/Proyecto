@@ -55,7 +55,7 @@ public class ForumDAOImpl implements ForumDAO{
         try {
             session = FactorySession.openSession();
             HashMap<String, String> hash = new HashMap<>();
-            hash.put("publication", topic.getTitle());
+            hash.put("idTopic", topic.getId());
             list = session.findAllItems(a.getClass(), hash);
             logger.info(list.toString());
         } catch (IOException e) {
@@ -73,17 +73,27 @@ public class ForumDAOImpl implements ForumDAO{
         ResultSet res = null;
         try {
             session = FactorySession.openSession();
-            logger.info("Alguien esta a punto de publicar en el tema " + forumPublication.getTopic() + " el siguiente mensaje " + forumPublication.getContent());
+            logger.info("Alguien esta a punto de publicar en el tema " + forumPublication.getIdTopic() + " el siguiente mensaje " + forumPublication.getContent());
             session.save(forumPublication);
 
             //Actualizacion del numero de publicaciones en ForumTopic
             ForumTopic tp = new ForumTopic();
-            tp.setId(forumPublication.getTopic());
-            res = (ResultSet)session.get(tp);
-            int updateNum = res.getInt(3);
-            updateNum ++;
-            tp.setNumPublications(updateNum);
-            session.save(tp);
+            tp.setId(forumPublication.getIdTopic());
+            List<ForumTopic> listTopic = getAllTopics();
+            for(ForumTopic topic : listTopic){
+                if(topic.getId().equals(forumPublication.getIdTopic())){
+                    tp = topic;
+                }
+            }
+            String numPubli = tp.getNumPublications();
+            int updateNum = Integer.parseInt(numPubli) + 1;
+            logger.info("El nuevo numero de publicaciones sera " + updateNum);
+            tp.setNumPublications(String.valueOf(updateNum));
+            HashMap<String, String> params = new HashMap<String, String>();
+            HashMap<String, String> conditions = new HashMap<String, String>();
+            params.put("numPublications", String.valueOf(updateNum));
+            conditions.put("id", forumPublication.getIdTopic());
+            session.updateObject(tp, conditions, params);
         }
         catch (Exception e) {
             // LOG

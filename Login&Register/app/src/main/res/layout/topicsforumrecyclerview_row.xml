@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/txtTitle"
+            android:id="@+id/forumTxtTitle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:paddingTop="25dp"
@@ -23,7 +23,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/txtNumber"
+            android:id="@+id/forumTxtNumber"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:paddingTop="25dp"

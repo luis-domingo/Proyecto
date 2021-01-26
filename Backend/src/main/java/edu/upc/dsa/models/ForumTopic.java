@@ -5,7 +5,7 @@ import edu.upc.dsa.util.RandomUtils;
 public class ForumTopic {
     String title;
     String id;
-    int numPublications;
+    String numPublications;
 
 
     public String getTitle() {
@@ -16,11 +16,11 @@ public class ForumTopic {
         this.title = title;
     }
 
-    public int getNumPublications() {
+    public String getNumPublications() {
         return numPublications;
     }
 
-    public void setNumPublications(int numPublications) {
+    public void setNumPublications(String numPublications) {
         this.numPublications = numPublications;
     }
 
@@ -32,7 +32,7 @@ public class ForumTopic {
         this.id = id;
     }
 
-    public ForumTopic(String title, String id, int numPublications) {
+    public ForumTopic(String title, String numPublications) {
         this();
         this.title = title;
         this.numPublications = numPublications;
@@ -40,5 +40,14 @@ public class ForumTopic {
 
     public ForumTopic(){
         this.id = RandomUtils.getId();
+    }
+
+    @Override
+    public String toString() {
+        return "ForumTopic{" +
+                "title='" + title + '\'' +
+                ", id='" + id + '\'' +
+                ", numPublications=" + numPublications +
+                '}';
     }
 }

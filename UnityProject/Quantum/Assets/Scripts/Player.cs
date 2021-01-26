@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
 
 
 
+
+
     public bool Derbool, Izqbool, Upbool, Downbool;
 
     public void DerTrue()

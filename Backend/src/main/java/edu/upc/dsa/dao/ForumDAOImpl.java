@@ -79,8 +79,14 @@ public class ForumDAOImpl implements ForumDAO{
             //Actualizacion del numero de publicaciones en ForumTopic
             ForumTopic tp = new ForumTopic();
             tp.setId(forumPublication.getIdTopic());
-            int updateNum = getAllPublications(tp).size();
-            updateNum ++;
+            List<ForumTopic> listTopic = getAllTopics();
+            for(ForumTopic topic : listTopic){
+                if(topic.getId().equals(forumPublication.getIdTopic())){
+                    tp = topic;
+                }
+            }
+            String numPubli = tp.getNumPublications();
+            int updateNum = Integer.parseInt(numPubli) + 1;
             logger.info("El nuevo numero de publicaciones sera " + updateNum);
             tp.setNumPublications(String.valueOf(updateNum));
             session.save(tp);

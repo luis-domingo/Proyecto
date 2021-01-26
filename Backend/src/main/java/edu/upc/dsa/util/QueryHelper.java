@@ -65,7 +65,7 @@ public class QueryHelper {
         sb.append("SELECT * FROM ").append(theClass.getSimpleName());
         if(params.size()!=0){
             for(String key : params.keySet()) {
-                sb.append(" WHERE ").append(key).append(" = ").append(params.get(key));
+                sb.append(" WHERE ").append(key).append(" = '").append(params.get(key)).append("'");
             }
         }
         logger.info(sb.toString());

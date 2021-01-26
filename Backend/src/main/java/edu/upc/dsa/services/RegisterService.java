@@ -91,14 +91,13 @@ public class RegisterService {
 
     @Path("/getImage")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     public Response getPicture(String id){
         try{
-            DataInputStream dis = new DataInputStream(new FileInputStream("../userImages/" + id +".jpg"));
+            id.substring(1, id.length()-1);
+            DataInputStream dis = new DataInputStream(new FileInputStream("../userImages/" + id.toString() +".jpg"));
             byte[] imgByte = new byte[dis.available()];
-            int numBytes = dis.read(imgByte, 0, dis.available());
             Base64.Encoder encoder = Base64.getEncoder();
-            String imagenString = encoder.encodeToString(imgByte);
+            String imagenString = "'" + encoder.encodeToString(imgByte) + "'";
             return Response.status(200).entity(imagenString).build();
         } catch (IOException e) {
 

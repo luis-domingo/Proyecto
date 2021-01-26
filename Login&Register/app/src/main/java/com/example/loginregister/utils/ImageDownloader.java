@@ -34,12 +34,12 @@ public class ImageDownloader {
                     bitmap[0] = BitmapFactory.decodeByteArray(bytes, 0,bytes.length);
                 }
                 else{
-                    Log.i("grup3", "No ho has fet tan bé");
+                    Log.i("grup3", "No ho has fet tan bé (else)");
                 }
             }
             @Override
             public void onFailure(Call<String> call, Throwable throwable) {
-                Log.i("grup3", "No ho has fet tan bé");
+                Log.i("grup3", "No ho has fet tan bé (failure)");
             }
         });
         return bitmap[0];

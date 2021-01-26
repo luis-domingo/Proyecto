@@ -8,6 +8,8 @@ public class Retry : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene("Scenee");
+        SoundManager.instance.musicFinal.Stop();
+        SoundManager.instance.musicWin.Stop();
         SoundManager.instance.musicSource.Play();
 
 

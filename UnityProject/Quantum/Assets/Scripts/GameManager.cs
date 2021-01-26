@@ -183,6 +183,7 @@ public class GameManager : MonoBehaviour {
 	public void GameWin() {
 	
 	    SoundManager.instance.musicFinal.Stop();
+	    SoundManager.instance.musicWin.Play();
 		winImage.SetActive(true);
 		Win = GameObject.FindWithTag("wintext").GetComponent(typeof(Text)) as Text;
 		Win.text= "Has salvado la Tierra con " +playerCrystals.ToString() + " cristales, ahora puedes usarlos para comprar objetos nuevos";

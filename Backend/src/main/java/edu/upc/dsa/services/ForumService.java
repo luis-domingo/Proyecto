@@ -98,7 +98,8 @@ public class ForumService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addTopic(ForumTopic forumTopic) throws SQLException {
         try {
-            manFor.addTopic(forumTopic);
+            ForumTopic tp = new ForumTopic(forumTopic.getTitle(),forumTopic.getNumPublications());
+            manFor.addTopic(tp);
             return Response.status(200).build();
         } catch(SQLException e) {
             e.printStackTrace();

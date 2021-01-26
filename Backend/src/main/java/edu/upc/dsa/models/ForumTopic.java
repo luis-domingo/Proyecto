@@ -32,7 +32,7 @@ public class ForumTopic {
         this.id = id;
     }
 
-    public ForumTopic(String title, String id, int numPublications) {
+    public ForumTopic(String title, int numPublications) {
         this();
         this.title = title;
         this.numPublications = numPublications;

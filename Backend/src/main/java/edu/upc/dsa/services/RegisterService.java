@@ -1,5 +1,7 @@
 package edu.upc.dsa.services;
 
+import edu.upc.dsa.dao.CoinsDAO;
+import edu.upc.dsa.dao.CoinsDAOImpl;
 import edu.upc.dsa.dao.UsuarioDAO;
 import edu.upc.dsa.dao.UsuarioDAOImpl;
 import edu.upc.dsa.models.UserImg;
@@ -23,9 +25,11 @@ import org.apache.log4j.Logger;
 @Path("/usuarios")
 public class RegisterService {
     private UsuarioDAO manuser;
+    private CoinsDAO mancoins;
 
     public RegisterService() {
         this.manuser = UsuarioDAOImpl.getInstance();
+        this.mancoins = CoinsDAOImpl.getInstance();
     }
     final static Logger logger = Logger.getLogger(RegisterService.class);
 
@@ -38,6 +42,7 @@ public class RegisterService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response newUser(Usuario usuario) throws SQLException {
         this.manuser.addUsuario(usuario.getNombre(), usuario.getPassword());
+        this.mancoins.newUser(usuario.getId());
         return Response.status(200).entity(usuario).build();
     }
 

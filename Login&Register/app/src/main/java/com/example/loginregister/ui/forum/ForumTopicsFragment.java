@@ -78,7 +78,7 @@ public class ForumTopicsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 TextView txtTitle = (TextView)root.findViewById(R.id.editTextTextTitle);
-                ForumTopic newForumTopic = new ForumTopic(txtTitle.getText().toString(), "", 0);
+                ForumTopic newForumTopic = new ForumTopic(txtTitle.getText().toString(), " ", "0");
                 Call<Void> call = apiIface.addTopic(newForumTopic);
                 call.enqueue(new Callback<Void>() {
                     @Override

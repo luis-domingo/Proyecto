@@ -98,6 +98,7 @@ public class ForumService {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addTopic(ForumTopic forumTopic) throws SQLException {
         try {
+            logger.info("Alguien esta añadiendo el siguiente tema a la lista " + forumTopic.toString());
             ForumTopic tp = new ForumTopic(forumTopic.getTitle(),forumTopic.getNumPublications());
             manFor.addTopic(tp);
             return Response.status(200).build();

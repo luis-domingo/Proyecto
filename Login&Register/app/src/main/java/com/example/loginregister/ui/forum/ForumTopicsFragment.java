@@ -43,7 +43,7 @@ public class ForumTopicsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         apiIface = APIClient.getClient().create(APIInterface.class);
         topicsViewModel = new ViewModelProvider(this).get(ForumTopicsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_inventory, container, false);
+        View root = inflater.inflate(R.layout.fragment_forum_topics, container, false);
         Call<List<ForumTopic>> call = apiIface.getTopics();
         call.enqueue(new Callback<List<ForumTopic>>() {
             @Override

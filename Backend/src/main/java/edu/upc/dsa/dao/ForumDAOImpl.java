@@ -89,7 +89,11 @@ public class ForumDAOImpl implements ForumDAO{
             int updateNum = Integer.parseInt(numPubli) + 1;
             logger.info("El nuevo numero de publicaciones sera " + updateNum);
             tp.setNumPublications(String.valueOf(updateNum));
-            session.save(tp);
+            HashMap<String, String> params = new HashMap<String, String>();
+            HashMap<String, String> conditions = new HashMap<String, String>();
+            params.put("numPublications", String.valueOf(updateNum));
+            conditions.put("id", forumPublication.getIdTopic());
+            session.updateObject(tp, conditions, params);
         }
         catch (Exception e) {
             // LOG

@@ -30,7 +30,7 @@ public class CoinsService {
         this.manCoins = CoinsDAOImpl.getInstance();
     }
 
-    @GET
+    @POST
     @ApiOperation(value = "Get Coins", notes = "")
     @ApiResponses(value = {
     })

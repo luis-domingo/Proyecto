@@ -80,7 +80,7 @@ public class ForumDAOImpl implements ForumDAO{
             ForumTopic tp = new ForumTopic();
             tp.setId(forumPublication.getIdTopic());
             res = (ResultSet)session.get(tp);
-            int updateNum = res.getInt(3);
+            int updateNum = Integer.parseInt(res.getString(3));
             updateNum ++;
             logger.info("El nuevo numero de publicaciones sera " + updateNum);
             tp.setNumPublications(String.valueOf(updateNum));

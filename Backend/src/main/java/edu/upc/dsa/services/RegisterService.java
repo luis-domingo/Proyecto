@@ -85,13 +85,14 @@ public class RegisterService {
 
     @Path("/getImage")
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response getPicture(String id){
         try{
-            String image = id.substring(1, id.length()-1);
-            DataInputStream dis = new DataInputStream(new FileInputStream("../userImages/" + image +".jpg"));
+            String imagenNombre = id.substring(1, id.length()-1);
+            DataInputStream dis = new DataInputStream(new FileInputStream("../userImages/" + imagenNombre +".jpg"));
             logger.info("El usuario con ID " + id + " está intentando ver su imagen");
             logger.info(dis);
-            byte[] imgByte = new byte[dis.available()];
+            byte[] imgByte = dis.readAllBytes();
             Base64.Encoder encoder = Base64.getEncoder();
             String imagenString = encoder.encodeToString(imgByte);
             return Response.status(200).entity(imagenString).build();

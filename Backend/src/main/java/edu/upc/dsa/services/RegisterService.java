@@ -59,7 +59,7 @@ public class RegisterService {
     }
 
     @POST
-    @ApiOperation(value = "Set Image", notes = "")
+    @ApiOperation(value = "Set User Image", notes = "")
     @ApiResponses(value = {
     })
 
@@ -78,7 +78,7 @@ public class RegisterService {
         return Response.status(200).build();
     }
     @POST
-    @ApiOperation(value = "Set Image", notes="")
+    @ApiOperation(value = "Get User Image", notes="")
     @ApiResponses(value={
     })
 

@@ -48,7 +48,7 @@ public class BoardManager : MonoBehaviour
     public void BoardSetup(int level)
     {
         GameObject board = new GameObject("Board");
-        board.AddComponent(typeof(CompositeCollider2D));
+        ObjectFactory.AddComponent<CompositeCollider2D>(board);
         boardHolder = board.transform;
         boardHolder.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         GameObject playerinstance = new GameObject("Player");
@@ -233,11 +233,7 @@ public class BoardManager : MonoBehaviour
 						difficult=0.2f;
 					}else if(level==3){
 						difficult=0.25f;
-                    }
-                    else if (level == 4)
-                    {
-                        difficult = 0.3f;
-                    }
+					}
 
 					if (rand<=difficult){
 						int ytemp= rows-y;

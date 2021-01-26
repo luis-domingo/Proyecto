@@ -47,10 +47,11 @@ MonoBehaviour:
   boardScript: {fileID: 0}
   playerHealth: 70
   playerCrystals: 0
+  availableTime: 300
   turnDelay: 0.1
   levelStartDelay: 5
   playersTurn: 1
-  level: 4
+  level: 1
   Gameoverbool: 0
 --- !u!114 &2324034979082490783
 MonoBehaviour:

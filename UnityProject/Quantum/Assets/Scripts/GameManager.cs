@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
 	public BoardManager boardScript;
 	public int playerHealth = 70;
 	public int playerCrystals =0;
-	public float availableTime=300f;
+    //public float availableTime=300f;
 	public float turnDelay = .1f;
 	public float levelStartDelay = 5f;
 
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
 	private Text Cristals;
 	private Text Health;
 	private Text Win;
-	private Text time;
+    //private Text time;
     public bool Gameoverbool = false;
     //public AudioClip musicFinal;
     //public AudioClip musicBeginning;
@@ -55,17 +55,19 @@ public class GameManager : MonoBehaviour {
             playerHealth = 70;
             playerCrystals = 0;
 
-			availableTime=300;
+            //availableTime=300;
             Gameoverbool = false;
             level = 1;
+            
             InitGame(level);
+            level5Image.SetActive(false);
         }
         else {
 			if (level<4){
             level++;
             InitGame(level);
-				time =GameObject.FindWithTag("timett").GetComponent(typeof(Text)) as Text;
-				time.text =availableTime.ToString();
+                //time =GameObject.FindWithTag("timett").GetComponent(typeof(Text)) as Text;
+                //time.text =availableTime.ToString();
 				Cristals = GameObject.FindWithTag("cristalt").GetComponent(typeof(Text)) as Text;
 				Health = GameObject.FindWithTag("healtht").GetComponent(typeof(Text)) as Text;
 				Health.text = playerHealth.ToString();
@@ -73,7 +75,7 @@ public class GameManager : MonoBehaviour {
 
 			}else{
 
-				availableTime=300;
+                //availableTime=300;
 				playerHealth = 70;
 				playerCrystals = 0;
 				level = 1;
@@ -190,19 +192,19 @@ public class GameManager : MonoBehaviour {
 		enabled = false;
 	}
 
-	private void FixedUpdate()
-	{
-			if (availableTime> 0)
-			{
-				availableTime = availableTime- 1 * Time.deltaTime;
-			}
-			else{
-				GameOver();
-			}
+    //private void FixedUpdate()
+    //{
+    //        if (availableTime> 0)
+    //        {
+    //            availableTime = availableTime- 1 * Time.deltaTime;
+    //        }
+    //        else{
+    //            GameOver();
+    //        }
 
 
 
-	}
+    //}
 
 	// Update is called once per frame
 	void Update () {

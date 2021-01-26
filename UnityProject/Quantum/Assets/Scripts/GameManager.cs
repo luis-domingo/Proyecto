@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
 	[HideInInspector]
 	public bool playersTurn = true;
 
-	private int level = 1;
+	public int level = 1;
 	private bool doingSetup;
 	private Text Level5Text;
 	private GameObject level1Image;
@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
 	private GameObject level3Image;
 	private GameObject level4Image;
 	private GameObject level5Image;
+    public bool Gameoverbool = false;
 
 	// Use this for initialization
 	void Awake () {
@@ -40,8 +41,19 @@ public class GameManager : MonoBehaviour {
 
 	private void OnLevelWasLoaded(int index)
 	{
-		level++;
-		InitGame(level);
+        if (Gameoverbool == true)
+        {
+            playerHealth = 70;
+            playerCrystals = 0;
+            Gameoverbool = false;
+            level = 1;
+            InitGame(level);
+        }
+        else {
+            level++;
+            InitGame(level);
+        }
+       
 	}
 
 	private void HideLevel1Image() {        
@@ -104,9 +116,10 @@ public class GameManager : MonoBehaviour {
 		Level5Text = GameObject.FindWithTag("gameovertext").GetComponent(typeof(Text)) as Text;
 
 		Level5Text.text = "Has acabado con: "+playerCrystals +" cristales en el nivel " + level;
-
+        Gameoverbool = true;
 		enabled = false;
 	}
+
 
 	// Update is called once per frame
 	void Update () {

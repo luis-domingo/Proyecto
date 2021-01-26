@@ -55,7 +55,7 @@ public class ForumDAOImpl implements ForumDAO{
         try {
             session = FactorySession.openSession();
             HashMap<String, String> hash = new HashMap<>();
-            hash.put("publication", topic.getTitle());
+            hash.put("idTopic", topic.getId());
             list = session.findAllItems(a.getClass(), hash);
             logger.info(list.toString());
         } catch (IOException e) {

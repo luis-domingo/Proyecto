@@ -7,6 +7,7 @@ import edu.upc.dsa.models.ForumTopic;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -69,10 +70,19 @@ public class ForumDAOImpl implements ForumDAO{
     @Override
     public void addPublication(ForumPublication forumPublication) throws SQLException {
         Session session = null;
+        ResultSet res = null;
         try {
             session = FactorySession.openSession();
             logger.info("Alguien esta a punto de publicar en el tema " + forumPublication.getTopic() + " el siguiente mensaje " + forumPublication.getContent());
             session.save(forumPublication);
+
+            //Actualizacion del numero de publicaciones en ForumTopic
+            ForumTopic tp = new ForumTopic();
+            res = (ResultSet)session.get(tp);
+            int updateNum = res.getInt(3);
+            updateNum ++;
+            tp.setNumPublications(updateNum);
+            session.save(tp);
         }
         catch (Exception e) {
             // LOG

@@ -4,7 +4,7 @@ public class ForumPublication {
     String name;
     String date;
     String content;
-    String topic;
+    String idTopic;
 
     public String getName() {
         return name;
@@ -31,18 +31,18 @@ public class ForumPublication {
     }
 
     public String getTopic() {
-        return topic;
+        return idTopic;
     }
 
     public void setTopic(String topic) {
-        this.topic = topic;
+        this.idTopic = topic;
     }
 
-    public ForumPublication(String name, String date, String content, String topic) {
+    public ForumPublication(String name, String date, String content, String idTopic) {
         this.name = name;
         this.date = date;
         this.content = content;
-        this.topic = topic;
+        this.idTopic = idTopic;
     }
 
     public ForumPublication() {

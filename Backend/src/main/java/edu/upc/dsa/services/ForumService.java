@@ -96,7 +96,7 @@ public class ForumService {
 
     @Path("/addTopic")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addPublication(ForumTopic forumTopic) throws SQLException {
+    public Response addTopic(ForumTopic forumTopic) throws SQLException {
         try {
             manFor.addTopic(forumTopic);
             return Response.status(200).build();

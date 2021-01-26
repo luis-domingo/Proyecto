@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.loginregister.APIClient;
 import com.example.loginregister.APIInterface;
 import com.example.loginregister.R;
+import com.example.loginregister.models.Coins;
 import com.example.loginregister.models.ShopItem;
 import com.example.loginregister.models.UserItem;
 import com.example.loginregister.utils.MyRecyclerViewForumTopicsAdapter;
@@ -68,27 +70,47 @@ public class ShopFragment extends Fragment{
                             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                             builder.setTitle("Confirm payment");
                             builder.setMessage("Are you sure you want to buy " + productList.get(position).getName() + " that costs " + productList.get(position).getPrice()+ "?");
+                            TextView txtCoins = (TextView)getActivity().findViewById(R.id.txtCoins);
                             builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    UserItem bought = new UserItem(productList.get(position).getName(), 1, sharedPreferences.getAll().get("ID").toString());
-                                    Call<Void> call = apiIface.buyItem(bought);
-                                    call.enqueue(new Callback<Void>() {
-                                        @Override
-                                        public void onResponse(Call<Void> call, Response<Void> response) {
-                                            if(response.code()==200) {
-                                                Toast.makeText(getContext(), productList.get(position).getName() + " was added to your inventory!", Toast.LENGTH_SHORT).show();
+                                    if(Integer.parseInt(txtCoins.getText().toString()) >= productList.get(position).getPrice()) {
+                                        UserItem bought = new UserItem(productList.get(position).getName(), 1, sharedPreferences.getAll().get("ID").toString());
+                                        Call<Void> call = apiIface.buyItem(bought);
+                                        call.enqueue(new Callback<Void>() {
+                                            @Override
+                                            public void onResponse(Call<Void> call, Response<Void> response) {
+                                                if (response.code() == 200) {
+                                                    Toast.makeText(getContext(), productList.get(position).getName() + " was added to your inventory!", Toast.LENGTH_SHORT).show();
+                                                    int newCoins = Integer.parseInt(txtCoins.getText().toString()) - productList.get(position).getPrice();
+                                                    txtCoins.setText(String.valueOf(newCoins));
+                                                    Coins coins = new Coins(sharedPreferences.getAll().get("ID").toString(), String.valueOf(newCoins));
+                                                    Call<Void> call1 = apiIface.updateCoins(coins);
+                                                    call1.enqueue(new Callback<Void>() {
+                                                        @Override
+                                                        public void onResponse(Call<Void> call, Response<Void> response) {
+                                                            Log.i("grup3", "onResponse: he restado las coins");
+                                                        }
+                                                        @Override
+                                                        public void onFailure(Call<Void> call, Throwable throwable) {
+                                                            Log.i("grup3", "onFailure");
+                                                        }
+                                                    });
+                                                } else {
+                                                    Toast.makeText(getContext(), "An error has occurred", Toast.LENGTH_SHORT).show();
+                                                }
                                             }
-                                            else{
-                                                Toast.makeText(getContext(), "An error has occurred", Toast.LENGTH_SHORT).show();
+
+                                            @Override
+                                            public void onFailure(Call<Void> call, Throwable throwable) {
+                                                Toast.makeText(getContext(), "Error when adding " + productList.get(position).getName() + " to your inventory!", Toast.LENGTH_SHORT).show();
                                             }
-                                        }
-                                        @Override
-                                        public void onFailure(Call<Void> call, Throwable throwable) {
-                                            Toast.makeText(getContext(), "Error when adding " + productList.get(position).getName() + " to your inventory!", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
-                                    dialog.dismiss();
+                                        });
+                                        dialog.dismiss();
+                                    }
+                                    else{
+                                        Toast.makeText(getContext(), "You haven't enough crystals to buy this product!", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
                             });
                             builder.setNegativeButton("No", new DialogInterface.OnClickListener() {

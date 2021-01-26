@@ -47,4 +47,14 @@ public class ForumPublication {
 
     public ForumPublication() {
     }
+
+    @Override
+    public String toString() {
+        return "ForumPublication{" +
+                "name='" + name + '\'' +
+                ", date='" + date + '\'' +
+                ", content='" + content + '\'' +
+                ", idTopic='" + idTopic + '\'' +
+                '}';
+    }
 }

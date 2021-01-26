@@ -23,10 +23,10 @@ public class Player : MonoBehaviour
 	public AudioClip damageEfx;
 	public AudioClip gameOverEfx;
 	public AudioClip exitEfx;
-	//public AudioClip walkEfx;
+	public AudioClip paperEfx;
+	private GameObject pistaImage;
+	private int lvl;
 
-    //public Text CrystalsText;
-    //public Text HealthText;
 
 
     public bool Derbool, Izqbool, Upbool, Downbool;
@@ -63,6 +63,23 @@ public class Player : MonoBehaviour
     {
         Downbool = false;
     }
+
+    public void AllFalse()
+    {
+        Upfalse();
+        Downfalse();
+        Izqfalse();
+        Derfalse();
+    }
+
+    public void SomthingTrue()
+    {
+        if (Izqbool || Derbool || Upbool || Downbool)
+        {
+            pistaImage.SetActive(false);
+        }
+    }
+
 	// Use this for initialization
 	protected void Start()
 	{
@@ -73,6 +90,10 @@ public class Player : MonoBehaviour
 		Cristals = GameObject.FindWithTag("cristalt").GetComponent(typeof(Text)) as Text;
 		Health = GameObject.FindWithTag("healtht").GetComponent(typeof(Text)) as Text;
 		Pista = GameObject.FindWithTag("pistat").GetComponent(typeof(Text)) as Text;
+		pistaImage = GameObject.Find("PistaImage");
+		pistaImage.SetActive(false);
+		lvl = GameManager.instance.level;
+
 	}
 
 	private void OnDisable()
@@ -122,13 +143,38 @@ public class Player : MonoBehaviour
 			Health.text = Healthnum.ToString();
 			SoundManager.instance.RandomizeSfx(damageEfx);
 			CheckIfGameOver();
+		} else if (other.tag =="Pista"){
+		    lvl = GameManager.instance.level;
+
+
+		    pistaImage.SetActive(true);
+		    if (lvl == 1){
+		        Pista.text = "Bienvenido agente Cooper!\n Su nave se ha estrellado y para reparala debes recoger todos los\n minerales que puedas y encontrar la salida de cada planeta.\n Cuidado! El terreno es hostil.\n A la aventura! ";
+		    }
+		    else if (lvl == 2){
+                Pista.text = "Has logrado superar el primer nivel!\n No olvides recoger minerales y evitar aquellas partes del suelo\n que parecen distintas...\n En la tierra Murph sigue trabajando en una solución,\n pero parece que estás solo en esto.\n Suerte carck! ";
+            }
+            else if (lvl == 3){
+                Pista.text = "Te estás acercando, este nivel está más caliente\n que los empastes de un dragón!\n Sigue así y encontrarás la salida, pantera.\n En este tiempo que llevas fuera, tu Betis ha ganado dos Champions!";
+
+            }
+            else if (lvl == 4){
+                Pista.text = "Ya casi lo tienes!\n Este parece ser un nivel interdimensional,\n que las luces de neón no supongan un problema. ";
+            }
+		    SoundManager.instance.RandomizeSfx(paperEfx);
+		    AllFalse();
+
+
+
 		}
+
 	}
 
 
 	// Update is called once per frame
 	void Update()
 	{
+	    SomthingTrue();
 
 
 		if (Input.GetKey(KeyCode.D) || Derbool){
@@ -137,6 +183,7 @@ public class Player : MonoBehaviour
 			}
 				GetComponent<Animator>().SetBool("Walk",true);
 			rb.velocity=new Vector2(speed,0);
+
 			//SoundManager.instance.RandomizeSfx(walkEfx);
 
 		}
@@ -146,6 +193,7 @@ public class Player : MonoBehaviour
 			}
 			GetComponent<Animator>().SetBool("Walk",true);
 			rb.velocity=new Vector2(-speed,0);
+
 			//SoundManager.instance.RandomizeSfx(walkEfx);
 		}
 		else if (Input.GetKey(KeyCode.W) || Upbool){
@@ -154,12 +202,14 @@ public class Player : MonoBehaviour
 			}
 			GetComponent<Animator>().SetBool("Walk",true);
 			rb.velocity=new Vector2(0,speed);
+
 			//SoundManager.instance.RandomizeSfx(walkEfx);
 		}
 		else if (Input.GetKey(KeyCode.S) || Downbool){
 
 			GetComponent<Animator>().SetBool("Walk",true);
 			rb.velocity=new Vector2(0,-speed);
+
 			//SoundManager.instance.RandomizeSfx(walkEfx);
 		}
 

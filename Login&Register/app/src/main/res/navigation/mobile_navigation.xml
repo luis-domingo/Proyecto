@@ -12,9 +12,9 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/nav_forum"
-        android:name="com.example.loginregister.ui.forum.ForumFragment"
+        android:name="com.example.loginregister.ui.forum.ForumTopicsFragment"
         android:label="@string/menu_forum"
-        tools:layout="@layout/fragment_forum" />
+        tools:layout="@layout/fragment_forum_topics" />
     <fragment
         android:id="@+id/nav_yourInventory"
         android:name="com.example.loginregister.ui.inventory.InventoryFragment"

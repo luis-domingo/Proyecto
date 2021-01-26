@@ -1,10 +1,14 @@
 package com.example.loginregister;
 
+import com.example.loginregister.models.ForumPublication;
+import com.example.loginregister.models.ForumTopic;
 import com.example.loginregister.models.ShopItem;
 import com.example.loginregister.models.Stats;
 import com.example.loginregister.models.UserImg;
 import com.example.loginregister.models.UserItem;
 import com.example.loginregister.models.Usuario;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 import javax.ws.rs.core.GenericEntity;
@@ -38,4 +42,19 @@ public interface APIInterface {
 
     @GET("/dsaApp/stats/getAllStats")
     Call<List<Stats>> getStats();
+
+    @POST("/dsaApp/usuarios/getImage")
+    Call<UserImg> getImage (@Body UserImg auxUserImg);
+
+    @PUT("/dsaApp/forum/addTopic")
+    Call<Void> addTopic(@Body ForumTopic topic);
+
+    @PUT("dsaApp/forum/addPublication")
+    Call<Void> addPublication(@Body ForumPublication publication);
+
+    @POST("/dsaApp/forum/listTopics")
+    Call<List<ForumTopic>> getTopics();
+
+    @POST("/dsaApp/forum/listPublications")
+    Call<List<ForumPublication>> getPublications(@Body ForumTopic topic);
 }

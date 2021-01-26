@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/publicationName"
+            android:id="@+id/txtTitle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:paddingTop="25dp"
@@ -23,25 +23,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/publicationDate"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:paddingTop="25dp"
-            android:paddingRight="5dp"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/publicationContent"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:paddingTop="25dp"
-            android:paddingRight="5dp"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/statsLast"
+            android:id="@+id/txtNumber"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:paddingTop="25dp"

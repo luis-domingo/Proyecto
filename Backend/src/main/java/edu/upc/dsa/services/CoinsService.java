@@ -38,11 +38,12 @@ public class CoinsService {
     @Path("/getCoins")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getCoins(Usuario usuario) throws SQLException {
-        int coins = -1;
-        coins =this.manCoins.getCoins(usuario.getId());
+        int numCoins = -1;
+        numCoins =this.manCoins.getCoins(usuario.getId());
+        Coins coins = new Coins(usuario.getId(), String.valueOf(numCoins));
         logger.info("Las monedas de "+usuario.getId()+" son "+coins);
 
-        if (coins != -1) {
+        if (numCoins != -1) {
             return Response.status(200).entity(coins).build();
         } else {
             return Response.status(404).entity(null).build();

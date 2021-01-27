@@ -82,12 +82,10 @@ public class CoinsDAOImpl implements CoinsDAO{
     @Override
     public void updateCoins(String id, String coins) throws SQLException {
         Session session = null;
-        ResultSet res = null;
         Coins c = new Coins();
         c.setId(id);
         try {
             session = FactorySession.openSession();
-
             HashMap<String, String> params = new HashMap<String, String>();
             HashMap<String, String> conditions = new HashMap<String, String>();
             params.put("coins", String.valueOf(coins));

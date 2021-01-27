@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\RandomBackground.cs" />
      <Compile Include="Assets\Scripts\Retry.cs" />
+     <Compile Include="Assets\Scripts\Salir.cs" />
      <Compile Include="Assets\Scripts\SoundManager.cs" />
      <None Include="Assets\Textures\Backgrounds\Background Tip.txt" />
      <None Include="Assets\Textures\Backgrounds\Fantasy Purple 2048\Note.txt" />

@@ -136,8 +136,6 @@ public class HomeActivity_NavView extends AppCompatActivity {
                 call.cancel();
             }
         });
-        unityBridge = new UnityBridge();
-        unityBridge.getMap("1");
     }
 
     @Override

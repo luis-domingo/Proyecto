@@ -40,7 +40,7 @@ public class UnityBridge {
         OkHttpClient client = new OkHttpClient().newBuilder().addInterceptor(interceptor).build();
         Retrofit retrofit;
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://eetacdsa0.upc.es:8080/gameDSA/") //Local host on windows 10.0.2.2 and ip our machine 147.83.7.203
+                .baseUrl("http://eetacdsa2.upc.es:8080/dsaApp/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();

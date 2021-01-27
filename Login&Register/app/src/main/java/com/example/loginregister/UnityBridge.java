@@ -26,14 +26,14 @@ public class UnityBridge {
         call.enqueue(new Callback<Map>() {
             @Override
             public void onResponse(Call<Map> call, Response<Map> response) {
-                 String map = response.body().getMap();
-                 Log.i("grup3", map);
-                 resMap.setMap(map);
+                String map = response.body().getMap();
+                Log.i("grup3", map);
+                resMap.setMap(map);
             }
             @Override
             public void onFailure(Call<Map> call, Throwable throwable) {
             }
         });
-        return resMap.getMap();
+        return map;
     }
 }

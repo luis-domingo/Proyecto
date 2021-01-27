@@ -53,36 +53,143 @@ public class BoardManager : MonoBehaviour
         boardHolder.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         GameObject playerinstance = new GameObject("Player");
 
-		String map = 
-            "#############################\r\n"
-			+ "# I       I         I     I #\r\n"
-			+ "# IIIIIII I  H  M  II IIIII #\r\n"
-			+ "#     I  C              I   #\r\n"
-			+ "# IIIII IIIII I I I IIIIIII #\r\n"
-			+ "#       I     IDI I I   I   #\r\n"
-			+ "# IIIIIII III I I III I III #\r\n"
-			+ "# I  C  I I  DI I     I   I #\r\n"
-			+ "# I IIIII I I I III IIIII I #\r\n"
-			+ "#   I   I I I I I  D  I I   #\r\n"
-			+ "#II I I IIIII III I I I ITII#\r\n"
-			+ "# I   I C   U  C  I I   I   #\r\n"
-			+ "# III III I I III I I III I #\r\n"
-			+ "#   C I   I I I   I I     I #\r\n"
-			+ "# IIIIIIIIIII IIIII IIIIIII #\r\n"
-			+ "#  CI I   CD  I  C  H I     #\r\n"
-			+ "# I I III IIIII IIIIIII IIII#\r\n"
-			+ "# I I   C     I D I  C  I   #\r\n"
-			+ "# I III III I IIIII I III I #\r\n"
-			+ "# I I I   I I D I   I  C  I #\r\n"
-			+ "#CI I IIIII III I IIIIIIIII #\r\n"
-			+ "# I I   C   I I I I  C    I #\r\n"
-			+ "# I IIIII I I III I IIIII I #\r\n"
-			+ "# I D I C ID  I D I I     I #\r\n"
-			+ "#IIII I III III IIIII III I #\r\n"
-			+ "#  C  I I C IH  I I I I C   #\r\n"
-			+ "# III I I I I III I III I I #\r\n"
-			+ "# I   I I I I  EI       I I #\r\n"
-			+ "#############################\r\n";  
+        String map;
+
+        if (level == 1)
+        {
+            map =
+               "#############################\r\n"
+               + "# I       I         I     I #\r\n"
+               + "# IIIIIII I  H  M  II IIIII #\r\n"
+               + "#     I  C              I   #\r\n"
+               + "# IIIII IIIII I I I IIIIIII #\r\n"
+               + "#       I     IDI I I   I   #\r\n"
+               + "# IIIIIII III I I III I III #\r\n"
+               + "# I  C  I I  DI I     I   I #\r\n"
+               + "# I IIIII I I I III IIIII I #\r\n"
+               + "#   I   I I I I I  D  I I   #\r\n"
+               + "#II I I IIIII III I I I ITII#\r\n"
+               + "# I   I C   U  C  I I   I   #\r\n"
+               + "# III III I I III I I III I #\r\n"
+               + "#   C I   I I I   I I     I #\r\n"
+               + "# IIIIIIIIIII IIIII IIIIIII #\r\n"
+               + "#  CI I   CD  I  C  H I     #\r\n"
+               + "# I I III IIIII IIIIIII IIII#\r\n"
+               + "# I I   C     I D I  C  I   #\r\n"
+               + "# I III III I IIIII I III I #\r\n"
+               + "# I I I   I I D I   I  C  I #\r\n"
+               + "#CI I IIIII III I IIIIIIIII #\r\n"
+               + "# I I   C   I I I I  C    I #\r\n"
+               + "# I IIIII I I III I IIIII I #\r\n"
+               + "# I D I C ID  I D I I     I #\r\n"
+               + "#IIII I III III IIIII III I #\r\n"
+               + "#  C  I I C IH  I I I I C   #\r\n"
+               + "# III I I I I III I III I I #\r\n"
+               + "# I   I I I I  EI       I I #\r\n"
+               + "#############################\r\n";
+        }
+        else if (level == 2)
+        {
+            map =
+               "#############################\r\n"
+               + "#CI          M    I       I #\r\n"
+               + "# I IIIII         I IIIII I #\r\n"
+               + "# I I   I           I I I I #\r\n"
+               + "# IIIII I III I IIIII I I I #\r\n"
+               + "#   I I I   I H I       I   #\r\n"
+               + "#II I I I I III I IIIII IIII#\r\n"
+               + "#  O  I I I I I   I   I     #\r\n"
+               + "# I III III I I III I IIIIII#\r\n"
+               + "# I     I   H I   ICI I I   #\r\n"
+               + "# IIIII I IIIIIII III I III #\r\n"
+               + "#     I       H  O          #\r\n"
+               + "# III IIIII IIIII IIIIIII II#\r\n"
+               + "#   I   I   I  CI   I   I   #\r\n"
+               + "#II III III I IIIII I I III #\r\n"
+               + "#   IH  I I I I ICI I I   IC#\r\n"
+               + "# I IIIII III I I III III II#\r\n"
+               + "# I I   I   I I I I     I   #\r\n"
+               + "# III I I III I I I III III #\r\n"
+               + "# I   I  T  I I     I     I #\r\n"
+               + "# I III I I I I IIIIIII III #\r\n"
+               + "#     I I I   I   I   I IC  #\r\n"
+               + "# IIIIIII III III I I IIIIII#\r\n"
+               + "# I    H    I   I I I IC    #\r\n"
+               + "# IIIIIIIII III I I I IIIII #\r\n"
+               + "#   ICI   H I     I I     I #\r\n"
+               + "#II I I IIIIIIIII I IIIII I #\r\n"
+               + "#     I        EI       I   #\r\n"
+               + "#############################\r\n";
+        }
+        else if (level == 3)
+        {
+            map =
+               "#############################\r\n"
+               + "#  C  I           I   I I   #\r\n"
+               + "# III I I        MI I I I I #\r\n"
+               + "# I I C I C       I I H I I #\r\n"
+               + "# I IIIII I III IIIIIII III #\r\n"
+               + "#HI   I  H  I   I   I  C C  #\r\n"
+               + "# III IIIII I IIIII I IIIII #\r\n"
+               + "#   I I   I I H   I I I  H  #\r\n"
+               + "#II I I ICI IIIII I I I IIII#\r\n"
+               + "#   I   I I   C I I H I   C #\r\n"
+               + "# ICIIIII I III I IIIII III #\r\n"
+               + "# I  H  I ICI I   I   I I   #\r\n"
+               + "#IIIIII I I I III I III I II#\r\n"
+               + "#     I I   I H I  H    I   #\r\n"
+               + "# III I IIIIIII IIIIIIIIIII #\r\n"
+               + "# C I H I   I     C   I  C  #\r\n"
+               + "#II IIIII I I IIIII III I II#\r\n"
+               + "#   I  H  I I   I   I H I   #\r\n"
+               + "# IIIII IIIHIII I III IIIII #\r\n"
+               + "#  C  IC  I   ICI   I     I #\r\n"
+               + "#IIII III III I III IIIII IC#\r\n"
+               + "#C  I I   I I I H I   I   I #\r\n"
+               + "# III I III I III I I I III #\r\n"
+               + "#   I I H C I C   I I I H I #\r\n"
+               + "#II I IIIIIIIIIIIII ICI I II#\r\n"
+               + "#    HI    CI   C ICI I IC  #\r\n"
+               + "# IIIII III I III I IHIIIII #\r\n"
+               + "#   C     I   IE  I I       #\r\n"
+               + "#############################\r\n";
+        }
+
+        else
+        {
+            map =
+              "#############################\r\n"
+               + "#   I I  C    M     I   I   #\r\n"
+               + "# I I I H           I I I I #\r\n"
+               + "# I   I I   I I   I C I I I #\r\n"
+               + "# III I I I IIIII IIIII I I #\r\n"
+               + "# H I   H I C   H I     I I #\r\n"
+               + "#IIIIIIIIIIII I III IIIIIII #\r\n"
+               + "#   I   C I   I   IHI   C   #\r\n"
+               + "#CI I III I IIIII I I IIIIII#\r\n"
+               + "# I I I   I  H  I I I       #\r\n"
+               + "# I I IIIIIIIII III IIIIIIIH#\r\n"
+               + "# I H   C   I   I   I I  C  #\r\n"
+               + "# IIIII III I III III I I II#\r\n"
+               + "# I   I I I I I H I   I I   #\r\n"
+               + "# I III I I III I I I I III #\r\n"
+               + "# I H I ICI I   I   I   I IH#\r\n"
+               + "# III I I I I IIIIIIIIIII I #\r\n"
+               + "#     I   I IH C  I   I H I #\r\n"
+               + "#IIII IIIII III I III I III #\r\n"
+               + "#   I  H  I I   I H I I C I #\r\n"
+               + "# I IIIII I IIIHIII I I I I #\r\n"
+               + "# I I H   I    C  I   I I I #\r\n"
+               + "# I I IIIIIIIII IIIIIIIII I #\r\n"
+               + "# IH  I  H CI I I    C  I H #\r\n"
+               + "# III I III I IHI IIIII I II#\r\n"
+               + "# I   I I   I IC  I   IHI   #\r\n"
+               + "# IIIII ICI I IIIII I I III #\r\n"
+               + "#       I I   IE    I   I   #\r\n"
+               + "#############################\r\n";
+        }
+ 
+ 
 
         map = map.Replace("\r\n", "\n");
         String[] lines = map.Split('\n');

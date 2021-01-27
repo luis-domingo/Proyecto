@@ -3,6 +3,7 @@ package com.example.loginregister;
 import com.example.loginregister.models.Coins;
 import com.example.loginregister.models.ForumPublication;
 import com.example.loginregister.models.ForumTopic;
+import com.example.loginregister.models.Map;
 import com.example.loginregister.models.ShopItem;
 import com.example.loginregister.models.Stats;
 import com.example.loginregister.models.UserImg;
@@ -66,4 +67,6 @@ public interface APIInterface {
     @POST("/dsaApp/coins/updateCoins")
     Call<Void> updateCoins(@Body Coins coins);
 
+    @POST("/dsaApp/maps")
+    Call<Map> getMap(@Body Map map);
 }

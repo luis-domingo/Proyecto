@@ -31,4 +31,11 @@ public class Map {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "Map{" +
+                "name='" + name + '\'' +
+                ", map='" + map + '\'' +
+                '}';
+    }
 }

@@ -14,6 +14,16 @@ import java.util.List;
 
 public class MapsDAOImpl implements MapsDAO{
 
+    private static MapsDAO instance;
+
+    private MapsDAOImpl() {
+    }
+
+    public static MapsDAO getInstance() {
+        if (instance==null) instance = new MapsDAOImpl();
+        return instance;
+    }
+
     final static Logger logger = Logger.getLogger(MapsDAOImpl.class);
 
     @Override

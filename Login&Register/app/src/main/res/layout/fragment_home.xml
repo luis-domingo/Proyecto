@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_2">
+    android:background="@drawable/fondo_2"
+    android:forceHasOverlappingRendering="true"
+    android:visibility="visible"
+    tools:actionBarNavMode="standard">
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/fondo_2">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -51,8 +58,8 @@
                 android:paddingRight="5dp"
                 android:text="Per poder tornar a la Terra, ha de superar diferents proves de diverses dificultats. L'objectiu del joc és que l’agent Cooper aconsegueixi superar les proves en el menor temps possible"
                 android:textSize="16sp" />"
-                android:textAlignment="viewStart"
-                android:textSize="14sp" />
+            android:textAlignment="viewStart"
+            android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/title2"
@@ -92,6 +99,7 @@
                 android:scrollbarDefaultDelayBeforeFade="1000"
                 android:scrollbars="vertical"
                 app:srcCompat="@drawable/mapa1" />
+
             <TextView
                 android:id="@+id/te"
                 android:layout_width="match_parent"
@@ -102,6 +110,7 @@
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="15sp" />
+
             <ImageView
                 android:id="@+id/img2"
                 android:layout_width="wrap_content"
@@ -118,6 +127,7 @@
                 android:scrollbarDefaultDelayBeforeFade="1000"
                 android:scrollbars="vertical"
                 app:srcCompat="@drawable/mapa2" />
+
             <TextView
                 android:id="@+id/ten"
                 android:layout_width="match_parent"
@@ -128,6 +138,7 @@
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="15sp" />
+
             <ImageView
                 android:id="@+id/img3"
                 android:layout_width="wrap_content"
@@ -144,6 +155,7 @@
                 android:scrollbarDefaultDelayBeforeFade="1000"
                 android:scrollbars="vertical"
                 app:srcCompat="@drawable/mapa3" />
+
             <TextView
                 android:id="@+id/ter"
                 android:layout_width="match_parent"
@@ -154,6 +166,7 @@
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="15sp" />
+
             <ImageView
                 android:id="@+id/img4"
                 android:layout_width="wrap_content"
@@ -170,6 +183,7 @@
                 android:scrollbarDefaultDelayBeforeFade="1000"
                 android:scrollbars="vertical"
                 app:srcCompat="@drawable/mapa4" />
+
             <TextView
                 android:id="@+id/tel"
                 android:layout_width="match_parent"

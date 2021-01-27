@@ -18,7 +18,7 @@ $(document).ready(function(){
             alert("Bienvenido de nuevo");
             localStorage.SetItem('User-name', usr);
             console.log("Bienvenido");
-            window.location.replace("profile.html");
+            window.location.replace("Home.html");
 
        },
        error: function(error){

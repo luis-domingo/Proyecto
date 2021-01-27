@@ -4,12 +4,18 @@ import android.util.Log;
 
 import com.example.loginregister.models.Map;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class UnityBridge {
     Map resMap;
+    private static Retrofit retrofit;
+    private static GameManagerService myUnityAPI;
 
     public static String getMap(String level){
         Map resMap = new Map();
@@ -22,12 +28,23 @@ public class UnityBridge {
             }
             @Override
             public void onFailure(Call<Map> call, Throwable throwable) {
-                Log.i("grup3", "onFailure: getMap");
             }
         });
-        Log.d("Mapa returned", resMap.getMap());
-
         return resMap.getMap();
     }
+
+    private static void startRetrofit(){
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        //Attaching Interceptor to a client
+        OkHttpClient client = new OkHttpClient().newBuilder().addInterceptor(interceptor).build();
+        Retrofit retrofit;
+        retrofit = new Retrofit.Builder()
+                .baseUrl("http://eetacdsa0.upc.es:8080/gameDSA/") //Local host on windows 10.0.2.2 and ip our machine 147.83.7.203
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
+                .build();
+    }
+
 
 }

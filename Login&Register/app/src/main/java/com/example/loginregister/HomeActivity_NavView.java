@@ -41,13 +41,13 @@ public class HomeActivity_NavView extends AppCompatActivity {
     TextView nombre;
     TextView ID;
     ImageView icono;
+    UnityBridge unityBridge;
 
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_nav_view);
-        UnityBridge.getMap("1");
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -136,6 +136,8 @@ public class HomeActivity_NavView extends AppCompatActivity {
                 call.cancel();
             }
         });
+        unityBridge = new UnityBridge();
+        unityBridge.getMap("1");
     }
 
     @Override

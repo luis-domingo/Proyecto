@@ -67,6 +67,6 @@ public interface APIInterface {
     @POST("/dsaApp/coins/updateCoins")
     Call<Void> updateCoins(@Body Coins coins);
 
-    @POST("/dsaApp/maps")
+    @POST("/dsaApp/maps/getMap")
     Call<Map> getMap(@Body Map map);
 }

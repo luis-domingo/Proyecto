@@ -18,6 +18,7 @@ import com.example.loginregister.utils.ImageDownloader;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.unity3d.player.UnityPlayerActivity;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
@@ -54,6 +55,8 @@ public class HomeActivity_NavView extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Intent launchGame = new Intent(getApplicationContext(), UnityPlayerActivity.class);
+                startActivity(launchGame);
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

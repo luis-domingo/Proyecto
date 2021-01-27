@@ -7,6 +7,8 @@ import com.example.loginregister.models.Map;
 
 import android.os.Handler;
 
+import java.io.IOException;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -16,14 +18,18 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class UnityBridge {
-    private static Map resMap;
+    static Map resMap;
     private static APIInterface apiIface;
 
-    public static void getMap(String level){
+    public static void getMap(String level) throws IOException {
 
         apiIface = APIClient.getClient().create(APIInterface.class);
-        Call<Map> call = apiIface.getMap(new Map(level));
         resMap = new Map(level);
+        Call<Map> call = apiIface.getMap(resMap);
+        Response res = call.execute();
+        Map p = (Map)res.body();
+        resMap.setMap(p.getMap());
+        /*
         call.enqueue(new Callback<Map>() {
             @Override
             public void onResponse(Call<Map> call, Response<Map> response) {
@@ -35,11 +41,11 @@ public class UnityBridge {
             public void onFailure(Call<Map> call, Throwable throwable) {
             }
         });
+        */
     }
 
-    public String getMapString(String level){
+    public static String getMapString(String level) throws IOException {
         getMap(level);
         return resMap.getMap();
     }
-
 }

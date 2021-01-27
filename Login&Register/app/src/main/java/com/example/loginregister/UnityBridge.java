@@ -17,10 +17,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class UnityBridge {
     private static Map resMap;
+    private static APIInterface apiIface;
 
-    public static String getMap(String level){
+    public static void getMap(String level){
 
-        APIInterface apiIface = APIClient.getClient().create(APIInterface.class);
+        apiIface = APIClient.getClient().create(APIInterface.class);
         Call<Map> call = apiIface.getMap(new Map(level));
         resMap = new Map(level);
         call.enqueue(new Callback<Map>() {
@@ -34,6 +35,11 @@ public class UnityBridge {
             public void onFailure(Call<Map> call, Throwable throwable) {
             }
         });
-        return map;
     }
+
+    public String getMapString(String level){
+        getMap(level);
+        return resMap.getMap();
+    }
+
 }

@@ -33,7 +33,7 @@ public class CoinsDAOImpl implements CoinsDAO{
         Session session = null;
         Coins c = new Coins();
         c.setId(id);
-        c.setCoins("0");
+        c.setCoins("500");
         try {
             session = FactorySession.openSession();
 
